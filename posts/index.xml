@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on takecy endpoint</title>
+      <title>Posts on takecy endpoint </title>
+      <generator uri="https://gohugo.io">Hugo</generator>
     <link>http://takecy.github.io/posts/</link>
-    <description>Recent content in Posts on takecy endpoint</description>
-    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Aug 2015 12:59:14 +0900</lastBuildDate>
-    <atom:link href="http://takecy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <author>takecy</author>
+    
+    <updated>Mon, 03 Aug 2015 12:59:14 JST</updated>
     
     <item>
       <title>first_post</title>
       <link>http://takecy.github.io/posts/first_post/</link>
-      <pubDate>Mon, 03 Aug 2015 12:59:14 +0900</pubDate>
-      
+      <pubDate>Mon, 03 Aug 2015 12:59:14 JST</pubDate>
+      <author>takecy</author>
       <guid>http://takecy.github.io/posts/first_post/</guid>
-      <description>&lt;pre&gt;&lt;code&gt;Hello World.
-&lt;/code&gt;&lt;/pre&gt;
-</description>
+      <description>Hello World.</description>
     </item>
     
   </channel>
 </rss>
+

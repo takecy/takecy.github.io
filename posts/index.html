@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts &middot; takecy.txt</title>
+
+    <meta name="description" content="Programing, Game, Cartoon and Family">
+
+    <meta name="generator" content="Hugo 0.15-DEV" />
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Posts &middot; takecy.txt">
+    <meta name="twitter:description" content="Programing, Game, Cartoon and Family">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Posts &middot; takecy.txt">
+    <meta property="og:description" content="Programing, Game, Cartoon and Family">
+
+    <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Oxygen:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/pure-min.css">
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-old-ie-min.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.6.0/grids-responsive-min.css">
+    <!--<![endif]-->
+
+    <link rel="stylesheet" href="http://blog.takecy.net/css/all.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="alternate" type="application/rss+xml" title="takecy.txt" href="http://blog.takecy.net/index.xml" />
+</head>
+<body>
+
+
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+    <div class="header">
+        <hgroup>
+            <h1 class="brand-title"><a href="http://blog.takecy.net">takecy.txt</a></h1>
+            <h2 class="brand-tagline"> Programing, Game, Cartoon and Family </h2>
+        </hgroup>
+
+        <nav class="nav">
+            <ul class="nav-list">
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://twitter.com/takkecy"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="https://github.com/takecy "><i class="fa fa-github-alt"></i> github</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="pure-button" href="http://blog.takecy.net/index.xml"><i class="fa fa-rss"></i> rss</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            
+            <div class="posts">
+                
+                <h1 class="content-subhead">05 Aug 2015, 00:52</h1>
+                <section class="post">
+                    <header class="post-header">
+
+                        <a href="http://blog.takecy.net/posts/golang-env-gopath/" class="post-title">これからGoやる人のためのGOPATH</a>
+
+                        <p class="post-meta">
+                            
+                            
+                                under 
+                                
+                                <a class="post-category post-category-programing" href="http://blog.takecy.net/categories/programing">programing</a>
+                            
+                        </p>
+                    </header>
+
+                    <div class="post-description">
+                        
+
+<p>Goはじめて3ヶ月。<br />
+Goいいな、Goクソだなと日々葛藤。</p>
+
+<p>Goをこれからはじめようという人が迷いそうな(俺が迷った)<code>GOPATH</code> について。</p>
+
+<p><br/></p>
+
+<h4 id="goのインストール:42557be9981a6cfa7f814dbb3f6accc9">Goのインストール</h4>
+
+<p>インストール自体はbrewで速攻終わる。</p>
+
+<pre><code>$ brew install go
+</code></pre>
+
+<p>問題はこの後の<code>$GOPATH</code>の設定。</p>
+
+<p><br/></p>
+
+<h4 id="gopathって何:42557be9981a6cfa7f814dbb3f6accc9">GOPATHって何</h4>
+
+<p><a href="http://golang-jp.org/doc/code.html#GOPATH">http://golang-jp.org/doc/code.html#GOPATH</a>
+&gt;GOPATH環境変数はワークスペースの場所を示してします。</p>
+
+<p>そのままなのだが、つまり、
+1. Goを書くのは全部このパス下でやってね
+2. Go書く上で依存してるライブラリのソースも全部このパスに入るよ</p>
+
+<p>ということで、例にあるようにそのまま、</p>
+
+<pre><code>$ export GOPATH=$HOME/go
+$ export PATH=$PATH:$GOPATH/bin
+</code></pre>
+
+<p>としているが、特に困っていない。</p>
+
+<p><br/></p>
+
+<h4 id="goを書く:42557be9981a6cfa7f814dbb3f6accc9">Goを書く</h4>
+
+<p>じゃGo書くぜってことになるが、<strong>GOPATH直下に書くわけではない</strong> というのがめんどくさいところ。</p>
+
+<p>まず、Goを書く時は、<strong>Githubに公開する前提</strong> と考えておいたほうがよい。
+というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。</p>
+
+<pre><code>import &quot;fmt&quot; // 標準パッケージ
+import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ
+</code></pre>
+
+<p><code>github.com/{account_name}/{repository_name}</code> でimportできるステキ仕様。
+そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。</p>
+
+<pre><code>$ go get github.com/takecy/hoge
+</code></pre>
+
+<p>ここで、<code>GOPATH</code> が登場する。<br />
+このライブラリがダウンロードされ、配置されるパスは
+<code>$GOPATH/src/github.com/takecy/hoge</code>
+になる。<br />
+自分のGoのプロジェクトもこれと同じように、
+<code>$GOPATH/src/github.com/{account_name}/{repository_name}</code>
+ディレクトリを作って、そこにGoソースを作成してスタートする。</p>
+
+<p>Githubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。</p>
+
+<p><br/></p>
+
+<h5 id="まとめ:42557be9981a6cfa7f814dbb3f6accc9">まとめ</h5>
+
+<p>Goやり始めた当初は、元々<code>$HOME/git</code>下に全部Github関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。<br />
+同じGithubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。<br />
+が、GithubのURLをimportに書けるというのはすごくいい。<br />
+例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。</p>
+
+<p>Let&rsquo;s write Go。</p>
+
+<p><br/>
+どうでもいいけど、Goのライブラリ名はダジャレがちらほら。
+例えばRedisのドライバは <a href="https://github.com/garyburd/redigo">redigo</a> 。</p>
+
+                    </div>
+                </section>
+                
+            </div>
+            
+
+            <div class="footer">
+    <div class="pure-menu pure-menu-horizontal pure-menu-open">
+        <ul>
+            <li>Powered by <a class="hugo" href="http://hugo.spf13.com/" target="_blank">hugo</a></li>
+        </ul>
+    </div>
+</div>
+<script src="http://blog.takecy.net/js/all.min.js"></script>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-65880489-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+</body>
+</html>

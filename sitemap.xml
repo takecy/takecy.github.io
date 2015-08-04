@@ -3,13 +3,13 @@
   
   <url>
     <loc>http://blog.takecy.net/</loc>
-    <lastmod>2015-08-03T12:59:14+09:00</lastmod>
+    <lastmod>2015-08-05T00:52:24+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.takecy.net/posts/first_post/</loc>
-    <lastmod>2015-08-03T12:59:14+09:00</lastmod>
+    <loc>http://blog.takecy.net/posts/golang-env-gopath/</loc>
+    <lastmod>2015-08-05T00:52:24+09:00</lastmod>
   </url>
   
 </urlset>

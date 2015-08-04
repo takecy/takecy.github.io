@@ -7,17 +7,95 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; takecy</copyright>
-    <lastBuildDate>Mon, 03 Aug 2015 12:59:14 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2015 00:52:24 +0900</lastBuildDate>
     <atom:link href="http://blog.takecy.net/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>first_post</title>
-      <link>http://blog.takecy.net/posts/first_post/</link>
-      <pubDate>Mon, 03 Aug 2015 12:59:14 +0900</pubDate>
+      <title>これからGoやる人のためのGOPATH</title>
+      <link>http://blog.takecy.net/posts/golang-env-gopath/</link>
+      <pubDate>Wed, 05 Aug 2015 00:52:24 +0900</pubDate>
       
-      <guid>http://blog.takecy.net/posts/first_post/</guid>
-      <description>&lt;pre&gt;&lt;code&gt;Hello World.
+      <guid>http://blog.takecy.net/posts/golang-env-gopath/</guid>
+      <description>
+
+&lt;p&gt;Goはじめて3ヶ月。&lt;br /&gt;
+Goいいな、Goクソだなと日々葛藤。&lt;/p&gt;
+
+&lt;p&gt;Goをこれからはじめようという人が迷いそうな(俺が迷った)&lt;code&gt;GOPATH&lt;/code&gt; について。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;goのインストール:42557be9981a6cfa7f814dbb3f6accc9&#34;&gt;Goのインストール&lt;/h4&gt;
+
+&lt;p&gt;インストール自体はbrewで速攻終わる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ brew install go
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;問題はこの後の&lt;code&gt;$GOPATH&lt;/code&gt;の設定。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;gopathって何:42557be9981a6cfa7f814dbb3f6accc9&#34;&gt;GOPATHって何&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://golang-jp.org/doc/code.html#GOPATH&#34;&gt;http://golang-jp.org/doc/code.html#GOPATH&lt;/a&gt;
+&amp;gt;GOPATH環境変数はワークスペースの場所を示してします。&lt;/p&gt;
+
+&lt;p&gt;そのままなのだが、つまり、
+1. Goを書くのは全部このパス下でやってね
+2. Go書く上で依存してるライブラリのソースも全部このパスに入るよ&lt;/p&gt;
+
+&lt;p&gt;ということで、例にあるようにそのまま、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ export GOPATH=$HOME/go
+$ export PATH=$PATH:$GOPATH/bin
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;としているが、特に困っていない。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;goを書く:42557be9981a6cfa7f814dbb3f6accc9&#34;&gt;Goを書く&lt;/h4&gt;
+
+&lt;p&gt;じゃGo書くぜってことになるが、&lt;strong&gt;GOPATH直下に書くわけではない&lt;/strong&gt; というのがめんどくさいところ。&lt;/p&gt;
+
+&lt;p&gt;まず、Goを書く時は、&lt;strong&gt;Githubに公開する前提&lt;/strong&gt; と考えておいたほうがよい。
+というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import &amp;quot;fmt&amp;quot; // 標準パッケージ
+import &amp;quot;github.com/takecy/hoge&amp;quot; // OSSのライブラリ
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;github.com/{account_name}/{repository_name}&lt;/code&gt; でimportできるステキ仕様。
+そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ go get github.com/takecy/hoge
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ここで、&lt;code&gt;GOPATH&lt;/code&gt; が登場する。&lt;br /&gt;
+このライブラリがダウンロードされ、配置されるパスは
+&lt;code&gt;$GOPATH/src/github.com/takecy/hoge&lt;/code&gt;
+になる。&lt;br /&gt;
+自分のGoのプロジェクトもこれと同じように、
+&lt;code&gt;$GOPATH/src/github.com/{account_name}/{repository_name}&lt;/code&gt;
+ディレクトリを作って、そこにGoソースを作成してスタートする。&lt;/p&gt;
+
+&lt;p&gt;Githubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;まとめ:42557be9981a6cfa7f814dbb3f6accc9&#34;&gt;まとめ&lt;/h5&gt;
+
+&lt;p&gt;Goやり始めた当初は、元々&lt;code&gt;$HOME/git&lt;/code&gt;下に全部Github関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。&lt;br /&gt;
+同じGithubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。&lt;br /&gt;
+が、GithubのURLをimportに書けるというのはすごくいい。&lt;br /&gt;
+例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s write Go。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;
+どうでもいいけど、Goのライブラリ名はダジャレがちらほら。
+例えばRedisのドライバは &lt;a href=&#34;https://github.com/garyburd/redigo&#34;&gt;redigo&lt;/a&gt; 。&lt;/p&gt;
 </description>
     </item>
     

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Etc on takecy.txt</title>
-    <link>http://localhost:1313/tags/etc/</link>
-    <description>Recent content in Etc on takecy.txt</description>
+    <title>Blog on takecy.txt</title>
+    <link>http://localhost:1313/categories/blog/</link>
+    <description>Recent content in Blog on takecy.txt</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; takecy</copyright>
     <lastBuildDate>Mon, 03 Aug 2015 12:59:14 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/etc/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/categories/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>first_post</title>

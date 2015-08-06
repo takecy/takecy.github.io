@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="/css/skeleton.css">
 <link rel="stylesheet" href="/css/custom.css">
 <link rel="alternate" href="/index.xml" type="application/rss+xml" title="takecy.txt">
-<title>Golang - takecy.txt</title>
+<title>Go言語の依存パッケージ管理の闇 - takecy.txt</title>
 </head>
 <body>
 
@@ -25,16 +25,46 @@
 
 
 	<main role="main">
-		<h1 class="list-title">Golang</h1>
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">Go言語の依存パッケージ管理の闇</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/07">2015/08/07</time></span>
+			<section itemprop="entry-text">
+				
 
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="/posts/golang-env-gopath/">これからGoやる人のためのGOPATH</a></h2>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/05">2015/08/05</time></span>
+<h4 id="goで依存パッケージを取得する:53a1ac720bbfb4a915b7e7d27b1d725e">Goで依存パッケージを取得する</h4>
+
+<pre><code> $ go get github.com/google/go-github/github
+</code></pre>
+
+<p>以上。<br />
+ 簡単。これは捗る！<br />
+ と思いきや、実際の開発ではいろいろ問題が発生する。</p>
+
+<p><br/></p>
+
+<h4 id="バージョンいくつなんだよ問題:53a1ac720bbfb4a915b7e7d27b1d725e">バージョンいくつなんだよ問題</h4>
+
+<p>複数人開発</p>
+
+<p><br/></p>
+
+<h4 id="別のプロジェクトでも使ってる問題:53a1ac720bbfb4a915b7e7d27b1d725e">別のプロジェクトでも使ってる問題</h4>
+
+<p>バージョン変わる</p>
+
+<p><br/></p>
+
+<h4 id="godepモジュール:53a1ac720bbfb4a915b7e7d27b1d725e">Godepモジュール</h4>
+
+<p>安心のGithub製。</p>
+
+<p><br/></p>
+
+<h4 id="まとめ:53a1ac720bbfb4a915b7e7d27b1d725e">まとめ</h4>
+
+			</section>
 		</article>
-
 	</main>
-
-	
 
 
 	<footer role="contentinfo">

@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
 <link rel="stylesheet" href="/css/normalize.css">
 <link rel="stylesheet" href="/css/skeleton.css">
@@ -26,7 +27,7 @@
 	<main role="main">
 		<article itemscope itemtype="http://schema.org/BlogPosting">
 			<h1 class="entry-title" itemprop="headline">これからGoやる人のためのGOPATH</h1>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2015-08-05">August 05, 2015</time></span>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/05">2015/08/05</time></span>
 			<section itemprop="entry-text">
 				
 
@@ -53,8 +54,8 @@ Goいいな、Goクソだなと日々葛藤。</p>
 <p><a href="http://golang-jp.org/doc/code.html#GOPATH">http://golang-jp.org/doc/code.html#GOPATH</a>
 &gt;GOPATH環境変数はワークスペースの場所を示してします。</p>
 
-<p>そのままなのだが、つまり、
-1. Goを書くのは全部このパス下でやってね
+<p>そのままなのだが、つまり、<br />
+1. Goを書くのは全部このパス下でやってね<br />
 2. Go書く上で依存してるライブラリのソースも全部このパスに入るよ</p>
 
 <p>ということで、例にあるようにそのまま、</p>
@@ -86,10 +87,10 @@ import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ
 
 <p>ここで、<code>GOPATH</code> が登場する。<br />
 このライブラリがダウンロードされ、配置されるパスは
-<code>$GOPATH/src/github.com/takecy/hoge</code>
+<code>$GOPATH/src/github.com/takecy/hoge</code><br />
 になる。<br />
 自分のGoのプロジェクトもこれと同じように、
-<code>$GOPATH/src/github.com/{account_name}/{repository_name}</code>
+<code>$GOPATH/src/github.com/{account_name}/{repository_name}</code><br />
 ディレクトリを作って、そこにGoソースを作成してスタートする。</p>
 
 <p>Githubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。</p>
@@ -106,7 +107,7 @@ import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ
 <p>Let&rsquo;s write Go。</p>
 
 <p><br/>
-どうでもいいけど、Goのライブラリ名はダジャレがちらほら。
+どうでもいいけど、Goのライブラリ名はダジャレがちらほら。<br />
 例えばRedisのドライバは <a href="https://github.com/garyburd/redigo">redigo</a> 。</p>
 
 			</section>

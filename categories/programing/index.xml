@@ -40,8 +40,8 @@ Goいいな、Goクソだなと日々葛藤。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://golang-jp.org/doc/code.html#GOPATH&#34;&gt;http://golang-jp.org/doc/code.html#GOPATH&lt;/a&gt;
 &amp;gt;GOPATH環境変数はワークスペースの場所を示してします。&lt;/p&gt;
 
-&lt;p&gt;そのままなのだが、つまり、
-1. Goを書くのは全部このパス下でやってね
+&lt;p&gt;そのままなのだが、つまり、&lt;br /&gt;
+1. Goを書くのは全部このパス下でやってね&lt;br /&gt;
 2. Go書く上で依存してるライブラリのソースも全部このパスに入るよ&lt;/p&gt;
 
 &lt;p&gt;ということで、例にあるようにそのまま、&lt;/p&gt;
@@ -73,10 +73,10 @@ import &amp;quot;github.com/takecy/hoge&amp;quot; // OSSのライブラリ
 
 &lt;p&gt;ここで、&lt;code&gt;GOPATH&lt;/code&gt; が登場する。&lt;br /&gt;
 このライブラリがダウンロードされ、配置されるパスは
-&lt;code&gt;$GOPATH/src/github.com/takecy/hoge&lt;/code&gt;
+&lt;code&gt;$GOPATH/src/github.com/takecy/hoge&lt;/code&gt;&lt;br /&gt;
 になる。&lt;br /&gt;
 自分のGoのプロジェクトもこれと同じように、
-&lt;code&gt;$GOPATH/src/github.com/{account_name}/{repository_name}&lt;/code&gt;
+&lt;code&gt;$GOPATH/src/github.com/{account_name}/{repository_name}&lt;/code&gt;&lt;br /&gt;
 ディレクトリを作って、そこにGoソースを作成してスタートする。&lt;/p&gt;
 
 &lt;p&gt;Githubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。&lt;/p&gt;
@@ -93,7 +93,7 @@ import &amp;quot;github.com/takecy/hoge&amp;quot; // OSSのライブラリ
 &lt;p&gt;Let&amp;rsquo;s write Go。&lt;/p&gt;
 
 &lt;p&gt;&lt;br/&gt;
-どうでもいいけど、Goのライブラリ名はダジャレがちらほら。
+どうでもいいけど、Goのライブラリ名はダジャレがちらほら。&lt;br /&gt;
 例えばRedisのドライバは &lt;a href=&#34;https://github.com/garyburd/redigo&#34;&gt;redigo&lt;/a&gt; 。&lt;/p&gt;
 </description>
     </item>

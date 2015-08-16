@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="takecy.txt">
+<title>Go言語の依存パッケージ管理の闇 - takecy.txt</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="/"><img src="https://avatars1.githubusercontent.com/u/220619?v=3&amp;s=120" width="60" height="60"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">Go言語の依存パッケージ管理の闇</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/16">2015/08/16</time></span>
+			<section itemprop="entry-text">
+				
+
+<p>複数人で開発している場合、各メンバーのローカル環境が揃っていることは重要なこと。<br />
+OSや言語のランタイムのバージョンはもちろんだけど、
+依存しているパッケージのバージョンを同じにしておくことは重要。<br />
+俺はテスト通ってるけどTravisさんでは通らないとかマジいらっとするし、
+バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。</p>
+
+<p>例えば、JavaではMavenがGradle、Nodeならnpmなところを、
+Goではどうやるんだっていう話。</p>
+
+<p><br/></p>
+
+<h4 id="goで依存パッケージを取得する:53a1ac720bbfb4a915b7e7d27b1d725e">Goで依存パッケージを取得する</h4>
+
+<pre><code> $ go get github.com/google/go-github/github
+</code></pre>
+
+<p>以上。<br />
+ 簡単。これは捗る！<br />
+ と思いきや、実際の開発ではいろいろ問題が発生する。</p>
+
+<p><br/></p>
+
+<h4 id="バージョンいくつなんだよ問題:53a1ac720bbfb4a915b7e7d27b1d725e">バージョンいくつなんだよ問題</h4>
+
+<p>Goは、パッケージ取得の仕組み(<code>go get hoge/hoge</code> のこと)は言語レベルで存在するが、
+パッケージの列挙とバージョンを管理する仕組みは存在しない。<br />
+「このプロジェクトで使われているパッケージはA(ver0.9)とB(ver1.2)である。」<br />
+というのを表現する方法は<strong>無い</strong>。<br />
+よって各メンバーが、README等をみながら、</p>
+
+<pre><code>go get A
+go get B
+go get C
+...
+</code></pre>
+
+<p>をぽちぽちやらなくてはいけない。<br />
+また、go get したタイミングによっては依存しているパッケージの別のバージョンが入ってしまう。<br />
+なんてったって、go get にはバージョンを<strong>指定しない</strong>のだから、何が落ちてきてるのかわからん。<br />
+Goの思想としては常に最新バージョン使おうぜ、ということらしいが、
+そのことと、メンバー間の環境の同期はまた別の話だよね。</p>
+
+<p><br/></p>
+
+<h4 id="別のプロジェクトでも使ってる問題:53a1ac720bbfb4a915b7e7d27b1d725e">別のプロジェクトでも使ってる問題</h4>
+
+<p>Goのプロジェクトとして、AとBがあって、両方でパッケージKを使ってるとする。<br />
+AではK:ver1.1.2を、BではK:ver1.1.3を、ということは<strong>できない</strong>。<br />
+GOPATHをそれぞれで設定しておいて、いじるときにいちいち切り替えれば出来るんだろうけど、
+基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンを参照せざるを得なくなる。<br />
+これは辛い。。</p>
+
+<p><br/></p>
+
+<h4 id="godep:53a1ac720bbfb4a915b7e7d27b1d725e">Godep</h4>
+
+<p>そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、<a href="https://github.com/tools/godep">Godep</a>。<br />
+安心のGithub製。<br />
+そのプロジェクトで使っているライブリとバージョンを
+<code>godep save ./...</code> で記録(その時点のスナップショット的な感じ)できる。<br />
+新しいメンバーは <code>godep restore</code> で同じバージョンを <code>go get</code> できる。<br />
+これは捗る！<br />
+ちなみに、Godepは<a href="http://docs.travis-ci.com/user/languages/go/">Travisが対応している</a>ので、Goをビルドする時にちょっと楽。</p>
+
+<p><br/></p>
+
+<h4 id="まとめ:53a1ac720bbfb4a915b7e7d27b1d725e">まとめ</h4>
+
+<p>Goには、依存パッケージを管理する仕組みはあるが、依存の列挙、バージョンを管理する仕組みはない。<br />
+なので、別途Godepなどのツールで管理しとかないとチーム開発は辛いかも。</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			
+			<a href="https://twitter.com/takkecy" title="twitter"><img src="/images/twitter-box_24.png"></a></span>
+			<a href="https://github.com/takecy" title="github"><img src="/images/github-circle_24.png"></a></span>
+		</div>
+		<div class="copyright">&copy; takecy</div>
+	</footer>
+
+</div>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-65880489-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

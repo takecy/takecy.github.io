@@ -96,14 +96,18 @@ GOPATHをそれぞれで設定しておいて、いじるときにいちいち�
 </code></pre>
 
 <p>で記録(その時点のスナップショット的な感じ)できる。<br />
-新しいメンバーは、</p>
+新しく <code>Godep</code> なるディレクトリと、<code>Godep.json</code> というJSONファイルが生成される。<br />
+このディレクトリはGitのバージョン管理対象にする。</p>
+
+<p>新しいメンバーは、</p>
 
 <pre><code>godep restore
 </code></pre>
 
 <p>で同じパッケージの同じバージョンを GOPATH配下に配置できる。<br />
-これは捗る！<br />
-ここで言う、他のメンバーとは、Travis等のCIツールも含まれる。<br />
+これは捗る！</p>
+
+<p>ここで言う、他のメンバーとは、Travis等のCIツールも含まれる。<br />
 ちなみに、Godepは<a href="http://docs.travis-ci.com/user/languages/go/">Travisが対応している</a>ので、Goをビルドする時にちょっと楽。</p>
 
 <p><br/></p>

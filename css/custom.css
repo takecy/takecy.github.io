@@ -2,14 +2,16 @@ body {
   /*font-family: "PT Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-family: 'Roboto', sans-serif;
   background-color: #FCFCFC;
+  font-size: 1.7em;
+  line-height: 1.8;
 }
 
-h1 { font-size: 2.1rem; }
-h2 { font-size: 1.9rem; }
-h3 { font-size: 1.7rem; }
-h4,
-h5,
-h6 { font-size: 1.5rem; }
+h1 { font-size: 2.9rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2.3rem; }
+h4 { font-size: 2.1rem; }
+h5 { font-size: 1.9rem; }
+h6 { font-size: 1.7rem; }
 
 img {
   max-width: 100%;

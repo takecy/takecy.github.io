@@ -23,14 +23,14 @@ OSや言語のランタイムのバージョンはもちろんだけど、
 俺はテスト通ってるけどTravisさんでは通らないとかマジいらっとするし、
 バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。&lt;/p&gt;
 
-&lt;p&gt;例えば、JavaではMavenがGradle、Nodeならnpmなところを、
+&lt;p&gt;例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、
 Goではどうやるんだっていう話。&lt;/p&gt;
 
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 
 &lt;h4 id=&#34;goで依存パッケージを取得する:53a1ac720bbfb4a915b7e7d27b1d725e&#34;&gt;Goで依存パッケージを取得する&lt;/h4&gt;
 
-&lt;pre&gt;&lt;code&gt; $ go get github.com/google/go-github/github
+&lt;pre&gt;&lt;code&gt; go get github.com/google/go-github/github
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;以上。&lt;br /&gt;
@@ -64,9 +64,10 @@ Goの思想としては常に最新バージョン使おうぜ、ということ
 &lt;h4 id=&#34;別のプロジェクトでも使ってる問題:53a1ac720bbfb4a915b7e7d27b1d725e&#34;&gt;別のプロジェクトでも使ってる問題&lt;/h4&gt;
 
 &lt;p&gt;Goのプロジェクトとして、AとBがあって、両方でパッケージKを使ってるとする。&lt;br /&gt;
-AではK:ver1.1.2を、BではK:ver1.1.3を、ということは&lt;strong&gt;できない&lt;/strong&gt;。&lt;br /&gt;
+「AではK:ver1.1.2を使って、BではK:ver1.1.3を使う」
+ということは&lt;strong&gt;できない&lt;/strong&gt;。&lt;br /&gt;
 GOPATHをそれぞれで設定しておいて、いじるときにいちいち切り替えれば出来るんだろうけど、
-基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンを参照せざるを得なくなる。&lt;br /&gt;
+基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンのKを参照せざるを得なくなる。&lt;br /&gt;
 これは辛い。。&lt;/p&gt;
 
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
@@ -75,18 +76,28 @@ GOPATHをそれぞれで設定しておいて、いじるときにいちいち�
 
 &lt;p&gt;そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、&lt;a href=&#34;https://github.com/tools/godep&#34;&gt;Godep&lt;/a&gt;。&lt;br /&gt;
 安心のGithub製。&lt;br /&gt;
-そのプロジェクトで使っているライブリとバージョンを
-&lt;code&gt;godep save ./...&lt;/code&gt; で記録(その時点のスナップショット的な感じ)できる。&lt;br /&gt;
-新しいメンバーは &lt;code&gt;godep restore&lt;/code&gt; で同じバージョンを &lt;code&gt;go get&lt;/code&gt; できる。&lt;br /&gt;
+そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;godep save ./...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で記録(その時点のスナップショット的な感じ)できる。&lt;br /&gt;
+新しいメンバーは、&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;godep restore
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;で同じパッケージの同じバージョンを GOPATH配下に配置できる。&lt;br /&gt;
 これは捗る！&lt;br /&gt;
+ここで言う、他のメンバーとは、Travis等のCIツールも含まれる。&lt;br /&gt;
 ちなみに、Godepは&lt;a href=&#34;http://docs.travis-ci.com/user/languages/go/&#34;&gt;Travisが対応している&lt;/a&gt;ので、Goをビルドする時にちょっと楽。&lt;/p&gt;
 
 &lt;p&gt;&lt;br/&gt;&lt;/p&gt;
 
 &lt;h4 id=&#34;まとめ:53a1ac720bbfb4a915b7e7d27b1d725e&#34;&gt;まとめ&lt;/h4&gt;
 
-&lt;p&gt;Goには、依存パッケージを管理する仕組みはあるが、依存の列挙、バージョンを管理する仕組みはない。&lt;br /&gt;
-なので、別途Godepなどのツールで管理しとかないとチーム開発は辛いかも。&lt;/p&gt;
+&lt;p&gt;Goには、依存パッケージを取得する仕組みはあるが、依存の列挙、バージョンを管理する仕組みはない。&lt;br /&gt;
+なので、別途Godepなどのツールで管理しとかないとチーム開発やCIは辛いかも。&lt;/p&gt;
 </description>
     </item>
     

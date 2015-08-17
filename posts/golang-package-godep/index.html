@@ -37,14 +37,14 @@ OSや言語のランタイムのバージョンはもちろんだけど、
 俺はテスト通ってるけどTravisさんでは通らないとかマジいらっとするし、
 バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。</p>
 
-<p>例えば、JavaではMavenがGradle、Nodeならnpmなところを、
+<p>例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、
 Goではどうやるんだっていう話。</p>
 
 <p><br/></p>
 
 <h4 id="goで依存パッケージを取得する:53a1ac720bbfb4a915b7e7d27b1d725e">Goで依存パッケージを取得する</h4>
 
-<pre><code> $ go get github.com/google/go-github/github
+<pre><code> go get github.com/google/go-github/github
 </code></pre>
 
 <p>以上。<br />
@@ -78,9 +78,10 @@ Goの思想としては常に最新バージョン使おうぜ、ということ
 <h4 id="別のプロジェクトでも使ってる問題:53a1ac720bbfb4a915b7e7d27b1d725e">別のプロジェクトでも使ってる問題</h4>
 
 <p>Goのプロジェクトとして、AとBがあって、両方でパッケージKを使ってるとする。<br />
-AではK:ver1.1.2を、BではK:ver1.1.3を、ということは<strong>できない</strong>。<br />
+「AではK:ver1.1.2を使って、BではK:ver1.1.3を使う」
+ということは<strong>できない</strong>。<br />
 GOPATHをそれぞれで設定しておいて、いじるときにいちいち切り替えれば出来るんだろうけど、
-基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンを参照せざるを得なくなる。<br />
+基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンのKを参照せざるを得なくなる。<br />
 これは辛い。。</p>
 
 <p><br/></p>
@@ -89,18 +90,28 @@ GOPATHをそれぞれで設定しておいて、いじるときにいちいち�
 
 <p>そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、<a href="https://github.com/tools/godep">Godep</a>。<br />
 安心のGithub製。<br />
-そのプロジェクトで使っているライブリとバージョンを
-<code>godep save ./...</code> で記録(その時点のスナップショット的な感じ)できる。<br />
-新しいメンバーは <code>godep restore</code> で同じバージョンを <code>go get</code> できる。<br />
+そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を</p>
+
+<pre><code>godep save ./...
+</code></pre>
+
+<p>で記録(その時点のスナップショット的な感じ)できる。<br />
+新しいメンバーは、</p>
+
+<pre><code>godep restore
+</code></pre>
+
+<p>で同じパッケージの同じバージョンを GOPATH配下に配置できる。<br />
 これは捗る！<br />
+ここで言う、他のメンバーとは、Travis等のCIツールも含まれる。<br />
 ちなみに、Godepは<a href="http://docs.travis-ci.com/user/languages/go/">Travisが対応している</a>ので、Goをビルドする時にちょっと楽。</p>
 
 <p><br/></p>
 
 <h4 id="まとめ:53a1ac720bbfb4a915b7e7d27b1d725e">まとめ</h4>
 
-<p>Goには、依存パッケージを管理する仕組みはあるが、依存の列挙、バージョンを管理する仕組みはない。<br />
-なので、別途Godepなどのツールで管理しとかないとチーム開発は辛いかも。</p>
+<p>Goには、依存パッケージを取得する仕組みはあるが、依存の列挙、バージョンを管理する仕組みはない。<br />
+なので、別途Godepなどのツールで管理しとかないとチーム開発やCIは辛いかも。</p>
 
 			</section>
 		</article>

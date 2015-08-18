@@ -100,6 +100,11 @@ GOPATHをそれぞれで設定しておいて、いじるときにいちいち�
 
 &lt;h3 id=&#34;まとめ:53a1ac720bbfb4a915b7e7d27b1d725e&#34;&gt;まとめ&lt;/h3&gt;
 
+&lt;p&gt;Java = maven + pom.xml&lt;br /&gt;
+Node = npm + package.json&lt;br /&gt;
+Golang = Godep + Godep.json&lt;br /&gt;
+で今のところいいのでは。&lt;/p&gt;
+
 &lt;p&gt;Goには、依存パッケージを取得する仕組みはあるが、依存の列挙、バージョンを管理する仕組みはない。&lt;br /&gt;
 なので、別途Godepなどのツールで管理しとかないとチーム開発やCIは辛いかも。&lt;/p&gt;
 </description>

@@ -82,10 +82,11 @@ GOPATHをそれぞれで設定しておいて、いじるときにいちいち�
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;で記録(その時点のスナップショット的な感じ)できる。&lt;br /&gt;
-新しく &lt;code&gt;Godep&lt;/code&gt; なるディレクトリと、&lt;code&gt;Godep.json&lt;/code&gt; というJSONファイルが生成される。&lt;br /&gt;
-このディレクトリはGitのバージョン管理対象にする。&lt;/p&gt;
+新しく &lt;code&gt;Godeps&lt;/code&gt; と &lt;code&gt;Gedeps/_workspace&lt;/code&gt; というディレクトリと、&lt;code&gt;Godep.json&lt;/code&gt; というJSONファイルが生成される。&lt;br /&gt;
+このJSONが、mavenでいうpom.xml、npmでいうpackage.json にあたるもので、基本手動でいじらない。&lt;br /&gt;
+この&lt;code&gt;Godep.json&lt;/code&gt; はGitのバージョン管理対象にするが、&lt;code&gt;_workspace&lt;/code&gt; ディレクトリは.gitignoreに追記しておく。&lt;/p&gt;
 
-&lt;p&gt;新しいメンバーは、&lt;/p&gt;
+&lt;p&gt;Godep.json に更新があった場合、他のメンバーは、&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;godep restore
 &lt;/code&gt;&lt;/pre&gt;

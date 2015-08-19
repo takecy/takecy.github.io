@@ -103,10 +103,11 @@ GOPATHをそれぞれで設定しておいて、いじるときにいちいち�
 </code></pre>
 
 <p>で記録(その時点のスナップショット的な感じ)できる。<br />
-新しく <code>Godep</code> なるディレクトリと、<code>Godep.json</code> というJSONファイルが生成される。<br />
-このディレクトリはGitのバージョン管理対象にする。</p>
+新しく <code>Godeps</code> と <code>Gedeps/_workspace</code> というディレクトリと、<code>Godep.json</code> というJSONファイルが生成される。<br />
+このJSONが、mavenでいうpom.xml、npmでいうpackage.json にあたるもので、基本手動でいじらない。<br />
+この<code>Godep.json</code> はGitのバージョン管理対象にするが、<code>_workspace</code> ディレクトリは.gitignoreに追記しておく。</p>
 
-<p>新しいメンバーは、</p>
+<p>Godep.json に更新があった場合、他のメンバーは、</p>
 
 <pre><code>godep restore
 </code></pre>

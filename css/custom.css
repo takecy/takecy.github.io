@@ -88,6 +88,11 @@ main {
   margin: 2rem 0;
 }
 
+.footer-link a {
+  text-decoration: none;
+  padding: 0 0.2em;
+}
+
 .hr {
   height: 1px;
   margin: 2rem 0;
@@ -108,4 +113,18 @@ main {
 .copyright a {
   color: #a0acb1;
   text-decoration: none;
+}
+
+.poweredby {
+  color: #a0acb1;
+  font-size: 0.8em;
+}
+
+.poweredby a {
+  color: #a0acb1;
+  text-decoration: none;
+}
+
+.poweredby a:hover {
+  color: #222;
 }

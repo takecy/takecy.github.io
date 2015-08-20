@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>takecy.txt</title>
+    <title>blog &lt;- takecy</title>
     <link>http://blog.takecy.net/</link>
-    <description>Recent content on takecy.txt</description>
+    <description>Recent content on blog &lt;- takecy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 16 Aug 2015 23:17:30 +0900</lastBuildDate>

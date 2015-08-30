@@ -6,8 +6,45 @@
     <description>Recent content in Golang on blog &lt;- takecy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Aug 2015 23:17:30 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 30 Aug 2015 19:51:31 +0900</lastBuildDate>
     <atom:link href="http://blog.takecy.net/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Go言語でループ</title>
+      <link>http://blog.takecy.net/posts/golang-loop/</link>
+      <pubDate>Sun, 30 Aug 2015 19:51:31 +0900</pubDate>
+      
+      <guid>http://blog.takecy.net/posts/golang-loop/</guid>
+      <description>&lt;p&gt;今でもたまにやらかすのでメモっておく。&lt;/p&gt;
+
+&lt;p&gt;①&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;}
+for i := range users {
+  fmt.Println(users[i]) // i is index
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;②&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;}
+for i, user := range users {
+  fmt.Println(user) // user is value copy
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;③&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;}
+for _, user := range users {
+  fmt.Println(user) // user is value copy
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;①が一番早い。
+でも②③の方が読みやすい。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Go言語の依存パッケージ管理の闇</title>

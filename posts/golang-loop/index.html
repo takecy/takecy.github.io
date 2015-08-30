@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="/css/elegants/style.css">
 <link rel="stylesheet" href="/css/custom.css">
 <link rel="alternate" href="/index.xml" type="application/rss+xml" title="blog &lt;- takecy">
-<title>blog &lt;- takecy</title>
+<title>Go言語でループ - blog &lt;- takecy</title>
 </head>
 <body>
 
@@ -20,30 +20,53 @@
 
 	<header role="banner">
 		
-		<h1 class="site-title">blog &lt;- takecy</h1>
+		
 	</header>
 
+	
+		<div class="row back_top">
+			<h4 class="two column"><a href="/">&lt; Top</a></h4>
+		</div>
 	
 	<div class="hr"></div>
 
 
 	<main role="main">
-
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="/posts/golang-loop/">Go言語でループ</a></h2>
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">Go言語でループ</h1>
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/30">2015/08/30</time></span>
-		</article>
+			<section itemprop="entry-text">
+				<p>今でもたまにやらかすのでメモっておく。</p>
 
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="/posts/golang-package-godep/">Go言語の依存パッケージ管理の闇</a></h2>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/16">2015/08/16</time></span>
-		</article>
+<p>①</p>
 
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="/posts/golang-env-gopath/">これからGoやる人のためのGOPATH</a></h2>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/05">2015/08/05</time></span>
-		</article>
+<pre><code>users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;}
+for i := range users {
+  fmt.Println(users[i]) // i is index
+}
+</code></pre>
 
+<p>②</p>
+
+<pre><code>users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;}
+for i, user := range users {
+  fmt.Println(user) // user is value copy
+}
+</code></pre>
+
+<p>③</p>
+
+<pre><code>users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;}
+for _, user := range users {
+  fmt.Println(user) // user is value copy
+}
+</code></pre>
+
+<p>①が一番早い。
+でも②③の方が読みやすい。</p>
+
+			</section>
+		</article>
 	</main>
 
 

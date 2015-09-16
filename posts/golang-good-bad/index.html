@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/octicons/octicons.css">
+<link rel="stylesheet" href="/css/elegants/style.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="blog &lt;- takecy">
+<title>Goのいいとこ悪いとこを1個づつあげる - blog &lt;- takecy</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		
+		
+	</header>
+
+	
+		<div class="row back_top">
+			<h4 class="two column"><a href="/">&lt; Top</a></h4>
+		</div>
+	
+	<div class="hr"></div>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">Goのいいとこ悪いとこを1個づつあげる</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/09/16">2015/09/16</time></span>
+			<section itemprop="entry-text">
+				
+
+<p>Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。</p>
+
+<h2 id="いいところ:4ad5f084232c94c728ccb6ea15aee3ae">いいところ</h2>
+
+<h3 id="デプロイが簡単:4ad5f084232c94c728ccb6ea15aee3ae">デプロイが簡単</h3>
+
+<p>もはやこれだけで、Goを使う価値があるといっていいほど。<br />
+<code>go build</code> からの、サーバへscp<br />
+以上終わり。</p>
+
+<p>これはすごい。。サーバ側は一切の設定、ミドルのインストールがいらない。<br />
+nodeやJDKなどの実行環境が不要。すごい。<br />
+(実際にはnginxやプロセスを管理するsupervisor的なものが必要だけど)</p>
+
+<p>よく言われる、Goのメリットだけど、本当にすごい。<br />
+ビルドしたら実行可能な単一のバイナリが吐きだされる。プラットフォームごとに。</p>
+
+<p>この点の別のメリットとして、Go自体ののバージョンアップが簡単というのがある。<br />
+最近1.5.1に上がったけど、ビルド後のバイナリとして正しく動いていれば、サーバ側はなんの変更もいらない。
+バイナリを差し替えるだけ。<br />
+nodeやJDKだと、バージョンアップは大仕事だけど、Go簡単すぎ。すごい。</p>
+
+<p><br/></p>
+
+<h2 id="悪いところ:4ad5f084232c94c728ccb6ea15aee3ae">悪いところ</h2>
+
+<h3 id="型が中途半端:4ad5f084232c94c728ccb6ea15aee3ae">型が中途半端</h3>
+
+<p>これもよく言われているけど、型システム微妙。<br />
+これの最大の弊害は抽象化のしづらさにある。<br />
+色んなライブラリを見たつもりだけど、結構出てくるのが<br />
+<code>interface{}</code> <code>map[string]interface{}</code><br />
+  が引数、戻り値。<br />
+<strong>型意味ねえ。</strong><br />
+Goは静的型付け言語に分類されるが、抽象化しづらいので結局「何でも入る型」を使っちゃって、
+コンパイラの恩恵が少ない。<br />
+ジェネリクスはよ。。&gt;&lt;</p>
+
+<p><br/></p>
+
+<h2 id="まとめ:4ad5f084232c94c728ccb6ea15aee3ae">まとめ</h2>
+
+<p>悪いところもあるけれど、「デプロイが簡単」「バージョンアップが簡単」のメリットを捨てるほどではない。<br />
+という結論に今のところなっている感じ。</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="row">
+			<div class="footer-link">
+				
+				<a href="https://github.com/takecy" title="github"><span class="octicon octicon-mark-github"></span></a>
+				<a href="https://twitter.com/takkecy" title="github"><span class="fs1" data-icon="&#xe094;"></span></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="copyright">&copy; takecy</div>
+			<div class="poweredby">by <a href="https://gohugo.io/">Hugo</a></div>
+		</div>
+	</footer>
+
+</div>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-65880489-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

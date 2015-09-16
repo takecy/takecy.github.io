@@ -6,8 +6,63 @@
     <description>Recent content on blog &lt;- takecy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Aug 2015 19:51:31 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2015 22:54:02 +0900</lastBuildDate>
     <atom:link href="http://blog.takecy.net/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Goのいいとこ悪いとこを1個づつあげる</title>
+      <link>http://blog.takecy.net/posts/golang-good-bad/</link>
+      <pubDate>Wed, 16 Sep 2015 22:54:02 +0900</pubDate>
+      
+      <guid>http://blog.takecy.net/posts/golang-good-bad/</guid>
+      <description>
+
+&lt;p&gt;Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。&lt;/p&gt;
+
+&lt;h2 id=&#34;いいところ:4ad5f084232c94c728ccb6ea15aee3ae&#34;&gt;いいところ&lt;/h2&gt;
+
+&lt;h3 id=&#34;デプロイが簡単:4ad5f084232c94c728ccb6ea15aee3ae&#34;&gt;デプロイが簡単&lt;/h3&gt;
+
+&lt;p&gt;もはやこれだけで、Goを使う価値があるといっていいほど。&lt;br /&gt;
+&lt;code&gt;go build&lt;/code&gt; からの、サーバへscp&lt;br /&gt;
+以上終わり。&lt;/p&gt;
+
+&lt;p&gt;これはすごい。。サーバ側は一切の設定、ミドルのインストールがいらない。&lt;br /&gt;
+nodeやJDKなどの実行環境が不要。すごい。&lt;br /&gt;
+(実際にはnginxやプロセスを管理するsupervisor的なものが必要だけど)&lt;/p&gt;
+
+&lt;p&gt;よく言われる、Goのメリットだけど、本当にすごい。&lt;br /&gt;
+ビルドしたら実行可能な単一のバイナリが吐きだされる。プラットフォームごとに。&lt;/p&gt;
+
+&lt;p&gt;この点の別のメリットとして、Go自体ののバージョンアップが簡単というのがある。&lt;br /&gt;
+最近1.5.1に上がったけど、ビルド後のバイナリとして正しく動いていれば、サーバ側はなんの変更もいらない。
+バイナリを差し替えるだけ。&lt;br /&gt;
+nodeやJDKだと、バージョンアップは大仕事だけど、Go簡単すぎ。すごい。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;悪いところ:4ad5f084232c94c728ccb6ea15aee3ae&#34;&gt;悪いところ&lt;/h2&gt;
+
+&lt;h3 id=&#34;型が中途半端:4ad5f084232c94c728ccb6ea15aee3ae&#34;&gt;型が中途半端&lt;/h3&gt;
+
+&lt;p&gt;これもよく言われているけど、型システム微妙。&lt;br /&gt;
+これの最大の弊害は抽象化のしづらさにある。&lt;br /&gt;
+色んなライブラリを見たつもりだけど、結構出てくるのが&lt;br /&gt;
+&lt;code&gt;interface{}&lt;/code&gt; &lt;code&gt;map[string]interface{}&lt;/code&gt;&lt;br /&gt;
+  が引数、戻り値。&lt;br /&gt;
+&lt;strong&gt;型意味ねえ。&lt;/strong&gt;&lt;br /&gt;
+Goは静的型付け言語に分類されるが、抽象化しづらいので結局「何でも入る型」を使っちゃって、
+コンパイラの恩恵が少ない。&lt;br /&gt;
+ジェネリクスはよ。。&amp;gt;&amp;lt;&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;まとめ:4ad5f084232c94c728ccb6ea15aee3ae&#34;&gt;まとめ&lt;/h2&gt;
+
+&lt;p&gt;悪いところもあるけれど、「デプロイが簡単」「バージョンアップが簡単」のメリットを捨てるほどではない。&lt;br /&gt;
+という結論に今のところなっている感じ。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Go言語でループ</title>

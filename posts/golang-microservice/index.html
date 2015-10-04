@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/octicons/octicons.css">
+<link rel="stylesheet" href="/css/elegants/style.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="blog &lt;- takecy">
+<title>Goとマイクロサービス - blog &lt;- takecy</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		
+		
+	</header>
+
+	
+		<div class="row back_top">
+			<h4 class="two column"><a href="/">&lt; Top</a></h4>
+		</div>
+	
+	<div class="hr"></div>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">Goとマイクロサービス</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/10/04">2015/10/04</time></span>
+			<section itemprop="entry-text">
+				
+
+<p>マイクロサービスの定義としては<br />
+「あるサービスが、独立した小さなサービスの集合で構成される」<br />
+というのが一般的？で、俺もそう思っている。</p>
+
+<p>Goはこのマイクロサービス的なサービス開発に適している気がする。</p>
+
+<p><br/></p>
+
+<h3 id="ワンバイナリ-サービスの単位:c63df2c2d6d4ff4af1723703d13be855">ワンバイナリ=サービスの単位</h3>
+
+<p>Goの最大のメリットと考えているのは、<br />
+ビルドしたら実行可能なバイナリが1個吐き出されて、ミドルウェア等の設定が不要。<br />
+というのは、<a href="/posts/golang-good-bad/">過去</a>にも書いた。</p>
+
+<p>この実行可能なバイナリをマイクロサービスでいうところの「小さなサービス」とすると、とてもしっくり来る感じ。</p>
+
+<p><br/></p>
+
+<h3 id="バイナリ-goパッケージ-サーバインスタンスの単位:c63df2c2d6d4ff4af1723703d13be855">バイナリ=Goパッケージ=サーバインスタンスの単位</h3>
+
+<ol>
+<li>API</li>
+<li>Batch A</li>
+<li>Batch B</li>
+<li>Proxy(image)</li>
+</ol>
+
+<p>で構成されるサービスがあったとして、全部Goで書いたとする。<br />
+それぞれがGoプロジェクトの1パッケージに対応し、そのパッケージ毎にバイナリを生成し、
+バイナリごとにサーバインスタンスを割り当てる感じになる。</p>
+
+<p>まさにマイクロサービス。</p>
+
+<p><br/></p>
+
+<h3 id="まとめ:c63df2c2d6d4ff4af1723703d13be855">まとめ</h3>
+
+<p>GoはProxyサーバみたいな特定の用途に特化した(アドホックな)処理を、
+1個のバイナリとしてまとめられるので、Goで全部やってると勝手にマイクロサービスっぽくなるよね<br />
+というお話。</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="row">
+			<div class="footer-link">
+				
+				<a href="https://github.com/takecy" title="github"><span class="octicon octicon-mark-github"></span></a>
+				<a href="https://twitter.com/takkecy" title="github"><span class="fs1" data-icon="&#xe094;"></span></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="copyright">&copy; takecy</div>
+			<div class="poweredby">by <a href="https://gohugo.io/">Hugo</a></div>
+		</div>
+	</footer>
+
+</div>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-65880489-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
+

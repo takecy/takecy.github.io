@@ -6,8 +6,59 @@
     <description>Recent content in Posts on blog &lt;- takecy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 16 Sep 2015 22:54:02 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2015 22:29:08 +0900</lastBuildDate>
     <atom:link href="http://blog.takecy.net/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Goとマイクロサービス</title>
+      <link>http://blog.takecy.net/posts/golang-microservice/</link>
+      <pubDate>Sun, 04 Oct 2015 22:29:08 +0900</pubDate>
+      
+      <guid>http://blog.takecy.net/posts/golang-microservice/</guid>
+      <description>
+
+&lt;p&gt;マイクロサービスの定義としては&lt;br /&gt;
+「あるサービスが、独立した小さなサービスの集合で構成される」&lt;br /&gt;
+というのが一般的？で、俺もそう思っている。&lt;/p&gt;
+
+&lt;p&gt;Goはこのマイクロサービス的なサービス開発に適している気がする。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;ワンバイナリ-サービスの単位:c63df2c2d6d4ff4af1723703d13be855&#34;&gt;ワンバイナリ=サービスの単位&lt;/h3&gt;
+
+&lt;p&gt;Goの最大のメリットと考えているのは、&lt;br /&gt;
+ビルドしたら実行可能なバイナリが1個吐き出されて、ミドルウェア等の設定が不要。&lt;br /&gt;
+というのは、&lt;a href=&#34;http://blog.takecy.net/posts/golang-good-bad/&#34;&gt;過去&lt;/a&gt;にも書いた。&lt;/p&gt;
+
+&lt;p&gt;この実行可能なバイナリをマイクロサービスでいうところの「小さなサービス」とすると、とてもしっくり来る感じ。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;バイナリ-goパッケージ-サーバインスタンスの単位:c63df2c2d6d4ff4af1723703d13be855&#34;&gt;バイナリ=Goパッケージ=サーバインスタンスの単位&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;API&lt;/li&gt;
+&lt;li&gt;Batch A&lt;/li&gt;
+&lt;li&gt;Batch B&lt;/li&gt;
+&lt;li&gt;Proxy(image)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;で構成されるサービスがあったとして、全部Goで書いたとする。&lt;br /&gt;
+それぞれがGoプロジェクトの1パッケージに対応し、そのパッケージ毎にバイナリを生成し、
+バイナリごとにサーバインスタンスを割り当てる感じになる。&lt;/p&gt;
+
+&lt;p&gt;まさにマイクロサービス。&lt;/p&gt;
+
+&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;まとめ:c63df2c2d6d4ff4af1723703d13be855&#34;&gt;まとめ&lt;/h3&gt;
+
+&lt;p&gt;GoはProxyサーバみたいな特定の用途に特化した(アドホックな)処理を、
+1個のバイナリとしてまとめられるので、Goで全部やってると勝手にマイクロサービスっぽくなるよね&lt;br /&gt;
+というお話。&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Goのいいとこ悪いとこを1個づつあげる</title>

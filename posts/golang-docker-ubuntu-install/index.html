@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="/css/normalize.css">
+<link rel="stylesheet" href="/css/skeleton.css">
+<link rel="stylesheet" href="/css/octicons/octicons.css">
+<link rel="stylesheet" href="/css/elegants/style.css">
+<link rel="stylesheet" href="/css/custom.css">
+<link rel="alternate" href="/index.xml" type="application/rss+xml" title="blog &lt;- takecy">
+<title>UbuntuにGoをインストールしたDokcerイメージを作る - blog &lt;- takecy</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		
+		
+	</header>
+
+	
+		<div class="row back_top">
+			<h4 class="two column"><a href="/">&lt; Top</a></h4>
+		</div>
+	
+	<div class="hr"></div>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">UbuntuにGoをインストールしたDokcerイメージを作る</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/10/24">2015/10/24</time></span>
+			<section itemprop="entry-text">
+				<p>Dokcernizeってますか？
+最近やっとちょっとだけDockerさんに話しかけたりしています。</p>
+
+<p>UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。</p>
+
+<pre><code>RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz
+RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz
+ENV PATH=$PATH:/usr/local/go/bin
+ENV GOPATH=$HOME/go
+ENV PATH=$GOPATH/bin:$PATH
+</code></pre>
+
+<p><br/>
+よかったらどうぞ。<br />
+<a href="https://github.com/takecy/docker.ubuntu.golang">Ubuntu Golang</a></p>
+
+<p><br/>
+今まで主にVagrantでローカル開発環境を作ってきたのだけど、Dockerってすごいね。。(遅)<br />
+何より、「捨てやすい」のが素晴らしい。使い捨て。さっと起動してさっと動かしてさっと捨てる
+。イミュータブル！</p>
+
+<p>一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。
+クラウド()になって、
+sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。</p>
+
+<p>最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。
+かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。</p>
+
+<p>自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、
+こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。</p>
+
+<p>今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、
+近づいていくんだろうか。<br />
+システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。<br />
+なんて面白い時代だ。</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="row">
+			<div class="footer-link">
+				
+				<a href="https://github.com/takecy" title="github"><span class="octicon octicon-mark-github"></span></a>
+				<a href="https://twitter.com/takkecy" title="github"><span class="fs1" data-icon="&#xe094;"></span></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="copyright">&copy; takecy</div>
+			<div class="poweredby">by <a href="https://gohugo.io/">Hugo</a></div>
+		</div>
+	</footer>
+
+</div>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-65880489-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

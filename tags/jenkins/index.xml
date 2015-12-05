@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jenkins on blog &lt;- takecy</title>
+    <link>http://localhost:1313/tags/jenkins/</link>
+    <description>Recent content in Jenkins on blog &lt;- takecy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Nov 2015 09:59:42 +0900</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/jenkins/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>プラグイン入りのJenkinsをDockerで一瞬で用意する</title>
+      <link>http://localhost:1313/posts/docker-jenkins-with-plugins/</link>
+      <pubDate>Sun, 01 Nov 2015 09:59:42 +0900</pubDate>
+      
+      <guid>http://localhost:1313/posts/docker-jenkins-with-plugins/</guid>
+      <description>&lt;p&gt;Dockerともっと仲良くなりたい今日このごろ。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

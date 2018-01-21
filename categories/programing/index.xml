@@ -2,389 +2,173 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Programing on blog &lt;- takecy</title>
-    <link>http://blog.takecy.net/categories/programing/</link>
+    <link>https://takecy.github.io/categories/programing/</link>
     <description>Recent content in Programing on blog &lt;- takecy</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/takecy&#34;&gt;takecy&lt;/a&gt; 2018</copyright>
     <lastBuildDate>Sat, 24 Oct 2015 23:18:26 +0900</lastBuildDate>
-    <atom:link href="http://blog.takecy.net/categories/programing/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://takecy.github.io/categories/programing/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>UbuntuにGoをインストールしたDokcerイメージを作る</title>
-      <link>http://blog.takecy.net/posts/golang-docker-ubuntu-install/</link>
+      <link>https://takecy.github.io/posts/golang-docker-ubuntu-install/</link>
       <pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate>
       
-      <guid>http://blog.takecy.net/posts/golang-docker-ubuntu-install/</guid>
-      <description>&lt;p&gt;Dokcernizeってますか？
-最近やっとちょっとだけDockerさんに話しかけたりしています。&lt;/p&gt;
-
-&lt;p&gt;UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz
-RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz
-ENV PATH=$PATH:/usr/local/go/bin
-ENV GOPATH=$HOME/go
-ENV PATH=$GOPATH/bin:$PATH
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;br/&gt;
-よかったらどうぞ。&lt;br /&gt;
-&lt;a href=&#34;https://github.com/takecy/docker.ubuntu.golang&#34;&gt;Ubuntu Golang&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;
-今まで主にVagrantでローカル開発環境を作ってきたのだけど、Dockerってすごいね。。(遅)&lt;br /&gt;
-何より、「捨てやすい」のが素晴らしい。使い捨て。さっと起動してさっと動かしてさっと捨てる
-。イミュータブル！&lt;/p&gt;
-
-&lt;p&gt;一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。
-クラウド()になって、
-sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。&lt;/p&gt;
-
-&lt;p&gt;最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。
-かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。&lt;/p&gt;
-
-&lt;p&gt;自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、
-こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。&lt;/p&gt;
-
-&lt;p&gt;今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、
-近づいていくんだろうか。&lt;br /&gt;
-システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。&lt;br /&gt;
-なんて面白い時代だ。&lt;/p&gt;
-</description>
+      <guid>https://takecy.github.io/posts/golang-docker-ubuntu-install/</guid>
+      <description>Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
+UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
+RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH   よかったらどうぞ。
+Ubuntu Golang
+ 今まで主にVagrantでローカル開発環境を作ってきたのだけど、Dockerってすごいね。。(遅)
+何より、「捨てやすい」のが素晴らしい。使い捨て。さっと起動してさっと動かしてさっと捨てる 。イミュータブル！
+一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
+最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。 かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。
+自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
+今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。
+システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。
+なんて面白い時代だ。</description>
     </item>
     
     <item>
       <title>Goとマイクロサービス</title>
-      <link>http://blog.takecy.net/posts/golang-microservice/</link>
+      <link>https://takecy.github.io/posts/golang-microservice/</link>
       <pubDate>Sun, 04 Oct 2015 22:29:08 +0900</pubDate>
       
-      <guid>http://blog.takecy.net/posts/golang-microservice/</guid>
-      <description>
+      <guid>https://takecy.github.io/posts/golang-microservice/</guid>
+      <description>マイクロサービスの定義としては
+「あるサービスが、独立した小さなサービスの集合で構成される」
+というのが一般的？で、俺もそう思っている。
+Goはこのマイクロサービス的なサービス開発に適している気がする。
 
-&lt;p&gt;マイクロサービスの定義としては&lt;br /&gt;
-「あるサービスが、独立した小さなサービスの集合で構成される」&lt;br /&gt;
-というのが一般的？で、俺もそう思っている。&lt;/p&gt;
+ワンバイナリ=サービスの単位 Goの最大のメリットと考えているのは、
+ビルドしたら実行可能なバイナリが1個吐き出されて、ミドルウェア等の設定が不要。
+というのは、過去にも書いた。
+この実行可能なバイナリをマイクロサービスでいうところの「小さなサービス」とすると、とてもしっくり来る感じ。
 
-&lt;p&gt;Goはこのマイクロサービス的なサービス開発に適している気がする。&lt;/p&gt;
+バイナリ=Goパッケージ=サーバインスタンスの単位  API Batch A Batch B Proxy(image)  で構成されるサービスがあったとして、全部Goで書いたとする。
+それぞれがGoプロジェクトの1パッケージに対応し、そのパッケージ毎にバイナリを生成し、 バイナリごとにサーバインスタンスを割り当てる感じになる。
+まさにマイクロサービス。
 
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;ワンバイナリ-サービスの単位:c63df2c2d6d4ff4af1723703d13be855&#34;&gt;ワンバイナリ=サービスの単位&lt;/h3&gt;
-
-&lt;p&gt;Goの最大のメリットと考えているのは、&lt;br /&gt;
-ビルドしたら実行可能なバイナリが1個吐き出されて、ミドルウェア等の設定が不要。&lt;br /&gt;
-というのは、&lt;a href=&#34;http://blog.takecy.net/posts/golang-good-bad/&#34;&gt;過去&lt;/a&gt;にも書いた。&lt;/p&gt;
-
-&lt;p&gt;この実行可能なバイナリをマイクロサービスでいうところの「小さなサービス」とすると、とてもしっくり来る感じ。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;バイナリ-goパッケージ-サーバインスタンスの単位:c63df2c2d6d4ff4af1723703d13be855&#34;&gt;バイナリ=Goパッケージ=サーバインスタンスの単位&lt;/h3&gt;
-
-&lt;ol&gt;
-&lt;li&gt;API&lt;/li&gt;
-&lt;li&gt;Batch A&lt;/li&gt;
-&lt;li&gt;Batch B&lt;/li&gt;
-&lt;li&gt;Proxy(image)&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;p&gt;で構成されるサービスがあったとして、全部Goで書いたとする。&lt;br /&gt;
-それぞれがGoプロジェクトの1パッケージに対応し、そのパッケージ毎にバイナリを生成し、
-バイナリごとにサーバインスタンスを割り当てる感じになる。&lt;/p&gt;
-
-&lt;p&gt;まさにマイクロサービス。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;まとめ:c63df2c2d6d4ff4af1723703d13be855&#34;&gt;まとめ&lt;/h3&gt;
-
-&lt;p&gt;GoはProxyサーバみたいな特定の用途に特化した(アドホックな)処理を、
-1個のバイナリとしてまとめられるので、Goで全部やってると勝手にマイクロサービスっぽくなるよね&lt;br /&gt;
-というお話。&lt;/p&gt;
-</description>
+まとめ GoはProxyサーバみたいな特定の用途に特化した(アドホックな)処理を、 1個のバイナリとしてまとめられるので、Goで全部やってると勝手にマイクロサービスっぽくなるよね
+というお話。</description>
     </item>
     
     <item>
       <title>Goのいいとこ悪いとこを1個づつあげる</title>
-      <link>http://blog.takecy.net/posts/golang-good-bad/</link>
+      <link>https://takecy.github.io/posts/golang-good-bad/</link>
       <pubDate>Wed, 16 Sep 2015 22:54:02 +0900</pubDate>
       
-      <guid>http://blog.takecy.net/posts/golang-good-bad/</guid>
-      <description>
+      <guid>https://takecy.github.io/posts/golang-good-bad/</guid>
+      <description>Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。
+いいところ デプロイが簡単 もはやこれだけで、Goを使う価値があるといっていいほど。
+go build からの、サーバへscp
+以上終わり。
+これはすごい。。サーバ側は一切の設定、ミドルのインストールがいらない。
+nodeやJDKなどの実行環境が不要。すごい。
+(実際にはnginxやプロセスを管理するsupervisor的なものが必要だけど)
+よく言われる、Goのメリットだけど、本当にすごい。
+ビルドしたら実行可能な単一のバイナリが吐きだされる。プラットフォームごとに。
+この点の別のメリットとして、Go自体ののバージョンアップが簡単というのがある。
+最近1.5.1に上がったけど、ビルド後のバイナリとして正しく動いていれば、サーバ側はなんの変更もいらない。 バイナリを差し替えるだけ。
+nodeやJDKだと、バージョンアップは大仕事だけど、Go簡単すぎ。すごい。
 
-&lt;p&gt;Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。&lt;/p&gt;
+悪いところ 型が中途半端 これもよく言われているけど、型システム微妙。
+これの最大の弊害は抽象化のしづらさにある。
+色んなライブラリを見たつもりだけど、結構出てくるのが
+interface{} map[string]interface{}
+が引数、戻り値。
+型意味ねえ。
+Goは静的型付け言語に分類されるが、抽象化しづらいので結局「何でも入る型」を使っちゃって、 コンパイラの恩恵が少ない。
+ジェネリクスはよ。。&amp;gt;&amp;lt;
 
-&lt;h2 id=&#34;いいところ:4ad5f084232c94c728ccb6ea15aee3ae&#34;&gt;いいところ&lt;/h2&gt;
-
-&lt;h3 id=&#34;デプロイが簡単:4ad5f084232c94c728ccb6ea15aee3ae&#34;&gt;デプロイが簡単&lt;/h3&gt;
-
-&lt;p&gt;もはやこれだけで、Goを使う価値があるといっていいほど。&lt;br /&gt;
-&lt;code&gt;go build&lt;/code&gt; からの、サーバへscp&lt;br /&gt;
-以上終わり。&lt;/p&gt;
-
-&lt;p&gt;これはすごい。。サーバ側は一切の設定、ミドルのインストールがいらない。&lt;br /&gt;
-nodeやJDKなどの実行環境が不要。すごい。&lt;br /&gt;
-(実際にはnginxやプロセスを管理するsupervisor的なものが必要だけど)&lt;/p&gt;
-
-&lt;p&gt;よく言われる、Goのメリットだけど、本当にすごい。&lt;br /&gt;
-ビルドしたら実行可能な単一のバイナリが吐きだされる。プラットフォームごとに。&lt;/p&gt;
-
-&lt;p&gt;この点の別のメリットとして、Go自体ののバージョンアップが簡単というのがある。&lt;br /&gt;
-最近1.5.1に上がったけど、ビルド後のバイナリとして正しく動いていれば、サーバ側はなんの変更もいらない。
-バイナリを差し替えるだけ。&lt;br /&gt;
-nodeやJDKだと、バージョンアップは大仕事だけど、Go簡単すぎ。すごい。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;悪いところ:4ad5f084232c94c728ccb6ea15aee3ae&#34;&gt;悪いところ&lt;/h2&gt;
-
-&lt;h3 id=&#34;型が中途半端:4ad5f084232c94c728ccb6ea15aee3ae&#34;&gt;型が中途半端&lt;/h3&gt;
-
-&lt;p&gt;これもよく言われているけど、型システム微妙。&lt;br /&gt;
-これの最大の弊害は抽象化のしづらさにある。&lt;br /&gt;
-色んなライブラリを見たつもりだけど、結構出てくるのが&lt;br /&gt;
-&lt;code&gt;interface{}&lt;/code&gt; &lt;code&gt;map[string]interface{}&lt;/code&gt;&lt;br /&gt;
-  が引数、戻り値。&lt;br /&gt;
-&lt;strong&gt;型意味ねえ。&lt;/strong&gt;&lt;br /&gt;
-Goは静的型付け言語に分類されるが、抽象化しづらいので結局「何でも入る型」を使っちゃって、
-コンパイラの恩恵が少ない。&lt;br /&gt;
-ジェネリクスはよ。。&amp;gt;&amp;lt;&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h2 id=&#34;まとめ:4ad5f084232c94c728ccb6ea15aee3ae&#34;&gt;まとめ&lt;/h2&gt;
-
-&lt;p&gt;悪いところもあるけれど、「デプロイが簡単」「バージョンアップが簡単」のメリットを捨てるほどではない。&lt;br /&gt;
-という結論に今のところなっている感じ。&lt;/p&gt;
-</description>
+まとめ 悪いところもあるけれど、「デプロイが簡単」「バージョンアップが簡単」のメリットを捨てるほどではない。
+という結論に今のところなっている感じ。</description>
     </item>
     
     <item>
       <title>Go言語でループ</title>
-      <link>http://blog.takecy.net/posts/golang-loop/</link>
+      <link>https://takecy.github.io/posts/golang-loop/</link>
       <pubDate>Sun, 30 Aug 2015 19:51:31 +0900</pubDate>
       
-      <guid>http://blog.takecy.net/posts/golang-loop/</guid>
-      <description>&lt;p&gt;今でもたまにやらかすのでメモっておく。&lt;/p&gt;
-
-&lt;p&gt;①&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;}
-for i := range users {
-  fmt.Println(users[i]) // i is index
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;②&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;}
-for i, user := range users {
-  fmt.Println(user) // user is value copy
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;③&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;}
-for _, user := range users {
-  fmt.Println(user) // user is value copy
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;①が一番早い。
-でも②③の方が読みやすい。&lt;/p&gt;
-</description>
+      <guid>https://takecy.github.io/posts/golang-loop/</guid>
+      <description>今でもたまにやらかすのでメモっておく。
+①
+users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for i := range users { fmt.Println(users[i]) // i is index }  ②
+users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for i, user := range users { fmt.Println(user) // user is value copy }  ③
+users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for _, user := range users { fmt.Println(user) // user is value copy }  ①が一番早い。 でも②③の方が読みやすい。</description>
     </item>
     
     <item>
       <title>Go言語の依存パッケージ管理の闇</title>
-      <link>http://blog.takecy.net/posts/golang-package-godep/</link>
+      <link>https://takecy.github.io/posts/golang-package-godep/</link>
       <pubDate>Sun, 16 Aug 2015 23:17:30 +0900</pubDate>
       
-      <guid>http://blog.takecy.net/posts/golang-package-godep/</guid>
-      <description>
+      <guid>https://takecy.github.io/posts/golang-package-godep/</guid>
+      <description>複数人で開発している場合、各メンバーのローカル環境が揃っていることは重要なこと。
+OSや言語のランタイムのバージョンはもちろんだけど、 依存しているパッケージのバージョンを同じにしておくことは重要。
+俺はテスト通ってるけどTravisさんでは通らないとかマジいらっとするし、 バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。
+例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、 Goではどうやるんだっていう話。
 
-&lt;p&gt;複数人で開発している場合、各メンバーのローカル環境が揃っていることは重要なこと。&lt;br /&gt;
-OSや言語のランタイムのバージョンはもちろんだけど、
-依存しているパッケージのバージョンを同じにしておくことは重要。&lt;br /&gt;
-俺はテスト通ってるけどTravisさんでは通らないとかマジいらっとするし、
-バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。&lt;/p&gt;
+Goで依存パッケージを取得する  go get github.com/google/go-github/github  以上。
+簡単。これは捗る！
+と思いきや、実際の開発ではいろいろ問題が発生する。
 
-&lt;p&gt;例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、
-Goではどうやるんだっていう話。&lt;/p&gt;
+バージョンいくつなんだよ問題 Goは、パッケージ取得の仕組み(go get hoge/hoge のこと)は言語レベルで存在するが、 パッケージの列挙とバージョンを管理する仕組みは存在しない。
+「このプロジェクトで使われているパッケージはA(ver0.9)とB(ver1.2)である。」
+というのを表現する方法は無い。
+よって各メンバーが、README等をみながら、
+go get A go get B go get C ...  をぽちぽちやらなくてはいけない。
+また、go get したタイミングによっては依存しているパッケージの別のバージョンが入ってしまう。
+なんてったって、go get にはバージョンを指定しないのだから、何が落ちてきてるのかわからん。
+Goの思想としては常に最新バージョン使おうぜ、ということらしいが、 そのことと、メンバー間の環境の同期はまた別の話だよね。
 
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+別のプロジェクトでも使ってる問題 Goのプロジェクトとして、AとBがあって、両方でパッケージKを使ってるとする。
+「AではK:ver1.1.2を使って、BではK:ver1.1.3を使う」 ということはできない。
+GOPATHをそれぞれで設定しておいて、いじるときにいちいち切り替えれば出来るんだろうけど、 基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンのKを参照せざるを得なくなる。
+これは辛い。。
 
-&lt;h3 id=&#34;goで依存パッケージを取得する:53a1ac720bbfb4a915b7e7d27b1d725e&#34;&gt;Goで依存パッケージを取得する&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt; go get github.com/google/go-github/github
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;以上。&lt;br /&gt;
- 簡単。これは捗る！&lt;br /&gt;
- と思いきや、実際の開発ではいろいろ問題が発生する。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;バージョンいくつなんだよ問題:53a1ac720bbfb4a915b7e7d27b1d725e&#34;&gt;バージョンいくつなんだよ問題&lt;/h3&gt;
-
-&lt;p&gt;Goは、パッケージ取得の仕組み(&lt;code&gt;go get hoge/hoge&lt;/code&gt; のこと)は言語レベルで存在するが、
-パッケージの列挙とバージョンを管理する仕組みは存在しない。&lt;br /&gt;
-「このプロジェクトで使われているパッケージはA(ver0.9)とB(ver1.2)である。」&lt;br /&gt;
-というのを表現する方法は&lt;strong&gt;無い&lt;/strong&gt;。&lt;br /&gt;
-よって各メンバーが、README等をみながら、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;go get A
-go get B
-go get C
-...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;をぽちぽちやらなくてはいけない。&lt;br /&gt;
-また、go get したタイミングによっては依存しているパッケージの別のバージョンが入ってしまう。&lt;br /&gt;
-なんてったって、go get にはバージョンを&lt;strong&gt;指定しない&lt;/strong&gt;のだから、何が落ちてきてるのかわからん。&lt;br /&gt;
-Goの思想としては常に最新バージョン使おうぜ、ということらしいが、
-そのことと、メンバー間の環境の同期はまた別の話だよね。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;別のプロジェクトでも使ってる問題:53a1ac720bbfb4a915b7e7d27b1d725e&#34;&gt;別のプロジェクトでも使ってる問題&lt;/h3&gt;
-
-&lt;p&gt;Goのプロジェクトとして、AとBがあって、両方でパッケージKを使ってるとする。&lt;br /&gt;
-「AではK:ver1.1.2を使って、BではK:ver1.1.3を使う」
-ということは&lt;strong&gt;できない&lt;/strong&gt;。&lt;br /&gt;
-GOPATHをそれぞれで設定しておいて、いじるときにいちいち切り替えれば出来るんだろうけど、
-基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンのKを参照せざるを得なくなる。&lt;br /&gt;
-これは辛い。。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;godep:53a1ac720bbfb4a915b7e7d27b1d725e&#34;&gt;Godep&lt;/h3&gt;
-
-&lt;p&gt;そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、&lt;a href=&#34;https://github.com/tools/godep&#34;&gt;Godep&lt;/a&gt;。&lt;br /&gt;
-安心のGithub製。&lt;br /&gt;
-そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;godep save ./...
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で記録(その時点のスナップショット的な感じ)できる。&lt;br /&gt;
-新しく &lt;code&gt;Godeps&lt;/code&gt; と &lt;code&gt;Gedeps/_workspace&lt;/code&gt; というディレクトリと、&lt;code&gt;Godep.json&lt;/code&gt; というJSONファイルが生成される。&lt;br /&gt;
-このJSONが、mavenでいうpom.xml、npmでいうpackage.json にあたるもので、基本手動でいじらない。&lt;br /&gt;
-この&lt;code&gt;Godep.json&lt;/code&gt; はGitのバージョン管理対象にするが、&lt;code&gt;_workspace&lt;/code&gt; ディレクトリは.gitignoreに追記しておく。&lt;/p&gt;
-
-&lt;p&gt;Godep.json に更新があった場合、他のメンバーは、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;godep restore
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;で同じパッケージの同じバージョンを GOPATH配下に配置できる。&lt;br /&gt;
-これは捗る！&lt;/p&gt;
-
-&lt;p&gt;ここで言う、他のメンバーとは、Travis等のCIツールも含まれる。&lt;br /&gt;
-ちなみに、Godepは&lt;a href=&#34;http://docs.travis-ci.com/user/languages/go/&#34;&gt;Travisが対応している&lt;/a&gt;ので、Goをビルドする時にちょっと楽。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;まとめ:53a1ac720bbfb4a915b7e7d27b1d725e&#34;&gt;まとめ&lt;/h3&gt;
-
-&lt;p&gt;Java = maven + pom.xml&lt;br /&gt;
-Node = npm + package.json&lt;br /&gt;
-Golang = Godep + Godep.json&lt;br /&gt;
-で今のところいいのでは。&lt;/p&gt;
-
-&lt;p&gt;Goには、依存パッケージを取得する仕組みはあるが、依存の列挙、バージョンを管理する仕組みはない。&lt;br /&gt;
-なので、別途Godepなどのツールで管理しとかないとチーム開発やCIは辛いかも。&lt;/p&gt;
-</description>
+Godep そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、Godep。
+安心のGithub製。
+そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を
+godep save ./...  で記録(その時点のスナップショット的な感じ)できる。
+新しく Godeps と Gedeps/_workspace というディレクトリと、Godep.</description>
     </item>
     
     <item>
       <title>これからGoやる人のためのGOPATH</title>
-      <link>http://blog.takecy.net/posts/golang-env-gopath/</link>
+      <link>https://takecy.github.io/posts/golang-env-gopath/</link>
       <pubDate>Wed, 05 Aug 2015 00:52:24 +0900</pubDate>
       
-      <guid>http://blog.takecy.net/posts/golang-env-gopath/</guid>
-      <description>
+      <guid>https://takecy.github.io/posts/golang-env-gopath/</guid>
+      <description>Goはじめて3ヶ月。
+Goいいな、Goクソだなと日々葛藤。
+Goをこれからはじめようという人が迷いそうな(俺が迷った)GOPATH について。
 
-&lt;p&gt;Goはじめて3ヶ月。&lt;br /&gt;
-Goいいな、Goクソだなと日々葛藤。&lt;/p&gt;
+Goのインストール インストール自体はbrewで速攻終わる。
+$ brew install go  問題はこの後の$GOPATHの設定。
 
-&lt;p&gt;Goをこれからはじめようという人が迷いそうな(俺が迷った)&lt;code&gt;GOPATH&lt;/code&gt; について。&lt;/p&gt;
+GOPATHって何 http://golang-jp.org/doc/code.html#GOPATH &amp;gt;GOPATH環境変数はワークスペースの場所を示してします。
+そのままなのだが、つまり、
+1. Goを書くのは全部このパス下でやってね
+2. Go書く上で依存してるライブラリのソースも全部このパスに入るよ
+ということで、例にあるようにそのまま、
+$ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin  としているが、特に困っていない。
 
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
+Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
+まず、Goを書く時は、Githubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。
+import &amp;quot;fmt&amp;quot; // 標準パッケージ import &amp;quot;github.com/takecy/hoge&amp;quot; // OSSのライブラリ  github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+$ go get github.com/takecy/hoge  ここで、GOPATH が登場する。
+このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
+になる。
+自分のGoのプロジェクトもこれと同じように、 $GOPATH/src/github.com/{account_name}/{repository_name}
+ディレクトリを作って、そこにGoソースを作成してスタートする。
+Githubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。
 
-&lt;h3 id=&#34;goのインストール:42557be9981a6cfa7f814dbb3f6accc9&#34;&gt;Goのインストール&lt;/h3&gt;
-
-&lt;p&gt;インストール自体はbrewで速攻終わる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ brew install go
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;問題はこの後の&lt;code&gt;$GOPATH&lt;/code&gt;の設定。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;gopathって何:42557be9981a6cfa7f814dbb3f6accc9&#34;&gt;GOPATHって何&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://golang-jp.org/doc/code.html#GOPATH&#34;&gt;http://golang-jp.org/doc/code.html#GOPATH&lt;/a&gt;
-&amp;gt;GOPATH環境変数はワークスペースの場所を示してします。&lt;/p&gt;
-
-&lt;p&gt;そのままなのだが、つまり、&lt;br /&gt;
-1. Goを書くのは全部このパス下でやってね&lt;br /&gt;
-2. Go書く上で依存してるライブラリのソースも全部このパスに入るよ&lt;/p&gt;
-
-&lt;p&gt;ということで、例にあるようにそのまま、&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ export GOPATH=$HOME/go
-$ export PATH=$PATH:$GOPATH/bin
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;としているが、特に困っていない。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h3 id=&#34;goを書く:42557be9981a6cfa7f814dbb3f6accc9&#34;&gt;Goを書く&lt;/h3&gt;
-
-&lt;p&gt;じゃGo書くぜってことになるが、&lt;strong&gt;GOPATH直下に書くわけではない&lt;/strong&gt; というのがめんどくさいところ。&lt;/p&gt;
-
-&lt;p&gt;まず、Goを書く時は、&lt;strong&gt;Githubに公開する前提&lt;/strong&gt; と考えておいたほうがよい。
-というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import &amp;quot;fmt&amp;quot; // 標準パッケージ
-import &amp;quot;github.com/takecy/hoge&amp;quot; // OSSのライブラリ
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;github.com/{account_name}/{repository_name}&lt;/code&gt; でimportできるステキ仕様。
-そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ go get github.com/takecy/hoge
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;ここで、&lt;code&gt;GOPATH&lt;/code&gt; が登場する。&lt;br /&gt;
-このライブラリがダウンロードされ、配置されるパスは
-&lt;code&gt;$GOPATH/src/github.com/takecy/hoge&lt;/code&gt;&lt;br /&gt;
-になる。&lt;br /&gt;
-自分のGoのプロジェクトもこれと同じように、
-&lt;code&gt;$GOPATH/src/github.com/{account_name}/{repository_name}&lt;/code&gt;&lt;br /&gt;
-ディレクトリを作って、そこにGoソースを作成してスタートする。&lt;/p&gt;
-
-&lt;p&gt;Githubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;&lt;/p&gt;
-
-&lt;h4 id=&#34;まとめ:42557be9981a6cfa7f814dbb3f6accc9&#34;&gt;まとめ&lt;/h4&gt;
-
-&lt;p&gt;Goやり始めた当初は、元々&lt;code&gt;$HOME/git&lt;/code&gt;下に全部Github関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。&lt;br /&gt;
-同じGithubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。&lt;br /&gt;
-が、GithubのURLをimportに書けるというのはすごくいい。&lt;br /&gt;
-例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。&lt;/p&gt;
-
-&lt;p&gt;Let&amp;rsquo;s write Go。&lt;/p&gt;
-
-&lt;p&gt;&lt;br/&gt;
-どうでもいいけど、Goのライブラリ名はダジャレがちらほら。&lt;br /&gt;
-例えばRedisのドライバは &lt;a href=&#34;https://github.com/garyburd/redigo&#34;&gt;redigo&lt;/a&gt; 。&lt;/p&gt;
-</description>
+まとめ Goやり始めた当初は、元々$HOME/git下に全部Github関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。
+同じGithubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。</description>
     </item>
     
   </channel>

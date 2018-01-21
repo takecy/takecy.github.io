@@ -1,33 +1,338 @@
-<main role="main">
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Golang - blog &lt;- takecy" property="og:title">
+<title>Golang | blog &lt;- takecy</title>
+<link rel="stylesheet" href="https://takecy.github.io/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-	<article itemscope itemtype="http://schema.org/Blog">
-		<h2 class="entry-title" itemprop="headline"><a href="/posts/golang-docker-ubuntu-install/">UbuntuにGoをインストールしたDokcerイメージを作る</a></h2>
-		<span class="entry-meta"><time itemprop="datePublished" datetime="2015/10/24">2015/10/24</time></span>
-	</article>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
 
-	<article itemscope itemtype="http://schema.org/Blog">
-		<h2 class="entry-title" itemprop="headline"><a href="/posts/golang-microservice/">Goとマイクロサービス</a></h2>
-		<span class="entry-meta"><time itemprop="datePublished" datetime="2015/10/04">2015/10/04</time></span>
-	</article>
 
-	<article itemscope itemtype="http://schema.org/Blog">
-		<h2 class="entry-title" itemprop="headline"><a href="/posts/golang-good-bad/">Goのいいとこ悪いとこを1個づつあげる</a></h2>
-		<span class="entry-meta"><time itemprop="datePublished" datetime="2015/09/16">2015/09/16</time></span>
-	</article>
+  <section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://takecy.github.io/"><h1 class="title is-4">blog &lt;- takecy</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/takecy">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/takkecy">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
 
-	<article itemscope itemtype="http://schema.org/Blog">
-		<h2 class="entry-title" itemprop="headline"><a href="/posts/golang-loop/">Go言語でループ</a></h2>
-		<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/30">2015/08/30</time></span>
-	</article>
+  <section class="section">
+    <div class="container">
+      
+      <article>
+        <h2 class="subtitle is-6">October 24, 2015</h2>
+        <h1 class="title"><a href="https://takecy.github.io/posts/golang-docker-ubuntu-install/">UbuntuにGoをインストールしたDokcerイメージを作る</a></h1>
+        
+        <div class="tags">
+    
+        <a class="button is-link" href="/tags/golang">golang</a>
+    
+        <a class="button is-link" href="/tags/docker">docker</a>
+    
+</div>
 
-	<article itemscope itemtype="http://schema.org/Blog">
-		<h2 class="entry-title" itemprop="headline"><a href="/posts/golang-package-godep/">Go言語の依存パッケージ管理の闇</a></h2>
-		<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/16">2015/08/16</time></span>
-	</article>
+        
+        <div class="content">
+          Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
+UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
+RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH   よかったらどうぞ。
+Ubuntu Golang
+ 今まで主にVagrantでローカル開発環境を作ってきたのだけど、Dockerってすごいね。。(遅)
+何より、「捨てやすい」のが素晴らしい。使い捨て。さっと起動してさっと動かしてさっと捨てる 。イミュータブル！
+一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
+最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。 かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。
+自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
+今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。
+システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。
+なんて面白い時代だ。
+          
+        </div>
+      </article>
+      
+      <article>
+        <h2 class="subtitle is-6">October 4, 2015</h2>
+        <h1 class="title"><a href="https://takecy.github.io/posts/golang-microservice/">Goとマイクロサービス</a></h1>
+        
+        <div class="tags">
+    
+        <a class="button is-link" href="/tags/golang">golang</a>
+    
+</div>
 
-	<article itemscope itemtype="http://schema.org/Blog">
-		<h2 class="entry-title" itemprop="headline"><a href="/posts/golang-env-gopath/">これからGoやる人のためのGOPATH</a></h2>
-		<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/05">2015/08/05</time></span>
-	</article>
+        
+        <div class="content">
+          マイクロサービスの定義としては
+「あるサービスが、独立した小さなサービスの集合で構成される」
+というのが一般的？で、俺もそう思っている。
+Goはこのマイクロサービス的なサービス開発に適している気がする。
 
-</main>
+ワンバイナリ=サービスの単位 Goの最大のメリットと考えているのは、
+ビルドしたら実行可能なバイナリが1個吐き出されて、ミドルウェア等の設定が不要。
+というのは、過去にも書いた。
+この実行可能なバイナリをマイクロサービスでいうところの「小さなサービス」とすると、とてもしっくり来る感じ。
+
+バイナリ=Goパッケージ=サーバインスタンスの単位  API Batch A Batch B Proxy(image)  で構成されるサービスがあったとして、全部Goで書いたとする。
+それぞれがGoプロジェクトの1パッケージに対応し、そのパッケージ毎にバイナリを生成し、 バイナリごとにサーバインスタンスを割り当てる感じになる。
+まさにマイクロサービス。
+
+まとめ GoはProxyサーバみたいな特定の用途に特化した(アドホックな)処理を、 1個のバイナリとしてまとめられるので、Goで全部やってると勝手にマイクロサービスっぽくなるよね
+というお話。
+          
+        </div>
+      </article>
+      
+      <article>
+        <h2 class="subtitle is-6">September 16, 2015</h2>
+        <h1 class="title"><a href="https://takecy.github.io/posts/golang-good-bad/">Goのいいとこ悪いとこを1個づつあげる</a></h1>
+        
+        <div class="tags">
+    
+        <a class="button is-link" href="/tags/golang">golang</a>
+    
+</div>
+
+        
+        <div class="content">
+          Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。
+いいところ デプロイが簡単 もはやこれだけで、Goを使う価値があるといっていいほど。
+go build からの、サーバへscp
+以上終わり。
+これはすごい。。サーバ側は一切の設定、ミドルのインストールがいらない。
+nodeやJDKなどの実行環境が不要。すごい。
+(実際にはnginxやプロセスを管理するsupervisor的なものが必要だけど)
+よく言われる、Goのメリットだけど、本当にすごい。
+ビルドしたら実行可能な単一のバイナリが吐きだされる。プラットフォームごとに。
+この点の別のメリットとして、Go自体ののバージョンアップが簡単というのがある。
+最近1.5.1に上がったけど、ビルド後のバイナリとして正しく動いていれば、サーバ側はなんの変更もいらない。 バイナリを差し替えるだけ。
+nodeやJDKだと、バージョンアップは大仕事だけど、Go簡単すぎ。すごい。
+
+悪いところ 型が中途半端 これもよく言われているけど、型システム微妙。
+これの最大の弊害は抽象化のしづらさにある。
+色んなライブラリを見たつもりだけど、結構出てくるのが
+interface{} map[string]interface{}
+が引数、戻り値。
+型意味ねえ。
+Goは静的型付け言語に分類されるが、抽象化しづらいので結局「何でも入る型」を使っちゃって、 コンパイラの恩恵が少ない。
+ジェネリクスはよ。。&gt;&lt;
+
+まとめ 悪いところもあるけれど、「デプロイが簡単」「バージョンアップが簡単」のメリットを捨てるほどではない。
+という結論に今のところなっている感じ。
+          
+        </div>
+      </article>
+      
+      <article>
+        <h2 class="subtitle is-6">August 30, 2015</h2>
+        <h1 class="title"><a href="https://takecy.github.io/posts/golang-loop/">Go言語でループ</a></h1>
+        
+        <div class="tags">
+    
+        <a class="button is-link" href="/tags/golang">golang</a>
+    
+</div>
+
+        
+        <div class="content">
+          今でもたまにやらかすのでメモっておく。
+①
+users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;} for i := range users { fmt.Println(users[i]) // i is index }  ②
+users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;} for i, user := range users { fmt.Println(user) // user is value copy }  ③
+users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;} for _, user := range users { fmt.Println(user) // user is value copy }  ①が一番早い。 でも②③の方が読みやすい。
+          
+        </div>
+      </article>
+      
+      <article>
+        <h2 class="subtitle is-6">August 16, 2015</h2>
+        <h1 class="title"><a href="https://takecy.github.io/posts/golang-package-godep/">Go言語の依存パッケージ管理の闇</a></h1>
+        
+        <div class="tags">
+    
+        <a class="button is-link" href="/tags/golang">golang</a>
+    
+</div>
+
+        
+        <div class="content">
+          複数人で開発している場合、各メンバーのローカル環境が揃っていることは重要なこと。
+OSや言語のランタイムのバージョンはもちろんだけど、 依存しているパッケージのバージョンを同じにしておくことは重要。
+俺はテスト通ってるけどTravisさんでは通らないとかマジいらっとするし、 バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。
+例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、 Goではどうやるんだっていう話。
+
+Goで依存パッケージを取得する  go get github.com/google/go-github/github  以上。
+簡単。これは捗る！
+と思いきや、実際の開発ではいろいろ問題が発生する。
+
+バージョンいくつなんだよ問題 Goは、パッケージ取得の仕組み(go get hoge/hoge のこと)は言語レベルで存在するが、 パッケージの列挙とバージョンを管理する仕組みは存在しない。
+「このプロジェクトで使われているパッケージはA(ver0.9)とB(ver1.2)である。」
+というのを表現する方法は無い。
+よって各メンバーが、README等をみながら、
+go get A go get B go get C ...  をぽちぽちやらなくてはいけない。
+また、go get したタイミングによっては依存しているパッケージの別のバージョンが入ってしまう。
+なんてったって、go get にはバージョンを指定しないのだから、何が落ちてきてるのかわからん。
+Goの思想としては常に最新バージョン使おうぜ、ということらしいが、 そのことと、メンバー間の環境の同期はまた別の話だよね。
+
+別のプロジェクトでも使ってる問題 Goのプロジェクトとして、AとBがあって、両方でパッケージKを使ってるとする。
+「AではK:ver1.1.2を使って、BではK:ver1.1.3を使う」 ということはできない。
+GOPATHをそれぞれで設定しておいて、いじるときにいちいち切り替えれば出来るんだろうけど、 基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンのKを参照せざるを得なくなる。
+これは辛い。。
+
+Godep そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、Godep。
+安心のGithub製。
+そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を
+godep save ./...  で記録(その時点のスナップショット的な感じ)できる。
+新しく Godeps と Gedeps/_workspace というディレクトリと、Godep.
+          
+          ...<a class="button is-link" href="https://takecy.github.io/posts/golang-package-godep/" style="height:28px">
+            Read more
+            <span class="icon is-small">
+              <i class="fa fa-angle-double-right"></i>
+            </span>
+          </a>
+          
+        </div>
+      </article>
+      
+      <article>
+        <h2 class="subtitle is-6">August 5, 2015</h2>
+        <h1 class="title"><a href="https://takecy.github.io/posts/golang-env-gopath/">これからGoやる人のためのGOPATH</a></h1>
+        
+        <div class="tags">
+    
+        <a class="button is-link" href="/tags/golang">golang</a>
+    
+</div>
+
+        
+        <div class="content">
+          Goはじめて3ヶ月。
+Goいいな、Goクソだなと日々葛藤。
+Goをこれからはじめようという人が迷いそうな(俺が迷った)GOPATH について。
+
+Goのインストール インストール自体はbrewで速攻終わる。
+$ brew install go  問題はこの後の$GOPATHの設定。
+
+GOPATHって何 http://golang-jp.org/doc/code.html#GOPATH &gt;GOPATH環境変数はワークスペースの場所を示してします。
+そのままなのだが、つまり、
+1. Goを書くのは全部このパス下でやってね
+2. Go書く上で依存してるライブラリのソースも全部このパスに入るよ
+ということで、例にあるようにそのまま、
+$ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin  としているが、特に困っていない。
+
+Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
+まず、Goを書く時は、Githubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。
+import &quot;fmt&quot; // 標準パッケージ import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ  github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+$ go get github.com/takecy/hoge  ここで、GOPATH が登場する。
+このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
+になる。
+自分のGoのプロジェクトもこれと同じように、 $GOPATH/src/github.com/{account_name}/{repository_name}
+ディレクトリを作って、そこにGoソースを作成してスタートする。
+Githubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。
+
+まとめ Goやり始めた当初は、元々$HOME/git下に全部Github関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。
+同じGithubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。
+          
+          ...<a class="button is-link" href="https://takecy.github.io/posts/golang-env-gopath/" style="height:28px">
+            Read more
+            <span class="icon is-small">
+              <i class="fa fa-angle-double-right"></i>
+            </span>
+          </a>
+          
+        </div>
+      </article>
+      
+    </div>
+  </section>
+  <section class="section">
+  <div class="container">
+    <nav class="level is-mobile">
+      <div class="level-left">
+        <div class="level-item">
+          
+          <a class="button is-disabled">
+            <span class="icon is-small is-marginless">
+              <i class="fa fa-angle-left"></i>
+            </span>
+            Newer
+          </a>
+          
+        </div>
+      </div>
+      <div class="level-right is-marginless">
+        <div class="level-item">
+          
+          <a class="button is-disabled">
+            Older
+            <span class="icon is-small is-marginless">
+              <i class="fa fa-angle-right"></i>
+            </span>
+          </a>
+          
+        </div>
+      </div>
+    </nav>
+  </div>
+</section>
+
+  <section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/takecy">takecy</a> 2018</p>
+  </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/typescript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-65880489-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

@@ -1,40 +1,76 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://blog.takecy.net/</loc>
+    <loc>https://takecy.github.io/posts/golang-docker-ubuntu-install/</loc>
+    <lastmod>2015-10-24T23:18:26+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takecy.github.io/posts/golang-microservice/</loc>
+    <lastmod>2015-10-04T22:29:08+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takecy.github.io/posts/golang-good-bad/</loc>
+    <lastmod>2015-09-16T22:54:02+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takecy.github.io/posts/golang-loop/</loc>
+    <lastmod>2015-08-30T19:51:31+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takecy.github.io/posts/golang-package-godep/</loc>
+    <lastmod>2015-08-16T23:17:30+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takecy.github.io/posts/golang-env-gopath/</loc>
+    <lastmod>2015-08-05T00:52:24+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://takecy.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://takecy.github.io/tags/docker/</loc>
     <lastmod>2015-10-24T23:18:26+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.takecy.net/posts/golang-docker-ubuntu-install/</loc>
+    <loc>https://takecy.github.io/tags/golang/</loc>
     <lastmod>2015-10-24T23:18:26+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.takecy.net/posts/golang-microservice/</loc>
-    <lastmod>2015-10-04T22:29:08+09:00</lastmod>
+    <loc>https://takecy.github.io/posts/</loc>
+    <lastmod>2015-10-24T23:18:26+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.takecy.net/posts/golang-good-bad/</loc>
-    <lastmod>2015-09-16T22:54:02+09:00</lastmod>
+    <loc>https://takecy.github.io/categories/programing/</loc>
+    <lastmod>2015-10-24T23:18:26+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.takecy.net/posts/golang-loop/</loc>
-    <lastmod>2015-08-30T19:51:31+09:00</lastmod>
+    <loc>https://takecy.github.io/tags/</loc>
+    <lastmod>2015-10-24T23:18:26+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.takecy.net/posts/golang-package-godep/</loc>
-    <lastmod>2015-08-16T23:17:30+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://blog.takecy.net/posts/golang-env-gopath/</loc>
-    <lastmod>2015-08-05T00:52:24+09:00</lastmod>
+    <loc>https://takecy.github.io/</loc>
+    <lastmod>2015-10-24T23:18:26+09:00</lastmod>
+    <priority>0</priority>
   </url>
   
 </urlset>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on blog &lt;- takecy</title>
+    <link>https://takecy.github.io/categories/</link>
+    <description>Recent content in Categories on blog &lt;- takecy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/takecy&#34;&gt;takecy&lt;/a&gt; 2018</copyright>
+    
+	<atom:link href="https://takecy.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Programing</title>
+      <link>https://takecy.github.io/categories/programing/</link>
+      <pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate>
+      
+      <guid>https://takecy.github.io/categories/programing/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

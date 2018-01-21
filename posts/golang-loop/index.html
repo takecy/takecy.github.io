@@ -1,42 +1,64 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
-<link rel="stylesheet" href="/css/normalize.css">
-<link rel="stylesheet" href="/css/skeleton.css">
-<link rel="stylesheet" href="/css/octicons/octicons.css">
-<link rel="stylesheet" href="/css/elegants/style.css">
-<link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/index.xml" type="application/rss+xml" title="blog &lt;- takecy">
-<title>Go言語でループ - blog &lt;- takecy</title>
-</head>
 <body>
+  <!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Go言語でループ - blog &lt;- takecy" property="og:title">
+<title>Go言語でループ | blog &lt;- takecy</title>
+<link rel="stylesheet" href="https://takecy.github.io/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-<div class="container">
-
-	<header role="banner">
-		
-		
-	</header>
-
-	
-		<div class="row back_top">
-			<h4 class="two column"><a href="/">&lt; Top</a></h4>
-		</div>
-	
-	<div class="hr"></div>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
 
 
-	<main role="main">
-		<article itemscope itemtype="http://schema.org/BlogPosting">
-			<h1 class="entry-title" itemprop="headline">Go言語でループ</h1>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/30">2015/08/30</time></span>
-			<section itemprop="entry-text">
-				<p>今でもたまにやらかすのでメモっておく。</p>
+  <section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://takecy.github.io/"><h1 class="title is-4">blog &lt;- takecy</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/takecy">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/takkecy">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="subtitle is-6">August 30, 2015</h2>
+      <h1 class="title">Go言語でループ</h1>
+      
+      <div class="tags">
+    
+        <a class="button is-link" href="/tags/golang">golang</a>
+    
+</div>
+
+      
+      <div class="content">
+        <p>今でもたまにやらかすのでメモっておく。</p>
 
 <p>①</p>
 
@@ -65,41 +87,40 @@ for _, user := range users {
 <p>①が一番早い。
 でも②③の方が読みやすい。</p>
 
-			</section>
-		</article>
-	</main>
+      </div>
+    </div>
+  </section>
+  
 
+  <section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/takecy">takecy</a> 2018</p>
+  </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
 
-	<footer role="contentinfo">
-		<div class="hr"></div>
-		<div class="row">
-			<div class="footer-link">
-				
-				<a href="https://github.com/takecy" title="github"><span class="octicon octicon-mark-github"></span></a>
-				<a href="https://twitter.com/takkecy" title="github"><span class="fs1" data-icon="&#xe094;"></span></a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="copyright">&copy; takecy</div>
-			<div class="poweredby">by <a href="https://gohugo.io/">Hugo</a></div>
-		</div>
-	</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
 
-</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
 
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-65880489-1', 'auto');
-	ga('send', 'pageview');
-</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/typescript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+
 <script>hljs.initHighlightingOnLoad();</script>
 
-</body>
-</html>
 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-65880489-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

@@ -1,42 +1,64 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
-<link rel="stylesheet" href="/css/normalize.css">
-<link rel="stylesheet" href="/css/skeleton.css">
-<link rel="stylesheet" href="/css/octicons/octicons.css">
-<link rel="stylesheet" href="/css/elegants/style.css">
-<link rel="stylesheet" href="/css/custom.css">
-<link rel="alternate" href="/index.xml" type="application/rss+xml" title="blog &lt;- takecy">
-<title>これからGoやる人のためのGOPATH - blog &lt;- takecy</title>
-</head>
 <body>
+  <!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="これからGoやる人のためのGOPATH - blog &lt;- takecy" property="og:title">
+<title>これからGoやる人のためのGOPATH | blog &lt;- takecy</title>
+<link rel="stylesheet" href="https://takecy.github.io/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-<div class="container">
-
-	<header role="banner">
-		
-		
-	</header>
-
-	
-		<div class="row back_top">
-			<h4 class="two column"><a href="/">&lt; Top</a></h4>
-		</div>
-	
-	<div class="hr"></div>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
 
 
-	<main role="main">
-		<article itemscope itemtype="http://schema.org/BlogPosting">
-			<h1 class="entry-title" itemprop="headline">これからGoやる人のためのGOPATH</h1>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2015/08/05">2015/08/05</time></span>
-			<section itemprop="entry-text">
-				
+  <section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://takecy.github.io/"><h1 class="title is-4">blog &lt;- takecy</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/takecy">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/takkecy">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="subtitle is-6">August 5, 2015</h2>
+      <h1 class="title">これからGoやる人のためのGOPATH</h1>
+      
+      <div class="tags">
+    
+        <a class="button is-link" href="/tags/golang">golang</a>
+    
+</div>
+
+      
+      <div class="content">
+        
 
 <p>Goはじめて3ヶ月。<br />
 Goいいな、Goクソだなと日々葛藤。</p>
@@ -45,7 +67,7 @@ Goいいな、Goクソだなと日々葛藤。</p>
 
 <p><br/></p>
 
-<h3 id="goのインストール:42557be9981a6cfa7f814dbb3f6accc9">Goのインストール</h3>
+<h3 id="goのインストール">Goのインストール</h3>
 
 <p>インストール自体はbrewで速攻終わる。</p>
 
@@ -56,7 +78,7 @@ Goいいな、Goクソだなと日々葛藤。</p>
 
 <p><br/></p>
 
-<h3 id="gopathって何:42557be9981a6cfa7f814dbb3f6accc9">GOPATHって何</h3>
+<h3 id="gopathって何">GOPATHって何</h3>
 
 <p><a href="http://golang-jp.org/doc/code.html#GOPATH">http://golang-jp.org/doc/code.html#GOPATH</a>
 &gt;GOPATH環境変数はワークスペースの場所を示してします。</p>
@@ -75,7 +97,7 @@ $ export PATH=$PATH:$GOPATH/bin
 
 <p><br/></p>
 
-<h3 id="goを書く:42557be9981a6cfa7f814dbb3f6accc9">Goを書く</h3>
+<h3 id="goを書く">Goを書く</h3>
 
 <p>じゃGo書くぜってことになるが、<strong>GOPATH直下に書くわけではない</strong> というのがめんどくさいところ。</p>
 
@@ -104,7 +126,7 @@ import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ
 
 <p><br/></p>
 
-<h4 id="まとめ:42557be9981a6cfa7f814dbb3f6accc9">まとめ</h4>
+<h4 id="まとめ">まとめ</h4>
 
 <p>Goやり始めた当初は、元々<code>$HOME/git</code>下に全部Github関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。<br />
 同じGithubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。<br />
@@ -117,41 +139,40 @@ import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ
 どうでもいいけど、Goのライブラリ名はダジャレがちらほら。<br />
 例えばRedisのドライバは <a href="https://github.com/garyburd/redigo">redigo</a> 。</p>
 
-			</section>
-		</article>
-	</main>
+      </div>
+    </div>
+  </section>
+  
 
+  <section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/takecy">takecy</a> 2018</p>
+  </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
 
-	<footer role="contentinfo">
-		<div class="hr"></div>
-		<div class="row">
-			<div class="footer-link">
-				
-				<a href="https://github.com/takecy" title="github"><span class="octicon octicon-mark-github"></span></a>
-				<a href="https://twitter.com/takkecy" title="github"><span class="fs1" data-icon="&#xe094;"></span></a>
-			</div>
-		</div>
-		<div class="row">
-			<div class="copyright">&copy; takecy</div>
-			<div class="poweredby">by <a href="https://gohugo.io/">Hugo</a></div>
-		</div>
-	</footer>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
 
-</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
 
-<script>
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-65880489-1', 'auto');
-	ga('send', 'pageview');
-</script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/typescript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+
 <script>hljs.initHighlightingOnLoad();</script>
 
-</body>
-</html>
 
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-65880489-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

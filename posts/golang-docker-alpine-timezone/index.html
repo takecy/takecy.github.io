@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta content="" name="keywords">
-<meta content="Categories - blog &lt;- takecy" property="og:title">
-<title>Categories | blog &lt;- takecy</title>
+<meta content="Timezoneが取れるalpineのDockerイメージを作る - blog &lt;- takecy" property="og:title">
+<title>Timezoneが取れるalpineのDockerイメージを作る | blog &lt;- takecy</title>
 <link rel="stylesheet" href="https://takecy.github.io/css/style.css">
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
@@ -47,49 +47,79 @@
 
   <section class="section">
     <div class="container">
+      <h2 class="subtitle is-6">February 3, 2018</h2>
+      <h1 class="title">Timezoneが取れるalpineのDockerイメージを作る</h1>
       
-      <article>
-        <h2 class="subtitle is-6">February 3, 2018</h2>
-        <h1 class="title"><a href="https://takecy.github.io/categories/programing/">Programing</a></h1>
+      <div class="tags">
+    
+        <a class="button is-link" href="https://takecy.github.io/tags/docker">docker</a>
+    
+        <a class="button is-link" href="https://takecy.github.io/tags/golang">golang</a>
+    
+</div>
+
+      
+      <div class="content">
         
-        <div class="content">
-          
-          
-        </div>
-      </article>
-      
+
+<p><br/>
+Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、
+<a href="https://docs.docker.com/develop/develop-images/multistage-build/">multi stage build</a>にそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。</p>
+
+<p>コード全体はこちら。<br />
+<a href="https://github.com/takecy/tz-sample">https://github.com/takecy/tz-sample</a></p>
+
+<h3 id="panic-になるコード">Panic になるコード</h3>
+
+<p>普通にmulti stage buildでalpineにビルド済イメージを <code>COPY</code> して実行すると、下記コードはpanicする。</p>
+
+<pre><code>jst, err := time.LoadLocation(&quot;Asia/Tokyo&quot;)
+if err != nil {
+    panic(err)
+}
+</code></pre>
+
+<p>alpineは <code>/etc/localtime</code> がないため。</p>
+
+<pre><code>panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory
+
+goroutine 1 [running]:
+main.main()
+        /go/src/github.com/takecy/tz/main.go:11 +0x22b
+make: *** [run_alpine] Error 2
+</code></pre>
+
+<h3 id="対応">対応</h3>
+
+<p>対応は難しいことはなく、単に <code>tzdata</code> を入れればよい。</p>
+
+<pre><code>RUN apk --no-cache add tzdata
+</code></pre>
+
+<p>全体の例</p>
+
+<pre><code>FROM golang:1.9.3-alpine AS build
+
+COPY . $GOPATH/src/github.com/takecy/tz
+WORKDIR $GOPATH/src/github.com/takecy/tz
+
+RUN go build -o tz .\
+ &amp;&amp; mv tz /usr/local/bin/
+
+
+FROM alpine:3.6
+
+RUN apk --no-cache add tzdata
+
+COPY --from=build /usr/local/bin/tz /usr/local/bin/
+
+CMD [&quot;tz&quot;]
+</code></pre>
+
+      </div>
     </div>
   </section>
-  <section class="section">
-  <div class="container">
-    <nav class="level is-mobile">
-      <div class="level-left">
-        <div class="level-item">
-          
-          <a class="button is-disabled">
-            <span class="icon is-small is-marginless">
-              <i class="fa fa-angle-left"></i>
-            </span>
-            Newer
-          </a>
-          
-        </div>
-      </div>
-      <div class="level-right is-marginless">
-        <div class="level-item">
-          
-          <a class="button is-disabled">
-            Older
-            <span class="icon is-small is-marginless">
-              <i class="fa fa-angle-right"></i>
-            </span>
-          </a>
-          
-        </div>
-      </div>
-    </nav>
-  </div>
-</section>
+  
 
   <section class="section">
   <div class="container has-text-centered">

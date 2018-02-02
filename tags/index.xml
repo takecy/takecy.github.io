@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/takecy&#34;&gt;takecy&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Sat, 24 Oct 2015 23:18:26 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 03 Feb 2018 01:07:23 +0900</lastBuildDate>
     
 	<atom:link href="https://takecy.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>Docker</title>
       <link>https://takecy.github.io/tags/docker/</link>
-      <pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate>
+      <pubDate>Sat, 03 Feb 2018 01:07:23 +0900</pubDate>
       
       <guid>https://takecy.github.io/tags/docker/</guid>
       <description></description>
@@ -24,7 +24,7 @@
     <item>
       <title>Golang</title>
       <link>https://takecy.github.io/tags/golang/</link>
-      <pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate>
+      <pubDate>Sat, 03 Feb 2018 01:07:23 +0900</pubDate>
       
       <guid>https://takecy.github.io/tags/golang/</guid>
       <description></description>

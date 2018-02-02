@@ -1,0 +1,156 @@
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta content="" name="keywords">
+<meta content="Goの依存関係管理ツールのdepのpruneがdeprecatedになった - blog &lt;- takecy" property="og:title">
+<title>Goの依存関係管理ツールのdepのpruneがdeprecatedになった | blog &lt;- takecy</title>
+<link rel="stylesheet" href="https://takecy.github.io/css/style.css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+
+
+  <section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="https://takecy.github.io/"><h1 class="title is-4">blog &lt;- takecy</h1></a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile">
+          
+          <a class="level-item" href="https://github.com/takecy">
+            <span class="icon">
+              <i class="fa fa-github"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://twitter.com/takkecy">
+            <span class="icon">
+              <i class="fa fa-twitter"></i>
+            </span>
+          </a>
+          
+          <a class="level-item" href="https://takecy.github.io/index.xml">
+            <span class="icon">
+              <i class="fa fa-rss"></i>
+            </span>
+          </a>
+          
+        </nav>
+      </div>
+    </nav>
+  </div>
+</section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="subtitle is-6">February 3, 2018</h2>
+      <h1 class="title">Goの依存関係管理ツールのdepのpruneがdeprecatedになった</h1>
+      
+      <div class="tags">
+    
+        <a class="button is-link" href="https://takecy.github.io/tags/docker">docker</a>
+    
+        <a class="button is-link" href="https://takecy.github.io/tags/golang">golang</a>
+    
+</div>
+
+      
+      <div class="content">
+        
+
+<p><br/>
+Goの依存関係管理には<a href="https://github.com/golang/dep">dep</a>がデファクトだし、使っているのだが、
+最近 <code>prune</code> コマンドがdeprecatedされた。</p>
+
+<h3 id="depのprune">depのprune</h3>
+
+<pre><code class="language-shell">$ dep prune -v
+</code></pre>
+
+<p>このコマンドは、<code>ensure</code> で山盛り追加されるvendorから、使用していないpackageを除外してくれて、レポジトリが軽くなるので気に入ってよく使っていた。
+Makefileにもだいたい以下のように書いていた。</p>
+
+<pre><code class="language-makefile">update:
+    dep ensure -update -v &amp;&amp; dep prune -v
+</code></pre>
+
+<h3 id="実行時に警告が">実行時に警告が</h3>
+
+<p>多分0.4からこういう警告が出るようになった。</p>
+
+<pre><code>Pruning is now performed automatically by dep ensure.
+Set prune settings in Gopkg.toml and it it will be applied when running ensure.
+
+This command currently still prunes as it always has, to ease the transition.
+However, it will be removed in a future version of dep.
+
+Now is the time to update your Gopkg.toml and remove `dep prune` from any scripts.
+</code></pre>
+
+<p>意訳</p>
+
+<pre><code>dep ensureで自動でできるようになったよ。
+そのためにはtomlに設定を追加してね。
+
+このコマンドは将来消すよ。
+君のスクリプトから dep prune を今すぐ消すんだ！
+</code></pre>
+
+<h3 id="対応">対応</h3>
+
+<ol>
+<li>dep pruneを消す<br /></li>
+<li>Gopkg.toml の先頭に以下を追加する。</li>
+</ol>
+
+<pre><code class="language-toml">[prune]
+  non-go = true
+</code></pre>
+
+<p>これでensure時に自動prune！(∩´∀｀)∩</p>
+
+<p><a href="https://golang.github.io/dep/docs/Gopkg.toml.html#prune">dep document</a></p>
+
+<p>ちなみに、このdepのドキュメントは多分、Facebookの<a href="https://docusaurus.io/">docusaurus</a>製。</p>
+
+      </div>
+    </div>
+  </section>
+  
+
+  <section class="section">
+  <div class="container has-text-centered">
+    <p>&copy; <a href="https://github.com/takecy">takecy</a> 2018</p>
+  </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/typescript.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-65880489-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+</body>

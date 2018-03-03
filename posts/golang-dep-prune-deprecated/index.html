@@ -109,9 +109,11 @@ Now is the time to update your Gopkg.toml and remove `dep prune` from any script
 
 <pre><code class="language-toml">[prune]
   non-go = true
+  unused-packages=true
+  go-tests=true
 </code></pre>
 
-<p>これでensure時に自動prune！(∩´∀｀)∩</p>
+<p>これでensure時に自動prune！</p>
 
 <p><a href="https://golang.github.io/dep/docs/Gopkg.toml.html#prune">dep document</a></p>
 

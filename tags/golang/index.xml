@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/takecy&#34;&gt;takecy&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Sun, 04 Mar 2018 11:12:53 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 26 May 2018 10:26:50 +0900</lastBuildDate>
     
 	<atom:link href="https://takecy.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>1.10以降のGoのMultiPackageテスト</title>
+      <link>https://takecy.github.io/posts/golang-multi-package-test/</link>
+      <pubDate>Sat, 26 May 2018 10:26:50 +0900</pubDate>
+      
+      <guid>https://takecy.github.io/posts/golang-multi-package-test/</guid>
+      <description>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。 #!/bin/bash set -e echo &amp;quot;&amp;quot; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out</description>
+    </item>
     
     <item>
       <title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title>

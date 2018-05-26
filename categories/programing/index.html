@@ -49,6 +49,32 @@
     <div class="container">
       
       <article>
+        <h2 class="subtitle is-6">May 26, 2018</h2>
+        <h1 class="title"><a href="https://takecy.github.io/posts/golang-multi-package-test/">1.10以降のGoのMultiPackageテスト</a></h1>
+        
+        <div class="tags">
+    
+        <a class="button is-link" href="https://takecy.github.io/tags/test">test</a>
+    
+        <a class="button is-link" href="https://takecy.github.io/tags/golang">golang</a>
+    
+</div>
+
+        
+        <div class="content">
+          以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。 #!/bin/bash set -e echo &quot;&quot; &gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &gt;&gt; coverage.txt rm profile.out
+          
+          ...<a class="button is-link" href="https://takecy.github.io/posts/golang-multi-package-test/" style="height:28px">
+            Read more
+            <span class="icon is-small">
+              <i class="fa fa-angle-double-right"></i>
+            </span>
+          </a>
+          
+        </div>
+      </article>
+      
+      <article>
         <h2 class="subtitle is-6">March 4, 2018</h2>
         <h1 class="title"><a href="https://takecy.github.io/posts/golang-vendoring-version/">Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</a></h1>
         

@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://takecy.github.io/posts/golang-multi-package-test/</loc>
+    <lastmod>2018-05-26T10:26:50+09:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://takecy.github.io/posts/golang-vendoring-version/</loc>
     <lastmod>2018-03-04T11:12:53+09:00</lastmod>
   </url>
@@ -66,19 +71,19 @@
   
   <url>
     <loc>https://takecy.github.io/tags/golang/</loc>
-    <lastmod>2018-03-04T11:12:53+09:00</lastmod>
+    <lastmod>2018-05-26T10:26:50+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://takecy.github.io/posts/</loc>
-    <lastmod>2018-03-04T11:12:53+09:00</lastmod>
+    <lastmod>2018-05-26T10:26:50+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://takecy.github.io/categories/programing/</loc>
-    <lastmod>2018-03-04T11:12:53+09:00</lastmod>
+    <lastmod>2018-05-26T10:26:50+09:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -89,8 +94,14 @@
   </url>
   
   <url>
+    <loc>https://takecy.github.io/tags/test/</loc>
+    <lastmod>2018-05-26T10:26:50+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://takecy.github.io/</loc>
-    <lastmod>2018-03-04T11:12:53+09:00</lastmod>
+    <lastmod>2018-05-26T10:26:50+09:00</lastmod>
     <priority>0</priority>
   </url>
   

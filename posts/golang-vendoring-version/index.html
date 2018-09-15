@@ -1,66 +1,42 @@
-<body>
-  <!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta content="" name="keywords">
-<meta content="Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか - blog &lt;- takecy" property="og:title">
-<title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか | blog &lt;- takecy</title>
-<link rel="stylesheet" href="https://takecy.github.io/css/style.css">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/dracula.min.css">
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="https://takecy.github.io/css/normalize.css">
+<link rel="stylesheet" href="https://takecy.github.io/css/skeleton.css">
+<link rel="stylesheet" href="https://takecy.github.io/css/octicons/octicons.css">
+<link rel="stylesheet" href="https://takecy.github.io/css/elegants/style.css">
+<link rel="stylesheet" href="https://takecy.github.io/css/custom.css">
+<link rel="alternate" href="https://takecy.github.io/index.xml" type="application/rss+xml" title="blog &lt;- takecy">
+<title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか - blog &lt;- takecy</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		
+		
+	</header>
+
+	
+		<div class="row back_top">
+			<h4 class="two column"><a href="https://takecy.github.io/">&lt; Top</a></h4>
+		</div>
+	
+	<div class="hr"></div>
 
 
-  <section class="section">
-  <div class="container">
-    <nav class="nav">
-      <div class="nav-left">
-        <a class="nav-item" href="https://takecy.github.io/"><h1 class="title is-4">blog &lt;- takecy</h1></a>
-      </div>
-      <div class="nav-right">
-        <nav class="nav-item level is-mobile">
-          
-          <a class="level-item" href="https://github.com/takecy">
-            <span class="icon">
-              <i class="fa fa-github"></i>
-            </span>
-          </a>
-          
-          <a class="level-item" href="https://twitter.com/takkecy">
-            <span class="icon">
-              <i class="fa fa-twitter"></i>
-            </span>
-          </a>
-          
-          <a class="level-item" href="https://takecy.github.io/index.xml">
-            <span class="icon">
-              <i class="fa fa-rss"></i>
-            </span>
-          </a>
-          
-        </nav>
-      </div>
-    </nav>
-  </div>
-</section>
-
-  <section class="section">
-    <div class="container">
-      <h2 class="subtitle is-6">March 4, 2018</h2>
-      <h1 class="title">Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</h1>
-      
-      <div class="tags">
-    
-        <a class="button is-link" href="https://takecy.github.io/tags/git">git</a>
-    
-        <a class="button is-link" href="https://takecy.github.io/tags/golang">golang</a>
-    
-</div>
-
-      
-      <div class="content">
-        
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2018/03/04">2018/03/04</time></span>
+			<section itemprop="entry-text">
+				
 
 <p><br/>
 Goプロジェクトの依存パッケージは、 <a href="https://github.com/golang/dep">dep</a> などのツールにより  <code>vendor</code> ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。</p>
@@ -109,43 +85,34 @@ GithubWeb上で検索しやすくもなる。</p>
 
 <p>ので、個人的な結論としては。 <code>vendorもバージョン管理する(Githubに全部突っ込む)</code> にしたい。</p>
 
-      </div>
-    </div>
-  </section>
-  
+			</section>
+		</article>
+	</main>
 
-  <section class="section">
-  <div class="container has-text-centered">
-    <p>&copy; <a href="https://github.com/takecy">takecy</a> 2018</p>
-  </div>
-  <div class="container has-text-centered">
-    powered by <a href="https://gohugo.io/">Hugo</a>, theme by <a href="https://themes.gohugo.io/hemingway2/">hemingway2</a>
-  </div>
-</section>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/go.min.js"></script>
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="row">
+			<div class="footer-link">
+				
+				<a href="https://github.com/takecy/" title="github"><span class="octicon octicon-mark-github"></span></a>
+				<a href="https://twitter.com/takkecy" title="github"><span class="fs1" data-icon="&#xe094;"></span></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="copyright">&copy; takecy 2018</div>
+			<div class="poweredby">by <a href="https://gohugo.io/">Hugo</a></div>
+		</div>
+	</footer>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/dockerfile.min.js"></script>
+</div>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/typescript.min.js"></script>
 
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/java.min.js"></script>
-
-<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
-
-<script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', 'UA-65880489-1', 'auto');
-ga('send', 'pageview');
-</script>
-<script async src='//www.google-analytics.com/analytics.js'></script>
-
-
-
 </body>
+</html>
+

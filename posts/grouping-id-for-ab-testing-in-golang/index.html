@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="https://takecy.github.io/css/normalize.css">
+<link rel="stylesheet" href="https://takecy.github.io/css/skeleton.css">
+<link rel="stylesheet" href="https://takecy.github.io/css/octicons/octicons.css">
+<link rel="stylesheet" href="https://takecy.github.io/css/elegants/style.css">
+<link rel="stylesheet" href="https://takecy.github.io/css/custom.css">
+<link rel="alternate" href="https://takecy.github.io/index.xml" type="application/rss+xml" title="blog &lt;- takecy">
+<title>GoでABテスト用のテスト対象ユーザーを抽出するライブラリを書いた - blog &lt;- takecy</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		
+		
+	</header>
+
+	
+		<div class="row back_top">
+			<h4 class="two column"><a href="https://takecy.github.io/">&lt; Top</a></h4>
+		</div>
+	
+	<div class="hr"></div>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">GoでABテスト用のテスト対象ユーザーを抽出するライブラリを書いた</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2018/09/15">2018/09/15</time></span>
+			<section itemprop="entry-text">
+				<p><br/></p>
+
+<p><a href="https://github.com/takecy/grouping">https://github.com/takecy/grouping</a></p>
+
+<p>ABテストを実施するには、いくつかの要素があり、大きく下記がある。</p>
+
+<ol>
+<li>テスト対象のユーザーの抽出</li>
+<li>出し分け</li>
+<li>結果のロギング</li>
+<li>検証</li>
+<li>繰り返し&hellip;</li>
+</ol>
+
+<p>このパッケージは、1をサーバーサイドでやるためのもので、</p>
+
+<ol>
+<li>あるABテストに対応するグループを定義 (e.g. group-A, group-B)</li>
+<li>グループに適用する割合を定義 (e.g. 80:20)</li>
+<li>上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す</li>
+<li>所属しているグループを返す (e.g. group-A)</li>
+</ol>
+
+<p>というすごくシンプルなもの。<br />
+<a href="https://github.com/takecy/grouping/blob/master/README.md#basic-usage">基本的な完全な使用例</a>はこうなる。</p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+
+	&quot;github.com/takecy/grouping&quot;
+)
+
+// SimpleElem implements `grouping.Elementer`
+type SimpleElem struct {
+	name  string
+	ratio int
+}
+
+func (e *SimpleElem) GetName() string { return e.name }
+func (e *SimpleElem) GetRatio() int   { return e.ratio }
+func (e *SimpleElem) SetRatio(r int)  { e.ratio = r }
+
+func main() {
+	group := grouping.GroupDefinition{
+		// case: A+B+C=100
+		Elems: []grouping.Elementer{
+			&amp;SimpleElem{name: &quot;group-A&quot;, ratio: 10},
+			&amp;SimpleElem{name: &quot;group-B&quot;, ratio: 20},
+			&amp;SimpleElem{name: &quot;group-C&quot;, ratio: 70},
+		},
+	}
+
+	g, err := grouping.New(group)
+	if err != nil {
+		panic(err)
+	}
+
+	//
+	// The same result will be obtained no matter how many times it is executed.
+	//
+	testName := &quot;welcome_content_test&quot;
+
+	userID1 := &quot;user-001&quot;
+	elem1, err := g.GetGroup(userID1, testName)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf(&quot;elem1: %v\n&quot;, elem1.GetName()) // group-A
+
+	userID2 := &quot;user-002&quot;
+	elem2, err := g.GetGroup(userID2, testName)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf(&quot;elem2: %v\n&quot;, elem2.GetName()) // group-C
+}
+</code></pre>
+
+<p>もちろん、同じIDであれば何度呼び出しても同じグループが返される。
+グループ判定に使用する<a href="https://github.com/takecy/grouping/blob/master/README.md#customize-hash-function">ハッシュ値を生成する関数を外から渡す</a>ことや、
+<a href="https://github.com/takecy/grouping/blob/master/README.md#default-specification">全体の20%に適用</a>という指定も可能。</p>
+
+<p>後は、ABテストを実施する箇所、例えばコンテンツのリストを作るところ、クライアント画面表示 など
+で、取得されたグループを参照し、分岐すればよい。</p>
+
+<p>ログを取得し、検証し、さらに別のABを・・と、まだまだ道程は長いが、とりあえず最初の一歩用に。</p>
+
+<p><a href="https://github.com/takecy/grouping">https://github.com/takecy/grouping</a></p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="row">
+			<div class="footer-link">
+				
+				<a href="https://github.com/takecy/" title="github"><span class="octicon octicon-mark-github"></span></a>
+				<a href="https://twitter.com/takkecy" title="github"><span class="fs1" data-icon="&#xe094;"></span></a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="copyright">&copy; takecy 2018</div>
+			<div class="poweredby">by <a href="https://gohugo.io/">Hugo</a></div>
+		</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
+

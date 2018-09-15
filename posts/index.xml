@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&amp;copy; &lt;a href=&#34;https://github.com/takecy&#34;&gt;takecy&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Sat, 26 May 2018 10:26:50 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 15 Sep 2018 17:52:49 +0900</lastBuildDate>
     
 	<atom:link href="https://takecy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GoでABテスト用のテスト対象ユーザーを抽出するライブラリを書いた</title>
+      <link>https://takecy.github.io/posts/grouping-id-for-ab-testing-in-golang/</link>
+      <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
+      
+      <guid>https://takecy.github.io/posts/grouping-id-for-ab-testing-in-golang/</guid>
+      <description>https://github.com/takecy/grouping ABテストを実施するには、いくつかの要素があり、大きく下記がある。 テスト対象のユーザーの抽出 出し分け 結果のロギング 検証 繰り返し&amp;helli</description>
+    </item>
     
     <item>
       <title>1.10以降のGoのMultiPackageテスト</title>

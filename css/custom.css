@@ -1,9 +1,12 @@
-body {
+html {
   /*font-family: "PT Sans", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   font-family: 'Roboto', sans-serif;
+}
+
+body {
   background-color: #FCFCFC;
-  font-size: 1.7em;
-  line-height: 1.8;
+  font-size: 1.6rem;
+  line-height: 1.6;
   color: #737373;
 }
 

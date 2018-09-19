@@ -35,14 +35,13 @@
 		<article itemscope itemtype="http://schema.org/BlogPosting">
 			<h1 class="entry-title" itemprop="headline">Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</h1>
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2018/03/04">2018/03/04</time></span>
-			<section>
-				 <a href="https://takecy.github.io/tags/git">[ git ]</a>  <a href="https://takecy.github.io/tags/golang">[ golang ]</a> 
+			<section class="tag">
+				<span class="octicon octicon-tag"></span>  <a href="https://takecy.github.io/tags/git">[ git ]</a>  <a href="https://takecy.github.io/tags/golang">[ golang ]</a> 
 			</section>
-			<section itemprop="entry-text">
+			<section itemprop="entry-text" class="main-content">
 				
 
-<p><br/>
-Goプロジェクトの依存パッケージは、 <a href="https://github.com/golang/dep">dep</a> などのツールにより  <code>vendor</code> ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。</p>
+<p>Goプロジェクトの依存パッケージは、 <a href="https://github.com/golang/dep">dep</a> などのツールにより  <code>vendor</code> ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。</p>
 
 <p>管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。</p>
 
@@ -89,6 +88,9 @@ GithubWeb上で検索しやすくもなる。</p>
 <p>ので、個人的な結論としては。 <code>vendorもバージョン管理する(Githubに全部突っ込む)</code> にしたい。</p>
 
 			</section>
+			<section>
+				<span class="octicon octicon-tag"></span>  <a href="https://takecy.github.io/tags/git">[ git ]</a>  <a href="https://takecy.github.io/tags/golang">[ golang ]</a> 
+			</section>
 		</article>
 	</main>
 
@@ -99,7 +101,7 @@ GithubWeb上で検索しやすくもなる。</p>
 			<div class="footer-link">
 				<a href="https://github.com/takecy/" title="github"><span class="octicon octicon-mark-github"></span></a>
 				<a href="https://twitter.com/takkecy" title="github"><span class="fs1" data-icon="&#xe094;"></span></a>
-				<a href="https://takecy.github.io/index.xml" title="rss"><span class="octicon octicon-rss"></span></span></a>
+				<a href="https://takecy.github.io/index.xml" title="rss"><span class="octicon octicon-rss"></span></a>
 			</div>
 		</div>
 		<div class="row">

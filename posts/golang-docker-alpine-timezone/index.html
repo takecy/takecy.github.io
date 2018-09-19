@@ -35,14 +35,13 @@
 		<article itemscope itemtype="http://schema.org/BlogPosting">
 			<h1 class="entry-title" itemprop="headline">Timezoneが取れるalpineのDockerイメージを作る</h1>
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2018/02/03">2018/02/03</time></span>
-			<section>
-				 <a href="https://takecy.github.io/tags/docker">[ docker ]</a>  <a href="https://takecy.github.io/tags/golang">[ golang ]</a> 
+			<section class="tag">
+				<span class="octicon octicon-tag"></span>  <a href="https://takecy.github.io/tags/docker">[ docker ]</a>  <a href="https://takecy.github.io/tags/golang">[ golang ]</a> 
 			</section>
-			<section itemprop="entry-text">
+			<section itemprop="entry-text" class="main-content">
 				
 
-<p><br/>
-Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、
+<p>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、
 <a href="https://docs.docker.com/develop/develop-images/multistage-build/">multi stage build</a>にそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。</p>
 
 <p>コード全体はこちら。<br />
@@ -96,6 +95,9 @@ CMD [&quot;tz&quot;]
 </code></pre>
 
 			</section>
+			<section>
+				<span class="octicon octicon-tag"></span>  <a href="https://takecy.github.io/tags/docker">[ docker ]</a>  <a href="https://takecy.github.io/tags/golang">[ golang ]</a> 
+			</section>
 		</article>
 	</main>
 
@@ -106,7 +108,7 @@ CMD [&quot;tz&quot;]
 			<div class="footer-link">
 				<a href="https://github.com/takecy/" title="github"><span class="octicon octicon-mark-github"></span></a>
 				<a href="https://twitter.com/takkecy" title="github"><span class="fs1" data-icon="&#xe094;"></span></a>
-				<a href="https://takecy.github.io/index.xml" title="rss"><span class="octicon octicon-rss"></span></span></a>
+				<a href="https://takecy.github.io/index.xml" title="rss"><span class="octicon octicon-rss"></span></a>
 			</div>
 		</div>
 		<div class="row">

@@ -18,7 +18,7 @@
       <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
       
       <guid>https://takecy.github.io/posts/grouping-id-for-ab-testing-in-golang/</guid>
-      <description>https://github.com/takecy/grouping ABテストを実施するには、いくつかの要素があり、大きく下記がある。 事前準備として、 ABテストを定義 (名前、割合etc..) 全ユーザーをグル</description>
+      <description>ABテストを実施するには、いくつかの要素があり、大きく下記がある。 事前準備として、 ABテストを定義 (名前、割合etc..) 全ユーザーをグルー</description>
     </item>
     
     <item>

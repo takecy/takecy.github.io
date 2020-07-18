@@ -10,7 +10,7 @@
         <atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
         
         <item>
-            <title>GoでABテスト対象のユーザーを振り分けるするライブラリを書いた</title>
+            <title>GoでABテスト対象のユーザーを振り分けるライブラリを書いた</title>
             <link>/posts/grouping-id-for-ab-testing-in-golang/</link>
             <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
             

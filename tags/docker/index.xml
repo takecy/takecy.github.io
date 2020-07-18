@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>docker on blog &lt;- takecy</title>
-    <link>blog.takecy.dev/tags/docker/</link>
+    <link>/tags/docker/</link>
     <description>Recent content in docker on blog &lt;- takecy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://github.com/takecy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;takecy&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 03 Feb 2018 01:36:11 +0900</lastBuildDate>
     
-	<atom:link href="blog.takecy.dev/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Goの依存関係管理ツールのdepのpruneがdeprecatedになった</title>
-      <link>blog.takecy.dev/posts/golang-dep-prune-deprecated/</link>
+      <link>/posts/golang-dep-prune-deprecated/</link>
       <pubDate>Sat, 03 Feb 2018 01:36:11 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-dep-prune-deprecated/</guid>
+      <guid>/posts/golang-dep-prune-deprecated/</guid>
       <description>Goの依存関係管理にはdepがデファクトだし、使っているのだが、 最近 prune コマンドがdeprecatedされた。
 depのprune $ dep prune -v このコマンドは、ensure で山盛り追加されるvendorから、使用していないpackageを除外してくれて、レポジトリが軽くなるので気に入ってよく使っていた。 Makefileにもだいたい以下のように書いていた。
 update: dep ensure -update -v &amp;amp;&amp;amp; dep prune -v 実行時に警告が 多分0.4からこういう警告が出るようになった。
@@ -26,10 +26,10 @@ Pruning is now performed automatically by dep ensure. Set prune settings in Gopk
     
     <item>
       <title>Timezoneが取れるalpineのDockerイメージを作る</title>
-      <link>blog.takecy.dev/posts/golang-docker-alpine-timezone/</link>
+      <link>/posts/golang-docker-alpine-timezone/</link>
       <pubDate>Sat, 03 Feb 2018 01:07:23 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-docker-alpine-timezone/</guid>
+      <guid>/posts/golang-docker-alpine-timezone/</guid>
       <description>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。
 コード全体はこちら。
 https://github.com/takecy/tz-sample
@@ -42,10 +42,10 @@ FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDI
     
     <item>
       <title>UbuntuにGoをインストールしたDokcerイメージを作る</title>
-      <link>blog.takecy.dev/posts/golang-docker-ubuntu-install/</link>
+      <link>/posts/golang-docker-ubuntu-install/</link>
       <pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-docker-ubuntu-install/</guid>
+      <guid>/posts/golang-docker-ubuntu-install/</guid>
       <description>Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
 UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH 一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。

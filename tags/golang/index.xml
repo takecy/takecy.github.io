@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>golang on blog &lt;- takecy</title>
-    <link>blog.takecy.dev/tags/golang/</link>
+    <link>/tags/golang/</link>
     <description>Recent content in golang on blog &lt;- takecy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://github.com/takecy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;takecy&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 15 Sep 2018 17:52:49 +0900</lastBuildDate>
     
-	<atom:link href="blog.takecy.dev/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GoでABテスト対象のユーザーを振り分けるするライブラリを書いた</title>
-      <link>blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</link>
+      <link>/posts/grouping-id-for-ab-testing-in-golang/</link>
       <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</guid>
+      <guid>/posts/grouping-id-for-ab-testing-in-golang/</guid>
       <description>takecy/grouping 事前準備として、
  ABテストを定義 (名前、割合etc..) 全ユーザーをグルーピング  そしてリクエストごとに、
  リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&amp;hellip;  このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
@@ -28,10 +28,10 @@ package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/takecy/groupi
     
     <item>
       <title>1.10以降のGoのMultiPackageテスト</title>
-      <link>blog.takecy.dev/posts/golang-multi-package-test/</link>
+      <link>/posts/golang-multi-package-test/</link>
       <pubDate>Sat, 26 May 2018 10:26:50 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-multi-package-test/</guid>
+      <guid>/posts/golang-multi-package-test/</guid>
       <description>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。
 #!/bin/bash set -e echo &amp;quot;&amp;quot; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
 go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！</description>
@@ -39,10 +39,10 @@ go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！</d
     
     <item>
       <title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title>
-      <link>blog.takecy.dev/posts/golang-vendoring-version/</link>
+      <link>/posts/golang-vendoring-version/</link>
       <pubDate>Sun, 04 Mar 2018 11:12:53 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-vendoring-version/</guid>
+      <guid>/posts/golang-vendoring-version/</guid>
       <description>Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
 管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。
 vendorをバージョン管理する場合 メリット 動かすまでが楽 何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。
@@ -61,10 +61,10 @@ GithubWeb上で検索しやすくもなる。
     
     <item>
       <title>Goの依存関係管理ツールのdepのpruneがdeprecatedになった</title>
-      <link>blog.takecy.dev/posts/golang-dep-prune-deprecated/</link>
+      <link>/posts/golang-dep-prune-deprecated/</link>
       <pubDate>Sat, 03 Feb 2018 01:36:11 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-dep-prune-deprecated/</guid>
+      <guid>/posts/golang-dep-prune-deprecated/</guid>
       <description>Goの依存関係管理にはdepがデファクトだし、使っているのだが、 最近 prune コマンドがdeprecatedされた。
 depのprune $ dep prune -v このコマンドは、ensure で山盛り追加されるvendorから、使用していないpackageを除外してくれて、レポジトリが軽くなるので気に入ってよく使っていた。 Makefileにもだいたい以下のように書いていた。
 update: dep ensure -update -v &amp;amp;&amp;amp; dep prune -v 実行時に警告が 多分0.4からこういう警告が出るようになった。
@@ -73,10 +73,10 @@ Pruning is now performed automatically by dep ensure. Set prune settings in Gopk
     
     <item>
       <title>Timezoneが取れるalpineのDockerイメージを作る</title>
-      <link>blog.takecy.dev/posts/golang-docker-alpine-timezone/</link>
+      <link>/posts/golang-docker-alpine-timezone/</link>
       <pubDate>Sat, 03 Feb 2018 01:07:23 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-docker-alpine-timezone/</guid>
+      <guid>/posts/golang-docker-alpine-timezone/</guid>
       <description>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。
 コード全体はこちら。
 https://github.com/takecy/tz-sample
@@ -89,10 +89,10 @@ FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDI
     
     <item>
       <title>UbuntuにGoをインストールしたDokcerイメージを作る</title>
-      <link>blog.takecy.dev/posts/golang-docker-ubuntu-install/</link>
+      <link>/posts/golang-docker-ubuntu-install/</link>
       <pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-docker-ubuntu-install/</guid>
+      <guid>/posts/golang-docker-ubuntu-install/</guid>
       <description>Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
 UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH 一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
@@ -105,10 +105,10 @@ RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN ta
     
     <item>
       <title>Goとマイクロサービス</title>
-      <link>blog.takecy.dev/posts/golang-microservice/</link>
+      <link>/posts/golang-microservice/</link>
       <pubDate>Sun, 04 Oct 2015 22:29:08 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-microservice/</guid>
+      <guid>/posts/golang-microservice/</guid>
       <description>マイクロサービスの定義としては
 「あるサービスが、独立した小さなサービスの集合で構成される」
 というのが一般的？で、俺もそう思っている。
@@ -126,10 +126,10 @@ Goはこのマイクロサービス的なサービス開発に適している気
     
     <item>
       <title>Goのいいとこ悪いとこを1個づつあげる</title>
-      <link>blog.takecy.dev/posts/golang-good-bad/</link>
+      <link>/posts/golang-good-bad/</link>
       <pubDate>Wed, 16 Sep 2015 22:54:02 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-good-bad/</guid>
+      <guid>/posts/golang-good-bad/</guid>
       <description>Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。
 いいところ デプロイが簡単 もはやこれだけで、Goを使う価値があるといっていいほど。
 go build からの、生成されたバイナリをサーバへ送って実行。
@@ -156,10 +156,10 @@ Goは静的型付け言語に分類されるが、抽象化しづらいので結
     
     <item>
       <title>Go言語でループ</title>
-      <link>blog.takecy.dev/posts/golang-loop/</link>
+      <link>/posts/golang-loop/</link>
       <pubDate>Sun, 30 Aug 2015 19:51:31 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-loop/</guid>
+      <guid>/posts/golang-loop/</guid>
       <description>今でもたまにやらかすのでメモっておく。
 ①
 users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for i := range users { fmt.Println(users[i]) // i is index } ②
@@ -169,10 +169,10 @@ users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;
     
     <item>
       <title>Go言語の依存パッケージ管理の闇</title>
-      <link>blog.takecy.dev/posts/golang-package-godep/</link>
+      <link>/posts/golang-package-godep/</link>
       <pubDate>Sun, 16 Aug 2015 23:17:30 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-package-godep/</guid>
+      <guid>/posts/golang-package-godep/</guid>
       <description>複数人で開発している場合、各メンバーのローカル環境が揃っていることは重要なこと。
 OSや言語のランタイムのバージョンはもちろんだけど、 依存しているパッケージのバージョンを同じにしておくことは重要。
 俺はテスト通ってるけどTravisさんでは通らないとかマジいらっとするし、 バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。
@@ -204,10 +204,10 @@ Godep.json に更新があった場合、他のメンバーは、</description>
     
     <item>
       <title>これからGoやる人のためのGOPATH</title>
-      <link>blog.takecy.dev/posts/golang-env-gopath/</link>
+      <link>/posts/golang-env-gopath/</link>
       <pubDate>Wed, 05 Aug 2015 00:52:24 +0900</pubDate>
       
-      <guid>blog.takecy.dev/posts/golang-env-gopath/</guid>
+      <guid>/posts/golang-env-gopath/</guid>
       <description>Goはじめて3ヶ月。
 Goいいな、Goクソだなと日々葛藤。
 Goをこれからはじめようという人が迷いそうな(俺が迷った)GOPATH について。

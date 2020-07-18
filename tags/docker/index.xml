@@ -1,42 +1,59 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docker on blog &lt;- takecy</title>
-    <link>https://takecy.github.io/tags/docker/</link>
-    <description>Recent content in Docker on blog &lt;- takecy</description>
+    <title>docker on blog &lt;- takecy</title>
+    <link>localhost/tags/docker/</link>
+    <description>Recent content in docker on blog &lt;- takecy</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/takecy&#34;&gt;takecy&lt;/a&gt; 2018</copyright>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://github.com/takecy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;takecy&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 03 Feb 2018 01:36:11 +0900</lastBuildDate>
     
-	<atom:link href="https://takecy.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="localhost/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Goの依存関係管理ツールのdepのpruneがdeprecatedになった</title>
-      <link>https://takecy.github.io/posts/golang-dep-prune-deprecated/</link>
+      <link>localhost/posts/golang-dep-prune-deprecated/</link>
       <pubDate>Sat, 03 Feb 2018 01:36:11 +0900</pubDate>
       
-      <guid>https://takecy.github.io/posts/golang-dep-prune-deprecated/</guid>
-      <description>Goの依存関係管理にはdepがデファクトだし、使っているのだが、 最近 prune コマンドがdeprecatedされた。 depのprune $ dep prune -v このコ</description>
+      <guid>localhost/posts/golang-dep-prune-deprecated/</guid>
+      <description>Goの依存関係管理にはdepがデファクトだし、使っているのだが、 最近 prune コマンドがdeprecatedされた。
+depのprune $ dep prune -v このコマンドは、ensure で山盛り追加されるvendorから、使用していないpackageを除外してくれて、レポジトリが軽くなるので気に入ってよく使っていた。 Makefileにもだいたい以下のように書いていた。
+update: dep ensure -update -v &amp;amp;&amp;amp; dep prune -v 実行時に警告が 多分0.4からこういう警告が出るようになった。
+Pruning is now performed automatically by dep ensure. Set prune settings in Gopkg.toml and it it will be applied when running ensure. This command currently still prunes as it always has, to ease the transition. However, it will be removed in a future version of dep. Now is the time to update your Gopkg.</description>
     </item>
     
     <item>
       <title>Timezoneが取れるalpineのDockerイメージを作る</title>
-      <link>https://takecy.github.io/posts/golang-docker-alpine-timezone/</link>
+      <link>localhost/posts/golang-docker-alpine-timezone/</link>
       <pubDate>Sat, 03 Feb 2018 01:07:23 +0900</pubDate>
       
-      <guid>https://takecy.github.io/posts/golang-docker-alpine-timezone/</guid>
-      <description>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpa</description>
+      <guid>localhost/posts/golang-docker-alpine-timezone/</guid>
+      <description>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。
+コード全体はこちら。
+https://github.com/takecy/tz-sample
+Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
+jst, err := time.LoadLocation(&amp;quot;Asia/Tokyo&amp;quot;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
+panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 +0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
+RUN apk --no-cache add tzdata 全体の例
+FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz .</description>
     </item>
     
     <item>
       <title>UbuntuにGoをインストールしたDokcerイメージを作る</title>
-      <link>https://takecy.github.io/posts/golang-docker-ubuntu-install/</link>
+      <link>localhost/posts/golang-docker-ubuntu-install/</link>
       <pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate>
       
-      <guid>https://takecy.github.io/posts/golang-docker-ubuntu-install/</guid>
-      <description>Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。 UbuntuにGo入れたイメージを作るDok</description>
+      <guid>localhost/posts/golang-docker-ubuntu-install/</guid>
+      <description>Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
+UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
+RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH 一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
+最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。 かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。
+自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
+今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。
+システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。
+なんて面白い時代だ。</description>
     </item>
     
   </channel>

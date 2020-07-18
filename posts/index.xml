@@ -1,115 +1,639 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on blog &lt;- takecy</title>
-    <link>https://takecy.github.io/posts/</link>
-    <description>Recent content in Posts on blog &lt;- takecy</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&amp;copy; &lt;a href=&#34;https://github.com/takecy&#34;&gt;takecy&lt;/a&gt; 2018</copyright>
-    <lastBuildDate>Sat, 15 Sep 2018 17:52:49 +0900</lastBuildDate>
-    
-	<atom:link href="https://takecy.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>GoでABテスト用のテスト対象ユーザーを抽出するライブラリを書いた</title>
-      <link>https://takecy.github.io/posts/grouping-id-for-ab-testing-in-golang/</link>
-      <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/grouping-id-for-ab-testing-in-golang/</guid>
-      <description>ABテストを実施するには、いくつかの要素があり、大きく下記がある。 事前準備として、 ABテストを定義 (名前、割合etc..) 全ユーザーをグルー</description>
-    </item>
-    
-    <item>
-      <title>1.10以降のGoのMultiPackageテスト</title>
-      <link>https://takecy.github.io/posts/golang-multi-package-test/</link>
-      <pubDate>Sat, 26 May 2018 10:26:50 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/golang-multi-package-test/</guid>
-      <description>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。 #!/bin/bash set -e echo &amp;quot;&amp;quot; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out</description>
-    </item>
-    
-    <item>
-      <title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title>
-      <link>https://takecy.github.io/posts/golang-vendoring-version/</link>
-      <pubDate>Sun, 04 Mar 2018 11:12:53 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/golang-vendoring-version/</guid>
-      <description>Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的に</description>
-    </item>
-    
-    <item>
-      <title>Goの依存関係管理ツールのdepのpruneがdeprecatedになった</title>
-      <link>https://takecy.github.io/posts/golang-dep-prune-deprecated/</link>
-      <pubDate>Sat, 03 Feb 2018 01:36:11 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/golang-dep-prune-deprecated/</guid>
-      <description>Goの依存関係管理にはdepがデファクトだし、使っているのだが、 最近 prune コマンドがdeprecatedされた。 depのprune $ dep prune -v このコ</description>
-    </item>
-    
-    <item>
-      <title>Timezoneが取れるalpineのDockerイメージを作る</title>
-      <link>https://takecy.github.io/posts/golang-docker-alpine-timezone/</link>
-      <pubDate>Sat, 03 Feb 2018 01:07:23 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/golang-docker-alpine-timezone/</guid>
-      <description>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpa</description>
-    </item>
-    
-    <item>
-      <title>UbuntuにGoをインストールしたDokcerイメージを作る</title>
-      <link>https://takecy.github.io/posts/golang-docker-ubuntu-install/</link>
-      <pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/golang-docker-ubuntu-install/</guid>
-      <description>Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。 UbuntuにGo入れたイメージを作るDok</description>
-    </item>
-    
-    <item>
-      <title>Goとマイクロサービス</title>
-      <link>https://takecy.github.io/posts/golang-microservice/</link>
-      <pubDate>Sun, 04 Oct 2015 22:29:08 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/golang-microservice/</guid>
-      <description>マイクロサービスの定義としては 「あるサービスが、独立した小さなサービスの集合で構成される」 というのが一般的？で、俺もそう思っている。 Goはこ</description>
-    </item>
-    
-    <item>
-      <title>Goのいいとこ悪いとこを1個づつあげる</title>
-      <link>https://takecy.github.io/posts/golang-good-bad/</link>
-      <pubDate>Wed, 16 Sep 2015 22:54:02 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/golang-good-bad/</guid>
-      <description>Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。 いいところ デプロイが簡単 もはやこれだけで、Goを使う価値があるといっていいほど。 go build</description>
-    </item>
-    
-    <item>
-      <title>Go言語でループ</title>
-      <link>https://takecy.github.io/posts/golang-loop/</link>
-      <pubDate>Sun, 30 Aug 2015 19:51:31 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/golang-loop/</guid>
-      <description>今でもたまにやらかすのでメモっておく。 ① users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for i := range users { fmt.Println(users[i]) // i is index } ② users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for i, user := range users { fmt.Println(user) // user is value copy } ③ users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for _, user := range users {</description>
-    </item>
-    
-    <item>
-      <title>Go言語の依存パッケージ管理の闇</title>
-      <link>https://takecy.github.io/posts/golang-package-godep/</link>
-      <pubDate>Sun, 16 Aug 2015 23:17:30 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/golang-package-godep/</guid>
-      <description>複数人で開発している場合、各メンバーのローカル環境が揃っていることは重要なこと。 OSや言語のランタイムのバージョンはもちろんだけど、 依存して</description>
-    </item>
-    
-    <item>
-      <title>これからGoやる人のためのGOPATH</title>
-      <link>https://takecy.github.io/posts/golang-env-gopath/</link>
-      <pubDate>Wed, 05 Aug 2015 00:52:24 +0900</pubDate>
-      
-      <guid>https://takecy.github.io/posts/golang-env-gopath/</guid>
-      <description>Goはじめて3ヶ月。 Goいいな、Goクソだなと日々葛藤。 Goをこれからはじめようという人が迷いそうな(俺が迷った)GOPATH について。 Go</description>
-    </item>
-    
-  </channel>
+    <channel>
+        <title>Posts on blog &lt;- takecy</title>
+        <link>localhost/posts/</link>
+        <description>Recent content in Posts on blog &lt;- takecy</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://github.com/takecy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;takecy&lt;/a&gt;</copyright>
+        <lastBuildDate>Sat, 15 Sep 2018 17:52:49 +0900</lastBuildDate>
+        <atom:link href="localhost/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>GoでABテスト用のテスト対象ユーザーを抽出するライブラリを書いた</title>
+            <link>localhost/posts/grouping-id-for-ab-testing-in-golang/</link>
+            <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
+            
+            <guid>localhost/posts/grouping-id-for-ab-testing-in-golang/</guid>
+            <description>takecy/grouping 事前準備として、
+ ABテストを定義 (名前、割合etc..) 全ユーザーをグルーピング  そしてリクエストごとに、
+ リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&amp;hellip;  このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
+ あるABテストに対応するグループを定義 (e.g. group-A, group-B) グループに適用する割合を定義 (e.g. 80:20) 上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す 所属しているグループを返す (e.g. group-A)  というすごくシンプルなもの。
+基本的な使用例はこんな感じ。
+package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/takecy/grouping&amp;quot; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e.ratio } func (e *SimpleElem) SetRatio(r int) { e.</description>
+            <content type="html"><![CDATA[<a href="https://github.com/takecy/grouping">takecy/grouping</a>
+<!-- raw HTML omitted -->
+<p>事前準備として、</p>
+<ol>
+<li>ABテストを定義 (名前、割合etc..)</li>
+<li>全ユーザーをグルーピング</li>
+</ol>
+<p>そしてリクエストごとに、</p>
+<ol>
+<li>リクエスト元ユーザーの所属グループの決定</li>
+<li>出し分け</li>
+<li>結果のロギング</li>
+<li>検証</li>
+<li>繰り返し&hellip;</li>
+</ol>
+<p>このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、</p>
+<ol>
+<li>あるABテストに対応するグループを定義 (e.g. group-A, group-B)</li>
+<li>グループに適用する割合を定義 (e.g. 80:20)</li>
+<li>上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す</li>
+<li>所属しているグループを返す (e.g. group-A)</li>
+</ol>
+<p>というすごくシンプルなもの。<br>
+<a href="https://github.com/takecy/grouping/blob/master/README.md#basic-usage">基本的な使用例</a>はこんな感じ。</p>
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+
+	&quot;github.com/takecy/grouping&quot;
+)
+
+// SimpleElem implements `grouping.Elementer`
+type SimpleElem struct {
+	name  string
+	ratio int
+}
+
+func (e *SimpleElem) GetName() string { return e.name }
+func (e *SimpleElem) GetRatio() int   { return e.ratio }
+func (e *SimpleElem) SetRatio(r int)  { e.ratio = r }
+
+func main() {
+	group := grouping.GroupDefinition{
+		// case: A+B+C=100
+		Elems: []grouping.Elementer{
+			&amp;SimpleElem{name: &quot;group-A&quot;, ratio: 10},
+			&amp;SimpleElem{name: &quot;group-B&quot;, ratio: 20},
+			&amp;SimpleElem{name: &quot;group-C&quot;, ratio: 70},
+		},
+	}
+
+	g, err := grouping.New(group)
+	if err != nil {
+		panic(err)
+	}
+
+	//
+	// The same result will be obtained no matter how many times it is executed.
+	//
+	testName := &quot;welcome_content_test&quot;
+
+	userID1 := &quot;user-001&quot;
+	elem1, err := g.GetGroup(userID1, testName)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf(&quot;elem1: %v\n&quot;, elem1.GetName()) // group-A
+
+	userID2 := &quot;user-002&quot;
+	elem2, err := g.GetGroup(userID2, testName)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Printf(&quot;elem2: %v\n&quot;, elem2.GetName()) // group-C
+}
+</code></pre><p>もちろん、同じIDであれば何度呼び出しても同じグループが返される。
+グループ判定に使用する<a href="https://github.com/takecy/grouping/blob/master/README.md#customize-hash-function">ハッシュ値を生成する関数を外から渡す</a>ことや、
+<a href="https://github.com/takecy/grouping/blob/master/README.md#default-specification">全体の20%に適用</a>という指定も可能。</p>
+<p>後は、ABテストを実施する箇所、例えばコンテンツのリストを作るところ、クライアント画面表示 など
+で、取得されたグループを参照し、分岐すればよい。</p>
+<p>ログを取得し、検証し、さらに別のABを・・と、まだまだ道程は長いが、とりあえず最初の一歩用に。</p>
+<a href="https://github.com/takecy/grouping">takecy/grouping</a>
+]]></content>
+        </item>
+        
+        <item>
+            <title>1.10以降のGoのMultiPackageテスト</title>
+            <link>localhost/posts/golang-multi-package-test/</link>
+            <pubDate>Sat, 26 May 2018 10:26:50 +0900</pubDate>
+            
+            <guid>localhost/posts/golang-multi-package-test/</guid>
+            <description>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。
+#!/bin/bash set -e echo &amp;quot;&amp;quot; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
+go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！</description>
+            <content type="html"><![CDATA[<p>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。</p>
+<pre><code>#!/bin/bash
+
+set -e
+echo &quot;&quot; &gt; coverage.txt
+
+go test -i ./...
+for d in $(go list ./...); do
+    go test -race -coverprofile=profile.out -covermode=atomic $d
+    if [ -f profile.out ]; then
+        cat profile.out &gt;&gt; coverage.txt
+        rm profile.out
+    fi
+done
+</code></pre><p>1.10以降はこれでいけるようになった。</p>
+<pre><code>go test -race -coverprofile=coverage.txt -covermode=atomic ./...
+</code></pre><p>楽チン！</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title>
+            <link>localhost/posts/golang-vendoring-version/</link>
+            <pubDate>Sun, 04 Mar 2018 11:12:53 +0900</pubDate>
+            
+            <guid>localhost/posts/golang-vendoring-version/</guid>
+            <description>Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
+管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。
+vendorをバージョン管理する場合 メリット 動かすまでが楽 何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。
+デリット リポ内のファイル数が爆増する cloneするのが遅い。。大きめのリポジトリになると結構待たされる。
+あと検索が弱くなる。vendor内も引っかかるのでGithubWeb上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。
+vendorをバージョン管理しない場合 メリット リポジトリが綺麗 この問題の先輩であるnpmはnode_modulesの中身を全部Githubにいれたりしない。
+Githubが提供する .gitignore にもnode_modulesが書いてある。(Goにvendorはいない)
+GithubWeb上で検索しやすくもなる。
+デメリット 動かすまでが大変 depがnpmほど洗練されていない、またGoの依存はGithubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。
+このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。Gopkg.lockにrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも dep ensure 自体が結構な割合で失敗する。
+まとめ 結局、一長一短で、メリット・デメリットが反対になっている。
+個人的には 動かすまでが楽 これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 リポジトリをCloneしたらすぐrunできる というのは素晴らしいと思っている。
+また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。
+ので、個人的な結論としては。 vendorもバージョン管理する(Githubに全部突っ込む) にしたい。</description>
+            <content type="html"><![CDATA[<p>Goプロジェクトの依存パッケージは、 <a href="https://github.com/golang/dep">dep</a> などのツールにより  <code>vendor</code> ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。</p>
+<p>管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。</p>
+<h2 id="vendorをバージョン管理する場合">vendorをバージョン管理する場合</h2>
+<h3 id="メリット">メリット</h3>
+<h4 id="動かすまでが楽">動かすまでが楽</h4>
+<p>何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。</p>
+<h3 id="デリット">デリット</h3>
+<h4 id="リポ内のファイル数が爆増する">リポ内のファイル数が爆増する</h4>
+<p>cloneするのが遅い。。大きめのリポジトリになると結構待たされる。<br>
+あと検索が弱くなる。vendor内も引っかかるのでGithubWeb上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。</p>
+<!-- raw HTML omitted -->
+<h2 id="vendorをバージョン管理しない場合">vendorをバージョン管理しない場合</h2>
+<h3 id="メリット-1">メリット</h3>
+<h4 id="リポジトリが綺麗">リポジトリが綺麗</h4>
+<p>この問題の先輩である<code>npm</code>は<code>node_modules</code>の中身を全部Githubにいれたりしない。<br>
+Githubが提供する <a href="https://github.com/github/gitignore/blob/master/Node.gitignore#L36">.gitignore</a> にも<code>node_modules</code>が書いてある。(<a href="https://github.com/github/gitignore/blob/master/Go.gitignore">Go</a>に<code>vendor</code>はいない)<br>
+GithubWeb上で検索しやすくもなる。</p>
+<h3 id="デメリット">デメリット</h3>
+<h4 id="動かすまでが大変">動かすまでが大変</h4>
+<p><code>dep</code>が<code>npm</code>ほど洗練されていない、またGoの依存はGithubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。<br>
+このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。<code>Gopkg.lock</code>にrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも <code>dep ensure</code> 自体が結構な割合で失敗する。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>結局、一長一短で、メリット・デメリットが反対になっている。<br>
+個人的には <code>動かすまでが楽</code> これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 <code>リポジトリをCloneしたらすぐrunできる</code> というのは素晴らしいと思っている。<br>
+また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。</p>
+<p>ので、個人的な結論としては。 <code>vendorもバージョン管理する(Githubに全部突っ込む)</code> にしたい。</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Goの依存関係管理ツールのdepのpruneがdeprecatedになった</title>
+            <link>localhost/posts/golang-dep-prune-deprecated/</link>
+            <pubDate>Sat, 03 Feb 2018 01:36:11 +0900</pubDate>
+            
+            <guid>localhost/posts/golang-dep-prune-deprecated/</guid>
+            <description>Goの依存関係管理にはdepがデファクトだし、使っているのだが、 最近 prune コマンドがdeprecatedされた。
+depのprune $ dep prune -v このコマンドは、ensure で山盛り追加されるvendorから、使用していないpackageを除外してくれて、レポジトリが軽くなるので気に入ってよく使っていた。 Makefileにもだいたい以下のように書いていた。
+update: dep ensure -update -v &amp;amp;&amp;amp; dep prune -v 実行時に警告が 多分0.4からこういう警告が出るようになった。
+Pruning is now performed automatically by dep ensure. Set prune settings in Gopkg.toml and it it will be applied when running ensure. This command currently still prunes as it always has, to ease the transition. However, it will be removed in a future version of dep. Now is the time to update your Gopkg.</description>
+            <content type="html"><![CDATA[<p>Goの依存関係管理には<a href="https://github.com/golang/dep">dep</a>がデファクトだし、使っているのだが、
+最近 <code>prune</code> コマンドがdeprecatedされた。</p>
+<h3 id="depのprune">depのprune</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ dep prune -v
+</code></pre></div><p>このコマンドは、<code>ensure</code> で山盛り追加されるvendorから、使用していないpackageを除外してくれて、レポジトリが軽くなるので気に入ってよく使っていた。
+Makefileにもだいたい以下のように書いていた。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">update</span><span style="color:#f92672">:</span>
+    dep ensure -update -v <span style="color:#f92672">&amp;&amp;</span> dep prune -v
+</code></pre></div><h3 id="実行時に警告が">実行時に警告が</h3>
+<p>多分0.4からこういう警告が出るようになった。</p>
+<pre><code>Pruning is now performed automatically by dep ensure.
+Set prune settings in Gopkg.toml and it it will be applied when running ensure.
+
+This command currently still prunes as it always has, to ease the transition.
+However, it will be removed in a future version of dep.
+
+Now is the time to update your Gopkg.toml and remove `dep prune` from any scripts.
+</code></pre><p>意訳</p>
+<pre><code>dep ensureで自動でできるようになったよ。
+そのためにはtomlに設定を追加してね。
+
+このコマンドは将来消すよ。
+君のスクリプトから dep prune を今すぐ消すんだ！
+</code></pre><h3 id="対応">対応</h3>
+<ol>
+<li>dep pruneを消す</li>
+<li>Gopkg.toml の先頭に以下を追加する。</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">prune</span>]
+  <span style="color:#a6e22e">non</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">go</span> = <span style="color:#66d9ef">true</span>
+  <span style="color:#a6e22e">unused</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">packages</span>=<span style="color:#66d9ef">true</span>
+  <span style="color:#a6e22e">go</span><span style="color:#960050;background-color:#1e0010">-</span><span style="color:#a6e22e">tests</span>=<span style="color:#66d9ef">true</span>
+</code></pre></div><p>これでensure時に自動prune！</p>
+<p><a href="https://golang.github.io/dep/docs/Gopkg.toml.html#prune">dep document</a></p>
+<p>ちなみに、このdepのドキュメントは多分、Facebookの<a href="https://docusaurus.io/">docusaurus</a>製。</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Timezoneが取れるalpineのDockerイメージを作る</title>
+            <link>localhost/posts/golang-docker-alpine-timezone/</link>
+            <pubDate>Sat, 03 Feb 2018 01:07:23 +0900</pubDate>
+            
+            <guid>localhost/posts/golang-docker-alpine-timezone/</guid>
+            <description>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。
+コード全体はこちら。
+https://github.com/takecy/tz-sample
+Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
+jst, err := time.LoadLocation(&amp;quot;Asia/Tokyo&amp;quot;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
+panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 +0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
+RUN apk --no-cache add tzdata 全体の例
+FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz .</description>
+            <content type="html"><![CDATA[<p>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、
+<a href="https://docs.docker.com/develop/develop-images/multistage-build/">multi stage build</a>にそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。</p>
+<p>コード全体はこちら。<br>
+<a href="https://github.com/takecy/tz-sample">https://github.com/takecy/tz-sample</a></p>
+<h3 id="panic-になるコード">Panic になるコード</h3>
+<p>普通にmulti stage buildでalpineにビルド済イメージを <code>COPY</code> して実行すると、下記コードはpanicする。</p>
+<pre><code>jst, err := time.LoadLocation(&quot;Asia/Tokyo&quot;)
+if err != nil {
+    panic(err)
+}
+</code></pre><p>alpineは <code>/etc/localtime</code> がないため。</p>
+<pre><code>panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory
+
+goroutine 1 [running]:
+main.main()
+        /go/src/github.com/takecy/tz/main.go:11 +0x22b
+make: *** [run_alpine] Error 2
+</code></pre><h3 id="対応">対応</h3>
+<p>対応は難しいことはなく、単に <code>tzdata</code> を入れればよい。</p>
+<pre><code>RUN apk --no-cache add tzdata
+</code></pre><p>全体の例</p>
+<pre><code>FROM golang:1.9.3-alpine AS build
+
+COPY . $GOPATH/src/github.com/takecy/tz
+WORKDIR $GOPATH/src/github.com/takecy/tz
+
+RUN go build -o tz .\
+ &amp;&amp; mv tz /usr/local/bin/
+
+
+FROM alpine:3.6
+
+RUN apk --no-cache add tzdata
+
+COPY --from=build /usr/local/bin/tz /usr/local/bin/
+
+CMD [&quot;tz&quot;]
+</code></pre>]]></content>
+        </item>
+        
+        <item>
+            <title>UbuntuにGoをインストールしたDokcerイメージを作る</title>
+            <link>localhost/posts/golang-docker-ubuntu-install/</link>
+            <pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate>
+            
+            <guid>localhost/posts/golang-docker-ubuntu-install/</guid>
+            <description>Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
+UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
+RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH 一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
+最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。 かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。
+自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
+今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。
+システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。
+なんて面白い時代だ。</description>
+            <content type="html"><![CDATA[<p>Dokcernizeってますか？
+最近やっとちょっとだけDockerさんに話しかけたりしています。</p>
+<p>UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。</p>
+<pre><code>RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz
+RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz
+ENV PATH=$PATH:/usr/local/go/bin
+ENV GOPATH=$HOME/go
+ENV PATH=$GOPATH/bin:$PATH
+</code></pre><!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。
+クラウド()になって、
+sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。</p>
+<p>最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。
+かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。</p>
+<p>自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、
+こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。</p>
+<p>今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、
+近づいていくんだろうか。<br>
+システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。<br>
+なんて面白い時代だ。</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Goとマイクロサービス</title>
+            <link>localhost/posts/golang-microservice/</link>
+            <pubDate>Sun, 04 Oct 2015 22:29:08 +0900</pubDate>
+            
+            <guid>localhost/posts/golang-microservice/</guid>
+            <description>マイクロサービスの定義としては
+「あるサービスが、独立した小さなサービスの集合で構成される」
+というのが一般的？で、俺もそう思っている。
+Goはこのマイクロサービス的なサービス開発に適している気がする。
+ワンバイナリ=サービスの単位 Goの最大のメリットと考えているのは、
+ビルドしたら実行可能なバイナリが1個吐き出されて、ミドルウェア等の設定が不要。
+というのは、過去にも書いた。
+この実行可能なバイナリをマイクロサービスでいうところの「小さなサービス」とすると、とてもしっくり来る感じ。
+バイナリ=Goパッケージ=サーバインスタンスの単位  API Batch A Batch B Proxy(image)  で構成されるサービスがあったとして、全部Goで書いたとする。
+それぞれがGoプロジェクトの1パッケージに対応し、そのパッケージ毎にバイナリを生成し、 バイナリごとにサーバインスタンスを割り当てる感じになる。
+まさにマイクロサービス。
+まとめ GoはProxyサーバみたいな特定の用途に特化した(アドホックな)処理を、 1個のバイナリとしてまとめられるので、Goで全部やってると勝手にマイクロサービスっぽくなるよね
+というお話。</description>
+            <content type="html"><![CDATA[<p>マイクロサービスの定義としては<br>
+「あるサービスが、独立した小さなサービスの集合で構成される」<br>
+というのが一般的？で、俺もそう思っている。</p>
+<p>Goはこのマイクロサービス的なサービス開発に適している気がする。</p>
+<h3 id="ワンバイナリサービスの単位">ワンバイナリ=サービスの単位</h3>
+<p>Goの最大のメリットと考えているのは、<br>
+ビルドしたら実行可能なバイナリが1個吐き出されて、ミドルウェア等の設定が不要。<br>
+というのは、<a href="/posts/golang-good-bad/">過去</a>にも書いた。</p>
+<p>この実行可能なバイナリをマイクロサービスでいうところの「小さなサービス」とすると、とてもしっくり来る感じ。</p>
+<h3 id="バイナリgoパッケージサーバインスタンスの単位">バイナリ=Goパッケージ=サーバインスタンスの単位</h3>
+<ol>
+<li>API</li>
+<li>Batch A</li>
+<li>Batch B</li>
+<li>Proxy(image)</li>
+</ol>
+<p>で構成されるサービスがあったとして、全部Goで書いたとする。<br>
+それぞれがGoプロジェクトの1パッケージに対応し、そのパッケージ毎にバイナリを生成し、
+バイナリごとにサーバインスタンスを割り当てる感じになる。</p>
+<p>まさにマイクロサービス。</p>
+<h3 id="まとめ">まとめ</h3>
+<p>GoはProxyサーバみたいな特定の用途に特化した(アドホックな)処理を、
+1個のバイナリとしてまとめられるので、Goで全部やってると勝手にマイクロサービスっぽくなるよね<br>
+というお話。</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Goのいいとこ悪いとこを1個づつあげる</title>
+            <link>localhost/posts/golang-good-bad/</link>
+            <pubDate>Wed, 16 Sep 2015 22:54:02 +0900</pubDate>
+            
+            <guid>localhost/posts/golang-good-bad/</guid>
+            <description>Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。
+いいところ デプロイが簡単 もはやこれだけで、Goを使う価値があるといっていいほど。
+go build からの、生成されたバイナリをサーバへ送って実行。
+以上終わり。
+これはすごい。。サーバ側は一切の設定、ミドルのインストールがいらない。
+nodeやJVMなどの実行環境が不要。すごい。
+よく言われる、Goのメリットだけど、本当にすごい。
+ビルドしたら実行可能な単一のバイナリが吐きだされる。
+プラットフォームごとにビルドするのも簡単。
+この点の別のメリットとして、Go自体ののバージョンアップが簡単というのがある。
+言語のバージョンが上がっても、ビルド後のバイナリとして正しく動いていれば、サーバ側はなんの変更もいらない。 バイナリを差し替えるだけ。
+nodeやJVMだと、バージョンアップは大仕事だけど、Go簡単すぎ。すごい。
+悪いところ 型が中途半端 これもよく言われているけど、型システム微妙。
+これの最大の弊害は抽象化のしづらさにある。
+色んなライブラリを見たつもりだけど、結構出てくるのが
+interface{} map[string]interface{}
+が引数、戻り値。
+型意味ねえ。
+Goは静的型付け言語に分類されるが、抽象化しづらいので結局「何でも入る型」(Javaで言うならObject型)を使っちゃって、コンパイラの恩恵が少ない。
+ジェネリクスに関する議論 は色々なされているようだけど、どうなるか。
+まとめ 悪いところもあるけれど、「デプロイが簡単」「バージョンアップが簡単」のメリットを捨てるほどではない。
+という結論に今のところなっている感じ。</description>
+            <content type="html"><![CDATA[<p>Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。</p>
+<h2 id="いいところ">いいところ</h2>
+<h3 id="デプロイが簡単">デプロイが簡単</h3>
+<p>もはやこれだけで、Goを使う価値があるといっていいほど。<br>
+<code>go build</code> からの、生成されたバイナリをサーバへ送って実行。<br>
+以上終わり。</p>
+<p>これはすごい。。サーバ側は一切の設定、ミドルのインストールがいらない。<br>
+nodeやJVMなどの実行環境が不要。すごい。</p>
+<p>よく言われる、Goのメリットだけど、本当にすごい。<br>
+ビルドしたら実行可能な単一のバイナリが吐きだされる。<br>
+<a href="https://github.com/mitchellh/gox">プラットフォームごとにビルド</a>するのも簡単。</p>
+<p>この点の別のメリットとして、Go自体ののバージョンアップが簡単というのがある。<br>
+言語のバージョンが上がっても、ビルド後のバイナリとして正しく動いていれば、サーバ側はなんの変更もいらない。
+バイナリを差し替えるだけ。<br>
+nodeやJVMだと、バージョンアップは大仕事だけど、Go簡単すぎ。すごい。</p>
+<h2 id="悪いところ">悪いところ</h2>
+<h3 id="型が中途半端">型が中途半端</h3>
+<p>これもよく言われているけど、型システム微妙。<br>
+これの最大の弊害は抽象化のしづらさにある。<br>
+色んなライブラリを見たつもりだけど、結構出てくるのが<br>
+<code>interface{}</code> <code>map[string]interface{}</code><br>
+が引数、戻り値。<br>
+<strong>型意味ねえ。</strong><br>
+Goは静的型付け言語に分類されるが、抽象化しづらいので結局「何でも入る型」(Javaで言うならObject型)を使っちゃって、コンパイラの恩恵が少ない。<br>
+<a href="https://github.com/golang/go/issues/21132">ジェネリクスに関する議論</a> は色々なされているようだけど、どうなるか。</p>
+<h2 id="まとめ">まとめ</h2>
+<p>悪いところもあるけれど、「デプロイが簡単」「バージョンアップが簡単」のメリットを捨てるほどではない。<br>
+という結論に今のところなっている感じ。</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Go言語でループ</title>
+            <link>localhost/posts/golang-loop/</link>
+            <pubDate>Sun, 30 Aug 2015 19:51:31 +0900</pubDate>
+            
+            <guid>localhost/posts/golang-loop/</guid>
+            <description>今でもたまにやらかすのでメモっておく。
+①
+users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for i := range users { fmt.Println(users[i]) // i is index } ②
+users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for i, user := range users { fmt.Println(user) // user is value copy } ③
+users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for _, user := range users { fmt.Println(user) // user is value copy } ①が一番早い。 でも②③の方が読みやすい。</description>
+            <content type="html"><![CDATA[<p>今でもたまにやらかすのでメモっておく。</p>
+<p>①</p>
+<pre><code>users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;}
+for i := range users {
+  fmt.Println(users[i]) // i is index
+}
+</code></pre><p>②</p>
+<pre><code>users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;}
+for i, user := range users {
+  fmt.Println(user) // user is value copy
+}
+</code></pre><p>③</p>
+<pre><code>users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;}
+for _, user := range users {
+  fmt.Println(user) // user is value copy
+}
+</code></pre><p>①が一番早い。
+でも②③の方が読みやすい。</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>Go言語の依存パッケージ管理の闇</title>
+            <link>localhost/posts/golang-package-godep/</link>
+            <pubDate>Sun, 16 Aug 2015 23:17:30 +0900</pubDate>
+            
+            <guid>localhost/posts/golang-package-godep/</guid>
+            <description>複数人で開発している場合、各メンバーのローカル環境が揃っていることは重要なこと。
+OSや言語のランタイムのバージョンはもちろんだけど、 依存しているパッケージのバージョンを同じにしておくことは重要。
+俺はテスト通ってるけどTravisさんでは通らないとかマジいらっとするし、 バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。
+例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、 Goではどうやるんだっていう話。
+Goで依存パッケージを取得する go get github.com/google/go-github/github 以上。
+簡単。これは捗る！
+と思いきや、実際の開発ではいろいろ問題が発生する。
+バージョンいくつなんだよ問題 Goは、パッケージ取得の仕組み(go get hoge/hoge のこと)は言語レベルで存在するが、 パッケージの列挙とバージョンを管理する仕組みは存在しない。
+「このプロジェクトで使われているパッケージはA(ver0.9)とB(ver1.2)である。」
+というのを表現する方法は無い。
+よって各メンバーが、README等をみながら、
+go get A go get B go get C ... をぽちぽちやらなくてはいけない。
+また、go get したタイミングによっては依存しているパッケージの別のバージョンが入ってしまう。
+なんてったって、go get にはバージョンを指定しないのだから、何が落ちてきてるのかわからん。
+Goの思想としては常に最新バージョン使おうぜ、ということらしいが、 そのことと、メンバー間の環境の同期はまた別の話だよね。
+別のプロジェクトでも使ってる問題 Goのプロジェクトとして、AとBがあって、両方でパッケージKを使ってるとする。
+「AではK:ver1.1.2を使って、BではK:ver1.1.3を使う」 ということはできない。
+GOPATHをそれぞれで設定しておいて、いじるときにいちいち切り替えれば出来るんだろうけど、 基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンのKを参照せざるを得なくなる。
+これは辛い。。
+Godep そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、Godep。
+安心のGithub製。
+そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を
+godep save ./... で記録(その時点のスナップショット的な感じ)できる。
+新しく Godeps と Gedeps/_workspace というディレクトリと、Godep.json というJSONファイルが生成される。
+このJSONが、mavenでいうpom.xml、npmでいうpackage.json にあたるもので、基本手動でいじらない。
+このGodep.json はGitのバージョン管理対象にするが、_workspace ディレクトリは.gitignoreに追記しておく。
+Godep.json に更新があった場合、他のメンバーは、</description>
+            <content type="html"><![CDATA[<p>複数人で開発している場合、各メンバーのローカル環境が揃っていることは重要なこと。<br>
+OSや言語のランタイムのバージョンはもちろんだけど、
+依存しているパッケージのバージョンを同じにしておくことは重要。<br>
+俺はテスト通ってるけどTravisさんでは通らないとかマジいらっとするし、
+バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。</p>
+<p>例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、
+Goではどうやるんだっていう話。</p>
+<h3 id="goで依存パッケージを取得する">Goで依存パッケージを取得する</h3>
+<pre><code>go get github.com/google/go-github/github
+</code></pre><p>以上。<br>
+簡単。これは捗る！<br>
+と思いきや、実際の開発ではいろいろ問題が発生する。</p>
+<h3 id="バージョンいくつなんだよ問題">バージョンいくつなんだよ問題</h3>
+<p>Goは、パッケージ取得の仕組み(<code>go get hoge/hoge</code> のこと)は言語レベルで存在するが、
+パッケージの列挙とバージョンを管理する仕組みは存在しない。<br>
+「このプロジェクトで使われているパッケージはA(ver0.9)とB(ver1.2)である。」<br>
+というのを表現する方法は<strong>無い</strong>。<br>
+よって各メンバーが、README等をみながら、</p>
+<pre><code>go get A
+go get B
+go get C
+...
+</code></pre><p>をぽちぽちやらなくてはいけない。<br>
+また、go get したタイミングによっては依存しているパッケージの別のバージョンが入ってしまう。<br>
+なんてったって、go get にはバージョンを<strong>指定しない</strong>のだから、何が落ちてきてるのかわからん。<br>
+Goの思想としては常に最新バージョン使おうぜ、ということらしいが、
+そのことと、メンバー間の環境の同期はまた別の話だよね。</p>
+<h3 id="別のプロジェクトでも使ってる問題">別のプロジェクトでも使ってる問題</h3>
+<p>Goのプロジェクトとして、AとBがあって、両方でパッケージKを使ってるとする。<br>
+「AではK:ver1.1.2を使って、BではK:ver1.1.3を使う」
+ということは<strong>できない</strong>。<br>
+GOPATHをそれぞれで設定しておいて、いじるときにいちいち切り替えれば出来るんだろうけど、
+基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンのKを参照せざるを得なくなる。<br>
+これは辛い。。</p>
+<h3 id="godep">Godep</h3>
+<p>そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、<a href="https://github.com/tools/godep">Godep</a>。<br>
+安心のGithub製。<br>
+そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を</p>
+<pre><code>godep save ./...
+</code></pre><p>で記録(その時点のスナップショット的な感じ)できる。<br>
+新しく <code>Godeps</code> と <code>Gedeps/_workspace</code> というディレクトリと、<code>Godep.json</code> というJSONファイルが生成される。<br>
+このJSONが、mavenでいうpom.xml、npmでいうpackage.json にあたるもので、基本手動でいじらない。<br>
+この<code>Godep.json</code> はGitのバージョン管理対象にするが、<code>_workspace</code> ディレクトリは.gitignoreに追記しておく。</p>
+<p>Godep.json に更新があった場合、他のメンバーは、</p>
+<pre><code>godep restore
+</code></pre><p>で同じパッケージの同じバージョンを GOPATH配下に配置できる。<br>
+これは捗る！</p>
+<p>ここで言う、他のメンバーとは、Travis等のCIツールも含まれる。<br>
+ちなみに、Godepは<a href="http://docs.travis-ci.com/user/languages/go/">Travisが対応している</a>ので、Goをビルドする時にちょっと楽。</p>
+<h3 id="まとめ">まとめ</h3>
+<p>Java = maven + pom.xml<br>
+Node = npm + package.json<br>
+Golang = Godep + Godep.json<br>
+で今のところいいのでは。</p>
+<p>Goには、依存パッケージを取得する仕組みはあるが、依存の列挙、バージョンを管理する仕組みはない。<br>
+なので、別途Godepなどのツールで管理しとかないとチーム開発やCIは辛いかも。</p>
+]]></content>
+        </item>
+        
+        <item>
+            <title>これからGoやる人のためのGOPATH</title>
+            <link>localhost/posts/golang-env-gopath/</link>
+            <pubDate>Wed, 05 Aug 2015 00:52:24 +0900</pubDate>
+            
+            <guid>localhost/posts/golang-env-gopath/</guid>
+            <description>Goはじめて3ヶ月。
+Goいいな、Goクソだなと日々葛藤。
+Goをこれからはじめようという人が迷いそうな(俺が迷った)GOPATH について。
+Goのインストール インストール自体はbrewで速攻終わる。
+$ brew install go 問題はこの後の$GOPATHの設定。
+GOPATHって何 http://golang-jp.org/doc/code.html#GOPATH
+ GOPATH環境変数はワークスペースの場所を示してします。
+ そのままなのだが、つまり、
+ Goを書くのは全部このパス下でやってね Go書く上で依存してるライブラリのソースも全部このパスに入るよ  ということで、例にあるようにそのまま、
+$ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin としているが、特に困っていない。
+Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
+まず、Goを書く時は、Githubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。
+import &amp;quot;fmt&amp;quot; // 標準パッケージ import &amp;quot;github.com/takecy/hoge&amp;quot; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+$ go get github.com/takecy/hoge ここで、GOPATH が登場する。
+このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
+になる。
+自分のGoのプロジェクトもこれと同じように、 $GOPATH/src/github.com/{account_name}/{repository_name}
+ディレクトリを作って、そこにGoソースを作成してスタートする。
+Githubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。
+まとめ Goやり始めた当初は、元々$HOME/git下に全部Github関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。
+同じGithubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。
+が、GithubのURLをimportに書けるというのはすごくいい。
+例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。
+Let&amp;rsquo;s write Go。
+どうでもいいけど、Goのライブラリ名はダジャレがちらほら。
+例えばRedisのドライバは redigo 。</description>
+            <content type="html"><![CDATA[<p>Goはじめて3ヶ月。<br>
+Goいいな、Goクソだなと日々葛藤。</p>
+<p>Goをこれからはじめようという人が迷いそうな(俺が迷った)<code>GOPATH</code> について。</p>
+<h3 id="goのインストール">Goのインストール</h3>
+<p>インストール自体はbrewで速攻終わる。</p>
+<pre><code>$ brew install go
+</code></pre><p>問題はこの後の<code>$GOPATH</code>の設定。</p>
+<h3 id="gopathって何">GOPATHって何</h3>
+<p><a href="http://golang-jp.org/doc/code.html#GOPATH">http://golang-jp.org/doc/code.html#GOPATH</a></p>
+<blockquote>
+<p>GOPATH環境変数はワークスペースの場所を示してします。</p>
+</blockquote>
+<p>そのままなのだが、つまり、</p>
+<ol>
+<li>Goを書くのは全部このパス下でやってね</li>
+<li>Go書く上で依存してるライブラリのソースも全部このパスに入るよ</li>
+</ol>
+<p>ということで、例にあるようにそのまま、</p>
+<pre><code>$ export GOPATH=$HOME/go
+$ export PATH=$PATH:$GOPATH/bin
+</code></pre><p>としているが、特に困っていない。</p>
+<h3 id="goを書く">Goを書く</h3>
+<p>じゃGo書くぜってことになるが、<strong>GOPATH直下に書くわけではない</strong> というのがめんどくさいところ。</p>
+<p>まず、Goを書く時は、<strong>Githubに公開する前提</strong> と考えておいたほうがよい。
+というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。</p>
+<pre><code>import &quot;fmt&quot; // 標準パッケージ
+import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ
+</code></pre><p><code>github.com/{account_name}/{repository_name}</code> でimportできるステキ仕様。
+そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。</p>
+<pre><code>$ go get github.com/takecy/hoge
+</code></pre><p>ここで、<code>GOPATH</code> が登場する。<br>
+このライブラリがダウンロードされ、配置されるパスは
+<code>$GOPATH/src/github.com/takecy/hoge</code><br>
+になる。<br>
+自分のGoのプロジェクトもこれと同じように、
+<code>$GOPATH/src/github.com/{account_name}/{repository_name}</code><br>
+ディレクトリを作って、そこにGoソースを作成してスタートする。</p>
+<p>Githubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。</p>
+<h4 id="まとめ">まとめ</h4>
+<p>Goやり始めた当初は、元々<code>$HOME/git</code>下に全部Github関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。<br>
+同じGithubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。<br>
+が、GithubのURLをimportに書けるというのはすごくいい。<br>
+例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。</p>
+<p>Let&rsquo;s write Go。</p>
+<p>どうでもいいけど、Goのライブラリ名はダジャレがちらほら。<br>
+例えばRedisのドライバは <a href="https://github.com/garyburd/redigo">redigo</a> 。</p>
+]]></content>
+        </item>
+        
+    </channel>
 </rss>

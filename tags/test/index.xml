@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>GoでABテスト用のテスト対象ユーザーを抽出するライブラリを書いた</title>
+      <title>GoでABテスト対象のユーザーを振り分けるするライブラリを書いた</title>
       <link>blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</link>
       <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
       

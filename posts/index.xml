@@ -15,19 +15,14 @@
             <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
             
             <guid>/posts/grouping-id-for-ab-testing-in-golang/</guid>
-            <description>takecy/grouping   事前準備として、
+            <description>事前準備として、
  ABテストを定義 (名前、割合etc..) 全ユーザーをグルーピング  そしてリクエストごとに、
  リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&amp;hellip;  このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
  あるABテストに対応するグループを定義 (e.g. group-A, group-B) グループに適用する割合を定義 (e.g. 80:20) 上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す 所属しているグループを返す (e.g. group-A)  というすごくシンプルなもの。
 基本的な使用例はこんな感じ。
-package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/takecy/grouping&amp;quot; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e.</description>
-            <content type="html"><![CDATA[
+package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/takecy/grouping&amp;quot; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e.ratio } func (e *SimpleElem) SetRatio(r int) { e.</description>
+            <content type="html"><![CDATA[<a href="https://github.com/takecy/grouping"><img src="https://gh-card.dev/repos/takecy/grouping.svg?fullname"></a>
 
-<a href="https://github.com/takecy/grouping"}>
-  <img src="http://favicon.hatena.ne.jp/?url=https%3a%2f%2fgithub.com%2ftakecy%2fgrouping" style="float:left;margin:5px 5px 0px 5px" />
-  takecy/grouping
-</a>
-<br/>
 <!-- raw HTML omitted -->
 <p>事前準備として、</p>
 <ol>
@@ -109,7 +104,6 @@ func main() {
 <p>後は、ABテストを実施する箇所、例えばコンテンツのリストを作るところ、クライアント画面表示 など
 で、取得されたグループを参照し、分岐すればよい。</p>
 <p>ログを取得し、検証し、さらに別のABを・・と、まだまだ道程は長いが、とりあえず最初の一歩用に。</p>
-<!-- raw HTML omitted -->
 
 
 <a href="https://github.com/takecy/grouping"}>

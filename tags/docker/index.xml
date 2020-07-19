@@ -32,12 +32,11 @@ Pruning is now performed automatically by dep ensure. Set prune settings in Gopk
       <guid>/posts/golang-docker-alpine-timezone/</guid>
       <description>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。
 コード全体はこちら。
-https://github.com/takecy/tz-sample
-Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
-jst, err := time.LoadLocation(&amp;quot;Asia/Tokyo&amp;quot;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
+ Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
+jst, err := time.LoadLocation(&amp;#34;Asia/Tokyo&amp;#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 +0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
-RUN apk --no-cache add tzdata 全体の例
-FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz .</description>
+RUN apk --no-cache add tzdata全体の例
+FROMgolang:1.9.3-alpine AS buildCOPY . $GOPATH/src/github.com/takecy/tzWORKDIR$GOPATH/src/github.com/takecy/tzRUN go build -o tz .\  &amp;amp;&amp;amp; mv tz /usr/local/bin/FROMalpine:3.6RUN apk --no-cache add tzdataCOPY --from=build /usr/local/bin/tz /usr/local/bin/CMD [&amp;#34;tz&amp;#34;] takecy/tz-sample   </description>
     </item>
     
     <item>
@@ -48,7 +47,7 @@ FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDI
       <guid>/posts/golang-docker-ubuntu-install/</guid>
       <description>Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
 UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
-RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH 一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
+RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gzRUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gzENV PATH=$PATH:/usr/local/go/binENV GOPATH=$HOME/goENV PATH=$GOPATH/bin:$PATH一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
 最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。 かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。
 自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
 今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。

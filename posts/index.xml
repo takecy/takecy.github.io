@@ -20,7 +20,7 @@
  リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&amp;hellip;  このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
  あるABテストに対応するグループを定義 (e.g. group-A, group-B) グループに適用する割合を定義 (e.g. 80:20) 上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す 所属しているグループを返す (e.g. group-A)  というすごくシンプルなもの。
 基本的な使用例はこんな感じ。
-package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/takecy/grouping&amp;quot; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e.ratio } func (e *SimpleElem) SetRatio(r int) { e.</description>
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/takecy/grouping&amp;#34; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e.ratio } func (e *SimpleElem) SetRatio(r int) { e.</description>
             <content type="html"><![CDATA[<a href="https://github.com/takecy/grouping"><img src="https://gh-card.dev/repos/takecy/grouping.svg?fullname"></a>
 
 <!-- raw HTML omitted -->
@@ -46,59 +46,59 @@ package main import ( &amp;quot;fmt&amp;quot; &amp;quot;github.com/takecy/groupi
 </ol>
 <p>というすごくシンプルなもの。<br>
 <a href="https://github.com/takecy/grouping/blob/master/README.md#basic-usage">基本的な使用例</a>はこんな感じ。</p>
-<pre><code>package main
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-import (
-	&quot;fmt&quot;
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
 
-	&quot;github.com/takecy/grouping&quot;
+	<span style="color:#e6db74">&#34;github.com/takecy/grouping&#34;</span>
 )
 
-// SimpleElem implements `grouping.Elementer`
-type SimpleElem struct {
-	name  string
-	ratio int
+<span style="color:#75715e">// SimpleElem implements `grouping.Elementer`
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">type</span> <span style="color:#a6e22e">SimpleElem</span> <span style="color:#66d9ef">struct</span> {
+	<span style="color:#a6e22e">name</span>  <span style="color:#66d9ef">string</span>
+	<span style="color:#a6e22e">ratio</span> <span style="color:#66d9ef">int</span>
 }
 
-func (e *SimpleElem) GetName() string { return e.name }
-func (e *SimpleElem) GetRatio() int   { return e.ratio }
-func (e *SimpleElem) SetRatio(r int)  { e.ratio = r }
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">e</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">SimpleElem</span>) <span style="color:#a6e22e">GetName</span>() <span style="color:#66d9ef">string</span> { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">name</span> }
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">e</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">SimpleElem</span>) <span style="color:#a6e22e">GetRatio</span>() <span style="color:#66d9ef">int</span>   { <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">ratio</span> }
+<span style="color:#66d9ef">func</span> (<span style="color:#a6e22e">e</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">SimpleElem</span>) <span style="color:#a6e22e">SetRatio</span>(<span style="color:#a6e22e">r</span> <span style="color:#66d9ef">int</span>)  { <span style="color:#a6e22e">e</span>.<span style="color:#a6e22e">ratio</span> = <span style="color:#a6e22e">r</span> }
 
-func main() {
-	group := grouping.GroupDefinition{
-		// case: A+B+C=100
-		Elems: []grouping.Elementer{
-			&amp;SimpleElem{name: &quot;group-A&quot;, ratio: 10},
-			&amp;SimpleElem{name: &quot;group-B&quot;, ratio: 20},
-			&amp;SimpleElem{name: &quot;group-C&quot;, ratio: 70},
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">group</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">grouping</span>.<span style="color:#a6e22e">GroupDefinition</span>{
+		<span style="color:#75715e">// case: A+B+C=100
+</span><span style="color:#75715e"></span>		<span style="color:#a6e22e">Elems</span>: []<span style="color:#a6e22e">grouping</span>.<span style="color:#a6e22e">Elementer</span>{
+			<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">SimpleElem</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;group-A&#34;</span>, <span style="color:#a6e22e">ratio</span>: <span style="color:#ae81ff">10</span>},
+			<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">SimpleElem</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;group-B&#34;</span>, <span style="color:#a6e22e">ratio</span>: <span style="color:#ae81ff">20</span>},
+			<span style="color:#f92672">&amp;</span><span style="color:#a6e22e">SimpleElem</span>{<span style="color:#a6e22e">name</span>: <span style="color:#e6db74">&#34;group-C&#34;</span>, <span style="color:#a6e22e">ratio</span>: <span style="color:#ae81ff">70</span>},
 		},
 	}
 
-	g, err := grouping.New(group)
-	if err != nil {
-		panic(err)
+	<span style="color:#a6e22e">g</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">grouping</span>.<span style="color:#a6e22e">New</span>(<span style="color:#a6e22e">group</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
 	}
 
-	//
-	// The same result will be obtained no matter how many times it is executed.
-	//
-	testName := &quot;welcome_content_test&quot;
+	<span style="color:#75715e">//
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">// The same result will be obtained no matter how many times it is executed.
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">testName</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;welcome_content_test&#34;</span>
 
-	userID1 := &quot;user-001&quot;
-	elem1, err := g.GetGroup(userID1, testName)
-	if err != nil {
-		panic(err)
+	<span style="color:#a6e22e">userID1</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;user-001&#34;</span>
+	<span style="color:#a6e22e">elem1</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">GetGroup</span>(<span style="color:#a6e22e">userID1</span>, <span style="color:#a6e22e">testName</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
 	}
-	fmt.Printf(&quot;elem1: %v\n&quot;, elem1.GetName()) // group-A
-
-	userID2 := &quot;user-002&quot;
-	elem2, err := g.GetGroup(userID2, testName)
-	if err != nil {
-		panic(err)
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;elem1: %v\n&#34;</span>, <span style="color:#a6e22e">elem1</span>.<span style="color:#a6e22e">GetName</span>()) <span style="color:#75715e">// group-A
+</span><span style="color:#75715e"></span>
+	<span style="color:#a6e22e">userID2</span> <span style="color:#f92672">:=</span> <span style="color:#e6db74">&#34;user-002&#34;</span>
+	<span style="color:#a6e22e">elem2</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">g</span>.<span style="color:#a6e22e">GetGroup</span>(<span style="color:#a6e22e">userID2</span>, <span style="color:#a6e22e">testName</span>)
+	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+		panic(<span style="color:#a6e22e">err</span>)
 	}
-	fmt.Printf(&quot;elem2: %v\n&quot;, elem2.GetName()) // group-C
-}
-</code></pre><p>もちろん、同じIDであれば何度呼び出しても同じグループが返される。
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;elem2: %v\n&#34;</span>, <span style="color:#a6e22e">elem2</span>.<span style="color:#a6e22e">GetName</span>()) <span style="color:#75715e">// group-C
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>もちろん、同じIDであれば何度呼び出しても同じグループが返される。
 グループ判定に使用する<a href="https://github.com/takecy/grouping/blob/master/README.md#customize-hash-function">ハッシュ値を生成する関数を外から渡す</a>ことや、
 <a href="https://github.com/takecy/grouping/blob/master/README.md#default-specification">全体の20%に適用</a>という指定も可能。</p>
 <p>後は、ABテストを実施する箇所、例えばコンテンツのリストを作るところ、クライアント画面表示 など
@@ -121,23 +121,23 @@ func main() {
             
             <guid>/posts/golang-multi-package-test/</guid>
             <description>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。
-#!/bin/bash set -e echo &amp;quot;&amp;quot; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
+#!/bin/bash  set -e echo &amp;#34;&amp;#34; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
 go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！</description>
             <content type="html"><![CDATA[<p>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。</p>
-<pre><code>#!/bin/bash
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
 set -e
-echo &quot;&quot; &gt; coverage.txt
+echo <span style="color:#e6db74">&#34;&#34;</span> &gt; coverage.txt
 
 go test -i ./...
-for d in $(go list ./...); do
-    go test -race -coverprofile=profile.out -covermode=atomic $d
-    if [ -f profile.out ]; then
+<span style="color:#66d9ef">for</span> d in <span style="color:#66d9ef">$(</span>go list ./...<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+    go test -race -coverprofile<span style="color:#f92672">=</span>profile.out -covermode<span style="color:#f92672">=</span>atomic $d
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -f profile.out <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
         cat profile.out &gt;&gt; coverage.txt
         rm profile.out
-    fi
-done
-</code></pre><p>1.10以降はこれでいけるようになった。</p>
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>1.10以降はこれでいけるようになった。</p>
 <pre><code>go test -race -coverprofile=coverage.txt -covermode=atomic ./...
 </code></pre><p>楽チン！</p>
 ]]></content>
@@ -248,50 +248,57 @@ Now is the time to update your Gopkg.toml and remove `dep prune` from any script
             <guid>/posts/golang-docker-alpine-timezone/</guid>
             <description>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。
 コード全体はこちら。
-https://github.com/takecy/tz-sample
-Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
-jst, err := time.LoadLocation(&amp;quot;Asia/Tokyo&amp;quot;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
+ Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
+jst, err := time.LoadLocation(&amp;#34;Asia/Tokyo&amp;#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 +0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
-RUN apk --no-cache add tzdata 全体の例
-FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz .</description>
+RUN apk --no-cache add tzdata全体の例
+FROMgolang:1.9.3-alpine AS buildCOPY . $GOPATH/src/github.com/takecy/tzWORKDIR$GOPATH/src/github.com/takecy/tzRUN go build -o tz .\  &amp;amp;&amp;amp; mv tz /usr/local/bin/FROMalpine:3.6RUN apk --no-cache add tzdataCOPY --from=build /usr/local/bin/tz /usr/local/bin/CMD [&amp;#34;tz&amp;#34;] takecy/tz-sample   </description>
             <content type="html"><![CDATA[<p>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、
 <a href="https://docs.docker.com/develop/develop-images/multistage-build/">multi stage build</a>にそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。</p>
 <p>コード全体はこちら。<br>
-<a href="https://github.com/takecy/tz-sample">https://github.com/takecy/tz-sample</a></p>
+<a href="https://github.com/takecy/tz-sample"><img src="https://gh-card.dev/repos/takecy/tz-sample.svg?fullname"></a>
+</p>
 <h3 id="panic-になるコード">Panic になるコード</h3>
 <p>普通にmulti stage buildでalpineにビルド済イメージを <code>COPY</code> して実行すると、下記コードはpanicする。</p>
-<pre><code>jst, err := time.LoadLocation(&quot;Asia/Tokyo&quot;)
-if err != nil {
-    panic(err)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">jst</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">LoadLocation</span>(<span style="color:#e6db74">&#34;Asia/Tokyo&#34;</span>)
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    panic(<span style="color:#a6e22e">err</span>)
 }
-</code></pre><p>alpineは <code>/etc/localtime</code> がないため。</p>
-<pre><code>panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory
+</code></pre></div><p>alpineは <code>/etc/localtime</code> がないため。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory
 
-goroutine 1 [running]:
-main.main()
+goroutine <span style="color:#ae81ff">1</span> <span style="color:#f92672">[</span>running<span style="color:#f92672">]</span>:
+main.main<span style="color:#f92672">()</span>
         /go/src/github.com/takecy/tz/main.go:11 +0x22b
-make: *** [run_alpine] Error 2
-</code></pre><h3 id="対応">対応</h3>
+make: *** <span style="color:#f92672">[</span>run_alpine<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+</code></pre></div><h3 id="対応">対応</h3>
 <p>対応は難しいことはなく、単に <code>tzdata</code> を入れればよい。</p>
-<pre><code>RUN apk --no-cache add tzdata
-</code></pre><p>全体の例</p>
-<pre><code>FROM golang:1.9.3-alpine AS build
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">RUN</span> apk --no-cache add tzdata<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>全体の例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> golang:1.9.3-alpine AS build</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . $GOPATH/src/github.com/takecy/tz<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> $GOPATH/src/github.com/takecy/tz</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> go build -o tz .<span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span> <span style="color:#f92672">&amp;&amp;</span> mv tz /usr/local/bin/<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> alpine:3.6</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apk --no-cache add tzdata<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> --from<span style="color:#f92672">=</span>build /usr/local/bin/tz /usr/local/bin/<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;tz&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div>
 
-COPY . $GOPATH/src/github.com/takecy/tz
-WORKDIR $GOPATH/src/github.com/takecy/tz
-
-RUN go build -o tz .\
- &amp;&amp; mv tz /usr/local/bin/
-
-
-FROM alpine:3.6
-
-RUN apk --no-cache add tzdata
-
-COPY --from=build /usr/local/bin/tz /usr/local/bin/
-
-CMD [&quot;tz&quot;]
-</code></pre>]]></content>
+<a href="https://github.com/takecy/tz-sample"}>
+  <img src="http://favicon.hatena.ne.jp/?url=https%3a%2f%2fgithub.com%2ftakecy%2ftz-sample" style="float:left;margin:5px 5px 0px 5px" />
+  takecy/tz-sample
+</a>
+<br/>
+]]></content>
         </item>
         
         <item>
@@ -302,7 +309,7 @@ CMD [&quot;tz&quot;]
             <guid>/posts/golang-docker-ubuntu-install/</guid>
             <description>Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
 UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
-RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH 一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
+RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gzRUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gzENV PATH=$PATH:/usr/local/go/binENV GOPATH=$HOME/goENV PATH=$GOPATH/bin:$PATH一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
 最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。 かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。
 自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
 今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。
@@ -311,12 +318,12 @@ RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN ta
             <content type="html"><![CDATA[<p>Dokcernizeってますか？
 最近やっとちょっとだけDockerさんに話しかけたりしています。</p>
 <p>UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。</p>
-<pre><code>RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz
-RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz
-ENV PATH=$PATH:/usr/local/go/bin
-ENV GOPATH=$HOME/go
-ENV PATH=$GOPATH/bin:$PATH
-</code></pre><!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">RUN</span> wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> PATH<span style="color:#f92672">=</span>$PATH:/usr/local/go/bin<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> GOPATH<span style="color:#f92672">=</span>$HOME/go<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENV</span> PATH<span style="color:#f92672">=</span>$GOPATH/bin:$PATH<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <p>一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。
 クラウド()になって、
@@ -445,26 +452,26 @@ Goは静的型付け言語に分類されるが、抽象化しづらいので結
             <guid>/posts/golang-loop/</guid>
             <description>今でもたまにやらかすのでメモっておく。
 ①
-users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for i := range users { fmt.Println(users[i]) // i is index } ②
-users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for i, user := range users { fmt.Println(user) // user is value copy } ③
-users := []string{&amp;quot;take&amp;quot;, &amp;quot;hoge&amp;quot;, &amp;quot;moge&amp;quot;} for _, user := range users { fmt.Println(user) // user is value copy } ①が一番早い。 でも②③の方が読みやすい。</description>
+users := []string{&amp;#34;take&amp;#34;, &amp;#34;hoge&amp;#34;, &amp;#34;moge&amp;#34;} for i := range users { fmt.Println(users[i]) // i is index } ②
+users := []string{&amp;#34;take&amp;#34;, &amp;#34;hoge&amp;#34;, &amp;#34;moge&amp;#34;} for i, user := range users { fmt.Println(user) // user is value copy } ③
+users := []string{&amp;#34;take&amp;#34;, &amp;#34;hoge&amp;#34;, &amp;#34;moge&amp;#34;} for _, user := range users { fmt.Println(user) // user is value copy } ①が一番早い。 でも②③の方が読みやすい。</description>
             <content type="html"><![CDATA[<p>今でもたまにやらかすのでメモっておく。</p>
 <p>①</p>
-<pre><code>users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;}
-for i := range users {
-  fmt.Println(users[i]) // i is index
-}
-</code></pre><p>②</p>
-<pre><code>users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;}
-for i, user := range users {
-  fmt.Println(user) // user is value copy
-}
-</code></pre><p>③</p>
-<pre><code>users := []string{&quot;take&quot;, &quot;hoge&quot;, &quot;moge&quot;}
-for _, user := range users {
-  fmt.Println(user) // user is value copy
-}
-</code></pre><p>①が一番早い。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;take&#34;</span>, <span style="color:#e6db74">&#34;hoge&#34;</span>, <span style="color:#e6db74">&#34;moge&#34;</span>}
+<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">users</span> {
+  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">users</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#75715e">// i is index
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>②</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;take&#34;</span>, <span style="color:#e6db74">&#34;hoge&#34;</span>, <span style="color:#e6db74">&#34;moge&#34;</span>}
+<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">users</span> {
+  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">user</span>) <span style="color:#75715e">// user is value copy
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>③</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;take&#34;</span>, <span style="color:#e6db74">&#34;hoge&#34;</span>, <span style="color:#e6db74">&#34;moge&#34;</span>}
+<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">users</span> {
+  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">user</span>) <span style="color:#75715e">// user is value copy
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>①が一番早い。
 でも②③の方が読みやすい。</p>
 ]]></content>
         </item>
@@ -510,8 +517,8 @@ OSや言語のランタイムのバージョンはもちろんだけど、
 <p>例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、
 Goではどうやるんだっていう話。</p>
 <h3 id="goで依存パッケージを取得する">Goで依存パッケージを取得する</h3>
-<pre><code>go get github.com/google/go-github/github
-</code></pre><p>以上。<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go get github.com/google/go-github/github
+</code></pre></div><p>以上。<br>
 簡単。これは捗る！<br>
 と思いきや、実際の開発ではいろいろ問題が発生する。</p>
 <h3 id="バージョンいくつなんだよ問題">バージョンいくつなんだよ問題</h3>
@@ -520,11 +527,11 @@ Goではどうやるんだっていう話。</p>
 「このプロジェクトで使われているパッケージはA(ver0.9)とB(ver1.2)である。」<br>
 というのを表現する方法は<strong>無い</strong>。<br>
 よって各メンバーが、README等をみながら、</p>
-<pre><code>go get A
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go get A
 go get B
 go get C
 ...
-</code></pre><p>をぽちぽちやらなくてはいけない。<br>
+</code></pre></div><p>をぽちぽちやらなくてはいけない。<br>
 また、go get したタイミングによっては依存しているパッケージの別のバージョンが入ってしまう。<br>
 なんてったって、go get にはバージョンを<strong>指定しない</strong>のだから、何が落ちてきてるのかわからん。<br>
 Goの思想としては常に最新バージョン使おうぜ、ということらしいが、
@@ -540,14 +547,14 @@ GOPATHをそれぞれで設定しておいて、いじるときにいちいち�
 <p>そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、<a href="https://github.com/tools/godep">Godep</a>。<br>
 安心のGithub製。<br>
 そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を</p>
-<pre><code>godep save ./...
-</code></pre><p>で記録(その時点のスナップショット的な感じ)できる。<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">godep save ./...
+</code></pre></div><p>で記録(その時点のスナップショット的な感じ)できる。<br>
 新しく <code>Godeps</code> と <code>Gedeps/_workspace</code> というディレクトリと、<code>Godep.json</code> というJSONファイルが生成される。<br>
 このJSONが、mavenでいうpom.xml、npmでいうpackage.json にあたるもので、基本手動でいじらない。<br>
 この<code>Godep.json</code> はGitのバージョン管理対象にするが、<code>_workspace</code> ディレクトリは.gitignoreに追記しておく。</p>
 <p>Godep.json に更新があった場合、他のメンバーは、</p>
-<pre><code>godep restore
-</code></pre><p>で同じパッケージの同じバージョンを GOPATH配下に配置できる。<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">godep restore
+</code></pre></div><p>で同じパッケージの同じバージョンを GOPATH配下に配置できる。<br>
 これは捗る！</p>
 <p>ここで言う、他のメンバーとは、Travis等のCIツールも含まれる。<br>
 ちなみに、Godepは<a href="http://docs.travis-ci.com/user/languages/go/">Travisが対応している</a>ので、Goをビルドする時にちょっと楽。</p>
@@ -579,7 +586,7 @@ GOPATHって何 http://golang-jp.org/doc/code.html#GOPATH
 $ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin としているが、特に困っていない。
 Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
 まず、Goを書く時は、Githubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。
-import &amp;quot;fmt&amp;quot; // 標準パッケージ import &amp;quot;github.com/takecy/hoge&amp;quot; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+import &amp;#34;fmt&amp;#34; // 標準パッケージ import &amp;#34;github.com/takecy/hoge&amp;#34; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
 $ go get github.com/takecy/hoge ここで、GOPATH が登場する。
 このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
 になる。
@@ -598,8 +605,8 @@ Goいいな、Goクソだなと日々葛藤。</p>
 <p>Goをこれからはじめようという人が迷いそうな(俺が迷った)<code>GOPATH</code> について。</p>
 <h3 id="goのインストール">Goのインストール</h3>
 <p>インストール自体はbrewで速攻終わる。</p>
-<pre><code>$ brew install go
-</code></pre><p>問題はこの後の<code>$GOPATH</code>の設定。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install go
+</code></pre></div><p>問題はこの後の<code>$GOPATH</code>の設定。</p>
 <h3 id="gopathって何">GOPATHって何</h3>
 <p><a href="http://golang-jp.org/doc/code.html#GOPATH">http://golang-jp.org/doc/code.html#GOPATH</a></p>
 <blockquote>
@@ -611,19 +618,19 @@ Goいいな、Goクソだなと日々葛藤。</p>
 <li>Go書く上で依存してるライブラリのソースも全部このパスに入るよ</li>
 </ol>
 <p>ということで、例にあるようにそのまま、</p>
-<pre><code>$ export GOPATH=$HOME/go
-$ export PATH=$PATH:$GOPATH/bin
-</code></pre><p>としているが、特に困っていない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ export GOPATH<span style="color:#f92672">=</span>$HOME/go
+$ export PATH<span style="color:#f92672">=</span>$PATH:$GOPATH/bin
+</code></pre></div><p>としているが、特に困っていない。</p>
 <h3 id="goを書く">Goを書く</h3>
 <p>じゃGo書くぜってことになるが、<strong>GOPATH直下に書くわけではない</strong> というのがめんどくさいところ。</p>
 <p>まず、Goを書く時は、<strong>Githubに公開する前提</strong> と考えておいたほうがよい。
 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。</p>
-<pre><code>import &quot;fmt&quot; // 標準パッケージ
-import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ
-</code></pre><p><code>github.com/{account_name}/{repository_name}</code> でimportできるステキ仕様。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span> <span style="color:#75715e">// 標準パッケージ
+</span><span style="color:#75715e"></span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/takecy/hoge&#34;</span> <span style="color:#75715e">// OSSのライブラリ
+</span></code></pre></div><p><code>github.com/{account_name}/{repository_name}</code> でimportできるステキ仕様。
 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。</p>
-<pre><code>$ go get github.com/takecy/hoge
-</code></pre><p>ここで、<code>GOPATH</code> が登場する。<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go get github.com/takecy/hoge
+</code></pre></div><p>ここで、<code>GOPATH</code> が登場する。<br>
 このライブラリがダウンロードされ、配置されるパスは
 <code>$GOPATH/src/github.com/takecy/hoge</code><br>
 になる。<br>

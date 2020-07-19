@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。
-#!/bin/bash set -e echo &amp;quot;&amp;quot; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
+#!/bin/bash  set -e echo &amp;#34;&amp;#34; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
 go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！" />
 <meta name="keywords" content=", test, golang" />
 <meta name="robots" content="noodp" />
@@ -36,7 +36,7 @@ go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！" /
 
 <meta itemprop="name" content="1.10以降のGoのMultiPackageテスト">
 <meta itemprop="description" content="以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。
-#!/bin/bash set -e echo &quot;&quot; &gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &gt;&gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
+#!/bin/bash  set -e echo &#34;&#34; &gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &gt;&gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
 go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！">
 <meta itemprop="datePublished" content="2018-05-26T10:26:50&#43;09:00" />
 <meta itemprop="dateModified" content="2018-05-26T10:26:50&#43;09:00" />
@@ -51,14 +51,14 @@ go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！">
 
 <meta name="twitter:title" content="1.10以降のGoのMultiPackageテスト"/>
 <meta name="twitter:description" content="以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。
-#!/bin/bash set -e echo &quot;&quot; &gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &gt;&gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
+#!/bin/bash  set -e echo &#34;&#34; &gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &gt;&gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
 go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！"/>
 
 
 
     <meta property="og:title" content="1.10以降のGoのMultiPackageテスト" />
 <meta property="og:description" content="以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。
-#!/bin/bash set -e echo &quot;&quot; &gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &gt;&gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
+#!/bin/bash  set -e echo &#34;&#34; &gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &gt;&gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
 go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/golang-multi-package-test/" />
@@ -154,20 +154,20 @@ go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！" /
 
       <div class="post-content">
         <p>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。</p>
-<pre><code>#!/bin/bash
-
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
+</span><span style="color:#75715e"></span>
 set -e
-echo &quot;&quot; &gt; coverage.txt
+echo <span style="color:#e6db74">&#34;&#34;</span> &gt; coverage.txt
 
 go test -i ./...
-for d in $(go list ./...); do
-    go test -race -coverprofile=profile.out -covermode=atomic $d
-    if [ -f profile.out ]; then
+<span style="color:#66d9ef">for</span> d in <span style="color:#66d9ef">$(</span>go list ./...<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+    go test -race -coverprofile<span style="color:#f92672">=</span>profile.out -covermode<span style="color:#f92672">=</span>atomic $d
+    <span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> -f profile.out <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
         cat profile.out &gt;&gt; coverage.txt
         rm profile.out
-    fi
-done
-</code></pre><p>1.10以降はこれでいけるようになった。</p>
+    <span style="color:#66d9ef">fi</span>
+<span style="color:#66d9ef">done</span>
+</code></pre></div><p>1.10以降はこれでいけるようになった。</p>
 <pre><code>go test -race -coverprofile=coverage.txt -covermode=atomic ./...
 </code></pre><p>楽チン！</p>
 

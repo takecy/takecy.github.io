@@ -7,12 +7,11 @@
 <meta name="author" content="">
 <meta name="description" content="Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。
 コード全体はこちら。
-https://github.com/takecy/tz-sample
-Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
-jst, err := time.LoadLocation(&amp;quot;Asia/Tokyo&amp;quot;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
+ Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
+jst, err := time.LoadLocation(&amp;#34;Asia/Tokyo&amp;#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 &#43;0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
-RUN apk --no-cache add tzdata 全体の例
-FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz ." />
+RUN apk --no-cache add tzdata全体の例
+FROMgolang:1.9.3-alpine AS buildCOPY . $GOPATH/src/github.com/takecy/tzWORKDIR$GOPATH/src/github.com/takecy/tzRUN go build -o tz .\  &amp;amp;&amp;amp; mv tz /usr/local/bin/FROMalpine:3.6RUN apk --no-cache add tzdataCOPY --from=build /usr/local/bin/tz /usr/local/bin/CMD [&amp;#34;tz&amp;#34;] takecy/tz-sample   " />
 <meta name="keywords" content=", docker, golang" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
@@ -42,15 +41,14 @@ FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDI
 <meta itemprop="name" content="Timezoneが取れるalpineのDockerイメージを作る">
 <meta itemprop="description" content="Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。
 コード全体はこちら。
-https://github.com/takecy/tz-sample
-Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
-jst, err := time.LoadLocation(&quot;Asia/Tokyo&quot;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
+ Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
+jst, err := time.LoadLocation(&#34;Asia/Tokyo&#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 &#43;0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
-RUN apk --no-cache add tzdata 全体の例
-FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz .">
+RUN apk --no-cache add tzdata全体の例
+FROMgolang:1.9.3-alpine AS buildCOPY . $GOPATH/src/github.com/takecy/tzWORKDIR$GOPATH/src/github.com/takecy/tzRUN go build -o tz .\  &amp;&amp; mv tz /usr/local/bin/FROMalpine:3.6RUN apk --no-cache add tzdataCOPY --from=build /usr/local/bin/tz /usr/local/bin/CMD [&#34;tz&#34;] takecy/tz-sample   ">
 <meta itemprop="datePublished" content="2018-02-03T01:07:23&#43;09:00" />
 <meta itemprop="dateModified" content="2018-02-03T01:07:23&#43;09:00" />
-<meta itemprop="wordCount" content="88">
+<meta itemprop="wordCount" content="77">
 <meta itemprop="image" content=""/>
 
 
@@ -62,24 +60,22 @@ FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDI
 <meta name="twitter:title" content="Timezoneが取れるalpineのDockerイメージを作る"/>
 <meta name="twitter:description" content="Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。
 コード全体はこちら。
-https://github.com/takecy/tz-sample
-Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
-jst, err := time.LoadLocation(&quot;Asia/Tokyo&quot;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
+ Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
+jst, err := time.LoadLocation(&#34;Asia/Tokyo&#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 &#43;0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
-RUN apk --no-cache add tzdata 全体の例
-FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz ."/>
+RUN apk --no-cache add tzdata全体の例
+FROMgolang:1.9.3-alpine AS buildCOPY . $GOPATH/src/github.com/takecy/tzWORKDIR$GOPATH/src/github.com/takecy/tzRUN go build -o tz .\  &amp;&amp; mv tz /usr/local/bin/FROMalpine:3.6RUN apk --no-cache add tzdataCOPY --from=build /usr/local/bin/tz /usr/local/bin/CMD [&#34;tz&#34;] takecy/tz-sample   "/>
 
 
 
     <meta property="og:title" content="Timezoneが取れるalpineのDockerイメージを作る" />
 <meta property="og:description" content="Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。
 コード全体はこちら。
-https://github.com/takecy/tz-sample
-Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
-jst, err := time.LoadLocation(&quot;Asia/Tokyo&quot;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
+ Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
+jst, err := time.LoadLocation(&#34;Asia/Tokyo&#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 &#43;0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
-RUN apk --no-cache add tzdata 全体の例
-FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz ." />
+RUN apk --no-cache add tzdata全体の例
+FROMgolang:1.9.3-alpine AS buildCOPY . $GOPATH/src/github.com/takecy/tzWORKDIR$GOPATH/src/github.com/takecy/tzRUN go build -o tz .\  &amp;&amp; mv tz /usr/local/bin/FROMalpine:3.6RUN apk --no-cache add tzdataCOPY --from=build /usr/local/bin/tz /usr/local/bin/CMD [&#34;tz&#34;] takecy/tz-sample   " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/golang-docker-alpine-timezone/" />
 <meta property="og:image" content=""/>
@@ -176,41 +172,49 @@ FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDI
         <p>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、
 <a href="https://docs.docker.com/develop/develop-images/multistage-build/">multi stage build</a>にそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。</p>
 <p>コード全体はこちら。<br>
-<a href="https://github.com/takecy/tz-sample">https://github.com/takecy/tz-sample</a></p>
+<a href="https://github.com/takecy/tz-sample"><img src="https://gh-card.dev/repos/takecy/tz-sample.svg?fullname"></a>
+</p>
 <h3 id="panic-になるコード">Panic になるコード</h3>
 <p>普通にmulti stage buildでalpineにビルド済イメージを <code>COPY</code> して実行すると、下記コードはpanicする。</p>
-<pre><code>jst, err := time.LoadLocation(&quot;Asia/Tokyo&quot;)
-if err != nil {
-    panic(err)
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">jst</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">LoadLocation</span>(<span style="color:#e6db74">&#34;Asia/Tokyo&#34;</span>)
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+    panic(<span style="color:#a6e22e">err</span>)
 }
-</code></pre><p>alpineは <code>/etc/localtime</code> がないため。</p>
-<pre><code>panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory
+</code></pre></div><p>alpineは <code>/etc/localtime</code> がないため。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory
 
-goroutine 1 [running]:
-main.main()
+goroutine <span style="color:#ae81ff">1</span> <span style="color:#f92672">[</span>running<span style="color:#f92672">]</span>:
+main.main<span style="color:#f92672">()</span>
         /go/src/github.com/takecy/tz/main.go:11 +0x22b
-make: *** [run_alpine] Error 2
-</code></pre><h3 id="対応">対応</h3>
+make: *** <span style="color:#f92672">[</span>run_alpine<span style="color:#f92672">]</span> Error <span style="color:#ae81ff">2</span>
+</code></pre></div><h3 id="対応">対応</h3>
 <p>対応は難しいことはなく、単に <code>tzdata</code> を入れればよい。</p>
-<pre><code>RUN apk --no-cache add tzdata
-</code></pre><p>全体の例</p>
-<pre><code>FROM golang:1.9.3-alpine AS build
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">RUN</span> apk --no-cache add tzdata<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>全体の例</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> golang:1.9.3-alpine AS build</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> . $GOPATH/src/github.com/takecy/tz<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">WORKDIR</span><span style="color:#e6db74"> $GOPATH/src/github.com/takecy/tz</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> go build -o tz .<span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span> <span style="color:#f92672">&amp;&amp;</span> mv tz /usr/local/bin/<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">FROM</span><span style="color:#e6db74"> alpine:3.6</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apk --no-cache add tzdata<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">COPY</span> --from<span style="color:#f92672">=</span>build /usr/local/bin/tz /usr/local/bin/<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;tz&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div>
 
-COPY . $GOPATH/src/github.com/takecy/tz
-WORKDIR $GOPATH/src/github.com/takecy/tz
+<a href="https://github.com/takecy/tz-sample"}>
+  <img src="http://favicon.hatena.ne.jp/?url=https%3a%2f%2fgithub.com%2ftakecy%2ftz-sample" style="float:left;margin:5px 5px 0px 5px" />
+  takecy/tz-sample
+</a>
+<br/>
 
-RUN go build -o tz .\
- &amp;&amp; mv tz /usr/local/bin/
-
-
-FROM alpine:3.6
-
-RUN apk --no-cache add tzdata
-
-COPY --from=build /usr/local/bin/tz /usr/local/bin/
-
-CMD [&quot;tz&quot;]
-</code></pre>
       </div>
     </article>
 
@@ -232,7 +236,7 @@ CMD [&quot;tz&quot;]
           <line x1="16" y1="17" x2="8" y2="17"></line>
           <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
-        88 Words
+        77 Words
       </p>
 
       <p>

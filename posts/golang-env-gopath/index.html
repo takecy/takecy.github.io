@@ -17,7 +17,7 @@ GOPATHって何 http://golang-jp.org/doc/code.html#GOPATH
 $ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin としているが、特に困っていない。
 Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
 まず、Goを書く時は、Githubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。
-import &amp;quot;fmt&amp;quot; // 標準パッケージ import &amp;quot;github.com/takecy/hoge&amp;quot; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+import &amp;#34;fmt&amp;#34; // 標準パッケージ import &amp;#34;github.com/takecy/hoge&amp;#34; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
 $ go get github.com/takecy/hoge ここで、GOPATH が登場する。
 このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
 になる。
@@ -70,7 +70,7 @@ GOPATHって何 http://golang-jp.org/doc/code.html#GOPATH
 $ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin としているが、特に困っていない。
 Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
 まず、Goを書く時は、Githubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。
-import &quot;fmt&quot; // 標準パッケージ import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+import &#34;fmt&#34; // 標準パッケージ import &#34;github.com/takecy/hoge&#34; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
 $ go get github.com/takecy/hoge ここで、GOPATH が登場する。
 このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
 になる。
@@ -108,7 +108,7 @@ GOPATHって何 http://golang-jp.org/doc/code.html#GOPATH
 $ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin としているが、特に困っていない。
 Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
 まず、Goを書く時は、Githubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。
-import &quot;fmt&quot; // 標準パッケージ import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+import &#34;fmt&#34; // 標準パッケージ import &#34;github.com/takecy/hoge&#34; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
 $ go get github.com/takecy/hoge ここで、GOPATH が登場する。
 このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
 になる。
@@ -138,7 +138,7 @@ GOPATHって何 http://golang-jp.org/doc/code.html#GOPATH
 $ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin としているが、特に困っていない。
 Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
 まず、Goを書く時は、Githubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。
-import &quot;fmt&quot; // 標準パッケージ import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+import &#34;fmt&#34; // 標準パッケージ import &#34;github.com/takecy/hoge&#34; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
 $ go get github.com/takecy/hoge ここで、GOPATH が登場する。
 このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
 になる。
@@ -250,8 +250,8 @@ Goいいな、Goクソだなと日々葛藤。</p>
 <p>Goをこれからはじめようという人が迷いそうな(俺が迷った)<code>GOPATH</code> について。</p>
 <h3 id="goのインストール">Goのインストール</h3>
 <p>インストール自体はbrewで速攻終わる。</p>
-<pre><code>$ brew install go
-</code></pre><p>問題はこの後の<code>$GOPATH</code>の設定。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ brew install go
+</code></pre></div><p>問題はこの後の<code>$GOPATH</code>の設定。</p>
 <h3 id="gopathって何">GOPATHって何</h3>
 <p><a href="http://golang-jp.org/doc/code.html#GOPATH">http://golang-jp.org/doc/code.html#GOPATH</a></p>
 <blockquote>
@@ -263,19 +263,19 @@ Goいいな、Goクソだなと日々葛藤。</p>
 <li>Go書く上で依存してるライブラリのソースも全部このパスに入るよ</li>
 </ol>
 <p>ということで、例にあるようにそのまま、</p>
-<pre><code>$ export GOPATH=$HOME/go
-$ export PATH=$PATH:$GOPATH/bin
-</code></pre><p>としているが、特に困っていない。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ export GOPATH<span style="color:#f92672">=</span>$HOME/go
+$ export PATH<span style="color:#f92672">=</span>$PATH:$GOPATH/bin
+</code></pre></div><p>としているが、特に困っていない。</p>
 <h3 id="goを書く">Goを書く</h3>
 <p>じゃGo書くぜってことになるが、<strong>GOPATH直下に書くわけではない</strong> というのがめんどくさいところ。</p>
 <p>まず、Goを書く時は、<strong>Githubに公開する前提</strong> と考えておいたほうがよい。
 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GithubのURLになる。</p>
-<pre><code>import &quot;fmt&quot; // 標準パッケージ
-import &quot;github.com/takecy/hoge&quot; // OSSのライブラリ
-</code></pre><p><code>github.com/{account_name}/{repository_name}</code> でimportできるステキ仕様。
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span> <span style="color:#75715e">// 標準パッケージ
+</span><span style="color:#75715e"></span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/takecy/hoge&#34;</span> <span style="color:#75715e">// OSSのライブラリ
+</span></code></pre></div><p><code>github.com/{account_name}/{repository_name}</code> でimportできるステキ仕様。
 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。</p>
-<pre><code>$ go get github.com/takecy/hoge
-</code></pre><p>ここで、<code>GOPATH</code> が登場する。<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ go get github.com/takecy/hoge
+</code></pre></div><p>ここで、<code>GOPATH</code> が登場する。<br>
 このライブラリがダウンロードされ、配置されるパスは
 <code>$GOPATH/src/github.com/takecy/hoge</code><br>
 になる。<br>

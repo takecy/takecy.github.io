@@ -257,8 +257,8 @@ OSや言語のランタイムのバージョンはもちろんだけど、
 <p>例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、
 Goではどうやるんだっていう話。</p>
 <h3 id="goで依存パッケージを取得する">Goで依存パッケージを取得する</h3>
-<pre><code>go get github.com/google/go-github/github
-</code></pre><p>以上。<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go get github.com/google/go-github/github
+</code></pre></div><p>以上。<br>
 簡単。これは捗る！<br>
 と思いきや、実際の開発ではいろいろ問題が発生する。</p>
 <h3 id="バージョンいくつなんだよ問題">バージョンいくつなんだよ問題</h3>
@@ -267,11 +267,11 @@ Goではどうやるんだっていう話。</p>
 「このプロジェクトで使われているパッケージはA(ver0.9)とB(ver1.2)である。」<br>
 というのを表現する方法は<strong>無い</strong>。<br>
 よって各メンバーが、README等をみながら、</p>
-<pre><code>go get A
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go get A
 go get B
 go get C
 ...
-</code></pre><p>をぽちぽちやらなくてはいけない。<br>
+</code></pre></div><p>をぽちぽちやらなくてはいけない。<br>
 また、go get したタイミングによっては依存しているパッケージの別のバージョンが入ってしまう。<br>
 なんてったって、go get にはバージョンを<strong>指定しない</strong>のだから、何が落ちてきてるのかわからん。<br>
 Goの思想としては常に最新バージョン使おうぜ、ということらしいが、
@@ -287,14 +287,14 @@ GOPATHをそれぞれで設定しておいて、いじるときにいちいち�
 <p>そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、<a href="https://github.com/tools/godep">Godep</a>。<br>
 安心のGithub製。<br>
 そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を</p>
-<pre><code>godep save ./...
-</code></pre><p>で記録(その時点のスナップショット的な感じ)できる。<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">godep save ./...
+</code></pre></div><p>で記録(その時点のスナップショット的な感じ)できる。<br>
 新しく <code>Godeps</code> と <code>Gedeps/_workspace</code> というディレクトリと、<code>Godep.json</code> というJSONファイルが生成される。<br>
 このJSONが、mavenでいうpom.xml、npmでいうpackage.json にあたるもので、基本手動でいじらない。<br>
 この<code>Godep.json</code> はGitのバージョン管理対象にするが、<code>_workspace</code> ディレクトリは.gitignoreに追記しておく。</p>
 <p>Godep.json に更新があった場合、他のメンバーは、</p>
-<pre><code>godep restore
-</code></pre><p>で同じパッケージの同じバージョンを GOPATH配下に配置できる。<br>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">godep restore
+</code></pre></div><p>で同じパッケージの同じバージョンを GOPATH配下に配置できる。<br>
 これは捗る！</p>
 <p>ここで言う、他のメンバーとは、Travis等のCIツールも含まれる。<br>
 ちなみに、Godepは<a href="http://docs.travis-ci.com/user/languages/go/">Travisが対応している</a>ので、Goをビルドする時にちょっと楽。</p>

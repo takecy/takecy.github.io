@@ -41,14 +41,9 @@ users := []string{&amp;#34;take&amp;#34;, &amp;#34;hoge&amp;#34;, &amp;#34;moge&
 ①
 users := []string{&#34;take&#34;, &#34;hoge&#34;, &#34;moge&#34;} for i := range users { fmt.Println(users[i]) // i is index } ②
 users := []string{&#34;take&#34;, &#34;hoge&#34;, &#34;moge&#34;} for i, user := range users { fmt.Println(user) // user is value copy } ③
-users := []string{&#34;take&#34;, &#34;hoge&#34;, &#34;moge&#34;} for _, user := range users { fmt.Println(user) // user is value copy } ①が一番早い。 でも②③の方が読みやすい。">
-<meta itemprop="datePublished" content="2015-08-30T19:51:31&#43;09:00" />
-<meta itemprop="dateModified" content="2015-08-30T19:51:31&#43;09:00" />
-<meta itemprop="wordCount" content="61">
-<meta itemprop="image" content=""/>
-
-
-
+users := []string{&#34;take&#34;, &#34;hoge&#34;, &#34;moge&#34;} for _, user := range users { fmt.Println(user) // user is value copy } ①が一番早い。 でも②③の方が読みやすい。"><meta itemprop="datePublished" content="2015-08-30T19:51:31+09:00" />
+<meta itemprop="dateModified" content="2015-08-30T19:51:31+09:00" />
+<meta itemprop="wordCount" content="61"><meta itemprop="image" content=""/>
 <meta itemprop="keywords" content="golang," />
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content=""/>
@@ -69,10 +64,10 @@ users := []string{&#34;take&#34;, &#34;hoge&#34;, &#34;moge&#34;} for i := range
 users := []string{&#34;take&#34;, &#34;hoge&#34;, &#34;moge&#34;} for i, user := range users { fmt.Println(user) // user is value copy } ③
 users := []string{&#34;take&#34;, &#34;hoge&#34;, &#34;moge&#34;} for _, user := range users { fmt.Println(user) // user is value copy } ①が一番早い。 でも②③の方が読みやすい。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/posts/golang-loop/" />
-<meta property="og:image" content=""/>
+<meta property="og:url" content="/posts/golang-loop/" /><meta property="og:image" content=""/><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2015-08-30T19:51:31+09:00" />
 <meta property="article:modified_time" content="2015-08-30T19:51:31+09:00" /><meta property="og:site_name" content="blog &lt;- takecy" />
+
 
 
 
@@ -163,21 +158,21 @@ users := []string{&#34;take&#34;, &#34;hoge&#34;, &#34;moge&#34;} for _, user :=
       <div class="post-content">
         <p>今でもたまにやらかすのでメモっておく。</p>
 <p>①</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;take&#34;</span>, <span style="color:#e6db74">&#34;hoge&#34;</span>, <span style="color:#e6db74">&#34;moge&#34;</span>}
-<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">users</span> {
-  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">users</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#75715e">// i is index
-</span><span style="color:#75715e"></span>}
-</code></pre></div><p>②</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;take&#34;</span>, <span style="color:#e6db74">&#34;hoge&#34;</span>, <span style="color:#e6db74">&#34;moge&#34;</span>}
-<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">users</span> {
-  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">user</span>) <span style="color:#75715e">// user is value copy
-</span><span style="color:#75715e"></span>}
-</code></pre></div><p>③</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;take&#34;</span>, <span style="color:#e6db74">&#34;hoge&#34;</span>, <span style="color:#e6db74">&#34;moge&#34;</span>}
-<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">users</span> {
-  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">user</span>) <span style="color:#75715e">// user is value copy
-</span><span style="color:#75715e"></span>}
-</code></pre></div><p>①が一番早い。
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;take&#34;</span>, <span style="color:#e6db74">&#34;hoge&#34;</span>, <span style="color:#e6db74">&#34;moge&#34;</span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">users</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">users</span>[<span style="color:#a6e22e">i</span>]) <span style="color:#75715e">// i is index
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>②</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;take&#34;</span>, <span style="color:#e6db74">&#34;hoge&#34;</span>, <span style="color:#e6db74">&#34;moge&#34;</span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">users</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">user</span>) <span style="color:#75715e">// user is value copy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>③</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#a6e22e">users</span> <span style="color:#f92672">:=</span> []<span style="color:#66d9ef">string</span>{<span style="color:#e6db74">&#34;take&#34;</span>, <span style="color:#e6db74">&#34;hoge&#34;</span>, <span style="color:#e6db74">&#34;moge&#34;</span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">user</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">users</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">user</span>) <span style="color:#75715e">// user is value copy
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span></code></pre></div><p>①が一番早い。
 でも②③の方が読みやすい。</p>
 
       </div>
@@ -255,7 +250,7 @@ users := []string{&#34;take&#34;, &#34;hoge&#34;, &#34;moge&#34;} for _, user :=
                 <footer class="footer">
     <div class="footer__inner">
         <div class="footer__content">
-            <span>&copy; 2020</span>
+            <span>&copy; 2022</span>
             
             
                 <span><a href="https://github.com/takecy" target="_blank" rel="noopener">takecy</a></span>
@@ -279,7 +274,7 @@ users := []string{&#34;take&#34;, &#34;hoge&#34;, &#34;moge&#34;} for _, user :=
 
 
 
-<script type="text/javascript" src="/bundle.min.dc716e9092c9820b77f96da294d0120aeeb189b5bcea9752309ebea27fd53bbe6b13cffb2aca8ecf32525647ceb7001f76091de4199ac5a3caa432c070247f5b.js" integrity="sha512-3HFukJLJggt3&#43;W2ilNASCu6xibW86pdSMJ6&#43;on/VO75rE8/7KsqOzzJSVkfOtwAfdgkd5BmaxaPKpDLAcCR/Ww=="></script>
+<script type="text/javascript" src="/bundle.min.188af889e916d7182e7bf4af7bed9ff4c9b70dd61a69188cb044d25745a4ffc32b82cbec846336503520a7716e619cb46848931205cfa3176a691ff9152d4947.js" integrity="sha512-GIr4iekW1xgue/Sve&#43;2f9Mm3DdYaaRiMsETSV0Wk/8MrgsvshGM2UDUgp3FuYZy0aEiTEgXPoxdqaR/5FS1JRw=="></script>
 
 
 

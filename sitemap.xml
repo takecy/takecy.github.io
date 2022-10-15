@@ -1,103 +1,66 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>/</loc>
-    <lastmod>2018-09-15T17:52:49+09:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-10-15T14:21:17+09:00</lastmod>
+  </url><url>
+    <loc>/posts/golang-mod-version-update/</loc>
+    <lastmod>2022-10-15T14:21:17+09:00</lastmod>
+  </url><url>
     <loc>/tags/golang/</loc>
-    <lastmod>2018-09-15T17:52:49+09:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-10-15T14:21:17+09:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2022-10-15T14:21:17+09:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2022-10-15T14:21:17+09:00</lastmod>
+  </url><url>
     <loc>/posts/grouping-id-for-ab-testing-in-golang/</loc>
     <lastmod>2018-09-15T17:52:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2018-09-15T17:52:49+09:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2018-09-15T17:52:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/test/</loc>
     <lastmod>2018-09-15T17:52:49+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/golang-multi-package-test/</loc>
     <lastmod>2018-05-26T10:26:50+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/git/</loc>
     <lastmod>2018-03-04T11:12:53+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/golang-vendoring-version/</loc>
     <lastmod>2018-03-04T11:12:53+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/docker/</loc>
     <lastmod>2018-02-03T01:36:11+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/golang-dep-prune-deprecated/</loc>
     <lastmod>2018-02-03T01:36:11+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/golang-docker-alpine-timezone/</loc>
     <lastmod>2018-02-03T01:07:23+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/golang-docker-ubuntu-install/</loc>
     <lastmod>2015-10-24T23:18:26+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/golang-microservice/</loc>
     <lastmod>2015-10-04T22:29:08+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/golang-good-bad/</loc>
     <lastmod>2015-09-16T22:54:02+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/golang-loop/</loc>
     <lastmod>2015-08-30T19:51:31+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/golang-package-godep/</loc>
     <lastmod>2015-08-16T23:17:30+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/golang-env-gopath/</loc>
     <lastmod>2015-08-05T00:52:24+09:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/blog/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/series/</loc>
   </url>
-  
 </urlset>

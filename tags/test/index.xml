@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>test on blog &lt;- takecy</title>
-    <link>/tags/test/</link>
+    <link>https://blog.takecy.dev/tags/test/</link>
     <description>Recent content in test on blog &lt;- takecy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://github.com/takecy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;takecy&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 15 Sep 2018 17:52:49 +0900</lastBuildDate><atom:link href="/tags/test/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Sep 2018 17:52:49 +0900</lastBuildDate><atom:link href="https://blog.takecy.dev/tags/test/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>GoでABテスト対象のユーザーを振り分けるライブラリを書いた</title>
-      <link>/posts/grouping-id-for-ab-testing-in-golang/</link>
+      <link>https://blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</link>
       <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
       
-      <guid>/posts/grouping-id-for-ab-testing-in-golang/</guid>
+      <guid>https://blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</guid>
       <description>事前準備として、
 ABテストを定義 (名前、割合etc..) 全ユーザーをグルーピング そしてリクエストごとに、
 リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&amp;hellip; このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
@@ -24,10 +24,10 @@ package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/takecy/grouping&
     
     <item>
       <title>1.10以降のGoのMultiPackageテスト</title>
-      <link>/posts/golang-multi-package-test/</link>
+      <link>https://blog.takecy.dev/posts/golang-multi-package-test/</link>
       <pubDate>Sat, 26 May 2018 10:26:50 +0900</pubDate>
       
-      <guid>/posts/golang-multi-package-test/</guid>
+      <guid>https://blog.takecy.dev/posts/golang-multi-package-test/</guid>
       <description>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。
 #!/bin/bash set -e echo &amp;#34;&amp;#34; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
 go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！</description>

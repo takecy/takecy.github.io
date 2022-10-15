@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>git on blog &lt;- takecy</title>
-    <link>/tags/git/</link>
+    <link>https://blog.takecy.dev/tags/git/</link>
     <description>Recent content in git on blog &lt;- takecy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://github.com/takecy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;takecy&lt;/a&gt;</copyright>
-    <lastBuildDate>Sun, 04 Mar 2018 11:12:53 +0900</lastBuildDate><atom:link href="/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Mar 2018 11:12:53 +0900</lastBuildDate><atom:link href="https://blog.takecy.dev/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title>
-      <link>/posts/golang-vendoring-version/</link>
+      <link>https://blog.takecy.dev/posts/golang-vendoring-version/</link>
       <pubDate>Sun, 04 Mar 2018 11:12:53 +0900</pubDate>
       
-      <guid>/posts/golang-vendoring-version/</guid>
+      <guid>https://blog.takecy.dev/posts/golang-vendoring-version/</guid>
       <description>Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
 管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。
 vendorをバージョン管理する場合 メリット 動かすまでが楽 何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。

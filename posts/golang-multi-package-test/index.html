@@ -8,7 +8,7 @@
 <meta name="description" content="以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。
 #!/bin/bash set -e echo &amp;#34;&amp;#34; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
 go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！" />
-<meta name="keywords" content=", test, golang" />
+<meta name="keywords" content="engineering, test, golang" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
 <link rel="canonical" href="/posts/golang-multi-package-test/" />

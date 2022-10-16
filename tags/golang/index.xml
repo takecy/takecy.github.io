@@ -25,12 +25,13 @@ $ go mod edit -go=1.19 $ go mod tidy module github.com/takecy/git-here go 1.19 �
       <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
       
       <guid>https://blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</guid>
-      <description>事前準備として、
+      <description>ABテストとは ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社アッション ABテストツールVWOの日本唯一のプレミアムパートナーとして、多くのクライアント様のCROに取り組んできたABテストのプロフェッショナルである我々アッションが、今回ABテストの概念・なぜ行う必要があるのか・実施する際のポイント等をまとめましたので、是非ご覧いただければと思います。 ABテストを実施するには、いくつかの要素があり、大きく下記がある。
+事前準備として、
 ABテストを定義 (名前、割合etc..) 全ユーザーをグルーピング そしてリクエストごとに、
 リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&amp;hellip; このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
 あるABテストに対応するグループを定義 (e.g. group-A, group-B) グループに適用する割合を定義 (e.g. 80:20) 上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す 所属しているグループを返す (e.g. group-A) というすごくシンプルなもの。
 基本的な使用例はこんな感じ。
-package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/takecy/grouping&amp;#34; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e.ratio } func (e *SimpleElem) SetRatio(r int) { e.</description>
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/takecy/grouping&amp;#34; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e.</description>
     </item>
     
     <item>

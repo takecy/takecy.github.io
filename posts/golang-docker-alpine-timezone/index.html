@@ -47,11 +47,9 @@ panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory gorou
 RUN apk --no-cache add tzdata 全体の例
 FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz .\ &amp;&amp; mv tz /usr/local/bin/ FROM alpine:3."><meta itemprop="datePublished" content="2018-02-03T01:07:23+09:00" />
 <meta itemprop="dateModified" content="2018-02-03T01:07:23+09:00" />
-<meta itemprop="wordCount" content="88"><meta itemprop="image" content="https://blog.takecy.dev/"/>
+<meta itemprop="wordCount" content="88">
 <meta itemprop="keywords" content="docker,golang," />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://blog.takecy.dev/"/>
-
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Timezoneが取れるalpineのDockerイメージを作る"/>
 <meta name="twitter:description" content="Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。
 コード全体はこちら。
@@ -72,7 +70,7 @@ panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory gorou
 RUN apk --no-cache add tzdata 全体の例
 FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz .\ &amp;&amp; mv tz /usr/local/bin/ FROM alpine:3." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.takecy.dev/posts/golang-docker-alpine-timezone/" /><meta property="og:image" content="https://blog.takecy.dev/"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://blog.takecy.dev/posts/golang-docker-alpine-timezone/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-02-03T01:07:23+09:00" />
 <meta property="article:modified_time" content="2018-02-03T01:07:23+09:00" /><meta property="og:site_name" content="blog &lt;- takecy" />
 

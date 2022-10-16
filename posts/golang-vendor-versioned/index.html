@@ -51,11 +51,9 @@ GitHubWeb上で検索しやすくもなる。
 まとめ 結局、一長一短で、メリット・デメリットが反対になっている。 個人的には 動かすまでが楽 これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 リポジトリをCloneしたらすぐrunできる というのは素晴らしいと思っている。 また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。
 ので、個人的な結論としては。vendorもバージョン管理する(GitHubに全部突っ込む) にしたい。"><meta itemprop="datePublished" content="2018-03-04T11:12:53+09:00" />
 <meta itemprop="dateModified" content="2018-03-04T11:12:53+09:00" />
-<meta itemprop="wordCount" content="42"><meta itemprop="image" content="https://blog.takecy.dev/"/>
+<meta itemprop="wordCount" content="42">
 <meta itemprop="keywords" content="git,golang," />
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://blog.takecy.dev/"/>
-
+<meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか"/>
 <meta name="twitter:description" content="Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
 管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。
@@ -80,7 +78,7 @@ GitHubWeb上で検索しやすくもなる。
 まとめ 結局、一長一短で、メリット・デメリットが反対になっている。 個人的には 動かすまでが楽 これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 リポジトリをCloneしたらすぐrunできる というのは素晴らしいと思っている。 また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。
 ので、個人的な結論としては。vendorもバージョン管理する(GitHubに全部突っ込む) にしたい。" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.takecy.dev/posts/golang-vendor-versioned/" /><meta property="og:image" content="https://blog.takecy.dev/"/><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://blog.takecy.dev/posts/golang-vendor-versioned/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-03-04T11:12:53+09:00" />
 <meta property="article:modified_time" content="2018-03-04T11:12:53+09:00" /><meta property="og:site_name" content="blog &lt;- takecy" />
 

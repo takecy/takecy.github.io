@@ -5,6 +5,9 @@
     <loc>https://blog.takecy.dev/</loc>
     <lastmod>2022-10-15T14:21:17+09:00</lastmod>
   </url><url>
+    <loc>https://blog.takecy.dev/categories/</loc>
+    <lastmod>2022-10-15T14:21:17+09:00</lastmod>
+  </url><url>
     <loc>https://blog.takecy.dev/posts/golang-mod-version-update/</loc>
     <lastmod>2022-10-15T14:21:17+09:00</lastmod>
   </url><url>
@@ -12,6 +15,9 @@
     <lastmod>2022-10-15T14:21:17+09:00</lastmod>
   </url><url>
     <loc>https://blog.takecy.dev/posts/</loc>
+    <lastmod>2022-10-15T14:21:17+09:00</lastmod>
+  </url><url>
+    <loc>https://blog.takecy.dev/categories/programing/</loc>
     <lastmod>2022-10-15T14:21:17+09:00</lastmod>
   </url><url>
     <loc>https://blog.takecy.dev/tags/</loc>
@@ -58,8 +64,6 @@
   </url><url>
     <loc>https://blog.takecy.dev/posts/golang-env-gopath/</loc>
     <lastmod>2015-08-05T00:52:24+09:00</lastmod>
-  </url><url>
-    <loc>https://blog.takecy.dev/blog/</loc>
   </url><url>
     <loc>https://blog.takecy.dev/series/</loc>
   </url>

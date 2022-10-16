@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。
-コード全体はこちら。
+コード全体はこちら。
 Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
 jst, err := time.LoadLocation(&amp;#34;Asia/Tokyo&amp;#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 &#43;0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
@@ -40,7 +40,7 @@ FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDI
 
 <meta itemprop="name" content="Timezoneが取れるalpineのDockerイメージを作る">
 <meta itemprop="description" content="Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。
-コード全体はこちら。
+コード全体はこちら。
 Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
 jst, err := time.LoadLocation(&#34;Asia/Tokyo&#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 &#43;0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
@@ -54,7 +54,7 @@ FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDI
 
 <meta name="twitter:title" content="Timezoneが取れるalpineのDockerイメージを作る"/>
 <meta name="twitter:description" content="Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。
-コード全体はこちら。
+コード全体はこちら。
 Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
 jst, err := time.LoadLocation(&#34;Asia/Tokyo&#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 &#43;0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
@@ -65,7 +65,7 @@ FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDI
 
     <meta property="og:title" content="Timezoneが取れるalpineのDockerイメージを作る" />
 <meta property="og:description" content="Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。
-コード全体はこちら。
+コード全体はこちら。
 Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
 jst, err := time.LoadLocation(&#34;Asia/Tokyo&#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 &#43;0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
@@ -166,7 +166,7 @@ FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDI
       <div class="post-content">
         <p>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、
 <a href="https://docs.docker.com/develop/develop-images/multistage-build/">multi stage build</a>にそってやったら、timezone情報が取れなくてpanicが発生して(&lsquo;A`)になったので、その対応策について。</p>
-<p>コード全体はこちら。<br>
+<p>コード全体はこちら。<br>
 <a href="https://github.com/takecy/tz-sample"><img src="https://gh-card.dev/repos/takecy/tz-sample.svg?fullname"></a>
 </p>
 <h3 id="panic-になるコード">Panic になるコード</h3>

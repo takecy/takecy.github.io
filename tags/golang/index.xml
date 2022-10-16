@@ -51,13 +51,13 @@ go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！</d
       
       <guid>https://blog.takecy.dev/posts/golang-vendor-versioned/</guid>
       <description>Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
-管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。
-vendorをバージョン管理する場合 メリット 動かすまでが楽 何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。
-デリット リポ内のファイル数が爆増する cloneするのが遅い。。大きめのリポジトリになると結構待たされる。 あと検索が弱くなる。vendor内も引っかかるのでGithubWeb上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。
-vendorをバージョン管理しない場合 メリット リポジトリが綺麗 この問題の先輩であるnpmはnode_modulesの中身を全部Githubにいれたりしない。 Githubが提供する .gitignore にもnode_modulesが書いてある。(Goにvendorはいない)
+管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。
+vendorをバージョン管理する場合 メリット 動かすまでが楽 何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。
+デリット リポ内のファイル数が爆増する cloneするのが遅い。。大きめのリポジトリになると結構待たされる。 あと検索が弱くなる。vendor内も引っかかるのでGithubWeb上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。
+vendorをバージョン管理しない場合 メリット リポジトリが綺麗 この問題の先輩であるnpmはnode_modulesの中身を全部Githubにいれたりしない。 Githubが提供する .gitignore にもnode_modulesが書いてある。(Goにvendorはいない)
 GithubWeb上で検索しやすくもなる。
 デメリット 動かすまでが大変 depがnpmほど洗練されていない、またGoの依存はGithubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。 このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。Gopkg.lockにrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも dep ensure 自体が結構な割合で失敗する。
-まとめ 結局、一長一短で、メリット・デメリットが反対になっている。 個人的には 動かすまでが楽 これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 リポジトリをCloneしたらすぐrunできる というのは素晴らしいと思っている。 また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。
+まとめ 結局、一長一短で、メリット・デメリットが反対になっている。 個人的には 動かすまでが楽 これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 リポジトリをCloneしたらすぐrunできる というのは素晴らしいと思っている。 また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。
 ので、個人的な結論としては。vendorもバージョン管理する(Githubに全部突っ込む) にしたい。</description>
     </item>
     
@@ -80,7 +80,7 @@ Pruning is now performed automatically by dep ensure. Set prune settings in Gopk
       
       <guid>https://blog.takecy.dev/posts/golang-docker-alpine-timezone/</guid>
       <description>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、 multi stage buildにそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。
-コード全体はこちら。
+コード全体はこちら。
 Panic になるコード 普通にmulti stage buildでalpineにビルド済イメージを COPY して実行すると、下記コードはpanicする。
 jst, err := time.LoadLocation(&amp;#34;Asia/Tokyo&amp;#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 +0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。

@@ -8,6 +8,9 @@
     <language>en-us</language>
     <copyright>&lt;a href=&#34;https://github.com/takecy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;takecy&lt;/a&gt;</copyright>
     <lastBuildDate>Sat, 15 Oct 2022 14:21:17 +0900</lastBuildDate><atom:link href="https://blog.takecy.dev/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
     <item>
       <title>go.modファイル内のGoバージョンを更新する</title>
       <link>https://blog.takecy.dev/posts/golang-mod-version-update/</link>
@@ -16,8 +19,10 @@
       <guid>https://blog.takecy.dev/posts/golang-mod-version-update/</guid>
       <description>go.mod ファイルのバージョン部分を手動ではなく、goコマンドで更新する。
 module github.com/takecy/git-here go 1.18 ← これ require ( github.com/fatih/color v1.13.0 github.com/matryer/is v1.4.0 github.com/pkg/errors v0.9.1 golang.org/x/sync v0.0.0-20220929204114-8fcdb60fdcc0 ) 更新手順
-$ go mod edit -go=1.19 $ go mod tidy module github.com/takecy/git-here go 1.19 ← 更新される require ( github.com/fatih/color v1.13.0 github.com/matryer/is v1.4.0 github.com/pkg/errors v0.9.1 golang.org/x/sync v0.0.0-20220929204114-8fcdb60fdcc0 ) go mod tidy をしないとエラーが出る。</description>
-    </item>
+$ go mod edit -go=1.19 $ go mod tidy module github.com/takecy/git-here go 1.19 ← 更新される require ( github.com/fatih/color v1.13.0 github.com/matryer/is v1.4.0 github.com/pkg/errors v0.9.1 golang.org/x/sync v0.0.0-20220929204114-8fcdb60fdcc0 ) go mod tidy をしないとエラーが出る。</description></item>
+    
+    
+    
     
     <item>
       <title>GoでABテスト対象のユーザーを振り分けるライブラリを書いた</title>
@@ -30,8 +35,10 @@ ABテストを定義 (名前、割合etc..) 全ユーザーをグルーピング
 リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&amp;hellip; このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
 あるABテストに対応するグループを定義 (e.g. group-A, group-B) グループに適用する割合を定義 (e.g. 80:20) 上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す 所属しているグループを返す (e.g. group-A) というすごくシンプルなもの。
 基本的な使用例はこんな感じ。
-package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/takecy/grouping&amp;#34; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e.ratio } func (e *SimpleElem) SetRatio(r int) { e.</description>
-    </item>
+package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/takecy/grouping&amp;#34; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e.ratio } func (e *SimpleElem) SetRatio(r int) { e.</description></item>
+    
+    
+    
     
     <item>
       <title>1.10以降のGoのMultiPackageテスト</title>
@@ -41,8 +48,10 @@ package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/takecy/grouping&
       <guid>https://blog.takecy.dev/posts/golang-multi-package-test/</guid>
       <description>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。
 #!/bin/bash set -e echo &amp;#34;&amp;#34; &amp;gt; coverage.txt go test -i ./... for d in $(go list ./...); do go test -race -coverprofile=profile.out -covermode=atomic $d if [ -f profile.out ]; then cat profile.out &amp;gt;&amp;gt; coverage.txt rm profile.out fi done 1.10以降はこれでいけるようになった。
-go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！</description>
-    </item>
+go test -race -coverprofile=coverage.txt -covermode=atomic ./... 楽チン！</description></item>
+    
+    
+    
     
     <item>
       <title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title>
@@ -63,8 +72,10 @@ GithubWeb上で検索しやすくもなる。
 まとめ 結局、一長一短で、メリット・デメリットが反対になっている。
 個人的には 動かすまでが楽 これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 リポジトリをCloneしたらすぐrunできる というのは素晴らしいと思っている。
 また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。
-ので、個人的な結論としては。 vendorもバージョン管理する(Githubに全部突っ込む) にしたい。</description>
-    </item>
+ので、個人的な結論としては。 vendorもバージョン管理する(Githubに全部突っ込む) にしたい。</description></item>
+    
+    
+    
     
     <item>
       <title>Goの依存管理ツールのdepのpruneがdeprecatedになった</title>
@@ -75,8 +86,10 @@ GithubWeb上で検索しやすくもなる。
       <description>Goの依存関係管理にはdepがデファクトだし、使っているのだが、 最近 prune コマンドがdeprecatedされた。
 depのprune $ dep prune -v このコマンドは、ensure で山盛り追加されるvendorから、使用していないpackageを除外してくれて、レポジトリが軽くなるので気に入ってよく使っていた。 Makefileにもだいたい以下のように書いていた。
 update: dep ensure -update -v &amp;amp;&amp;amp; dep prune -v 実行時に警告が 多分0.4からこういう警告が出るようになった。
-Pruning is now performed automatically by dep ensure. Set prune settings in Gopkg.toml and it it will be applied when running ensure. This command currently still prunes as it always has, to ease the transition. However, it will be removed in a future version of dep. Now is the time to update your Gopkg.</description>
-    </item>
+Pruning is now performed automatically by dep ensure. Set prune settings in Gopkg.toml and it it will be applied when running ensure. This command currently still prunes as it always has, to ease the transition. However, it will be removed in a future version of dep. Now is the time to update your Gopkg.</description></item>
+    
+    
+    
     
     <item>
       <title>Timezoneが取れるalpineのDockerイメージを作る</title>
@@ -90,8 +103,10 @@ Panic になるコード 普通にmulti stage buildでalpineにビルド済イ�
 jst, err := time.LoadLocation(&amp;#34;Asia/Tokyo&amp;#34;) if err != nil { panic(err) } alpineは /etc/localtime がないため。
 panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory goroutine 1 [running]: main.main() /go/src/github.com/takecy/tz/main.go:11 +0x22b make: *** [run_alpine] Error 2 対応 対応は難しいことはなく、単に tzdata を入れればよい。
 RUN apk --no-cache add tzdata 全体の例
-FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz .\ &amp;amp;&amp;amp; mv tz /usr/local/bin/ FROM alpine:3.</description>
-    </item>
+FROM golang:1.9.3-alpine AS build COPY . $GOPATH/src/github.com/takecy/tz WORKDIR $GOPATH/src/github.com/takecy/tz RUN go build -o tz .\ &amp;amp;&amp;amp; mv tz /usr/local/bin/ FROM alpine:3.</description></item>
+    
+    
+    
     
     <item>
       <title>UbuntuにGoをインストールしたDokcerイメージを作る</title>
@@ -106,8 +121,10 @@ RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN ta
 自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
 今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。
 システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。
-なんて面白い時代だ。</description>
-    </item>
+なんて面白い時代だ。</description></item>
+    
+    
+    
     
     <item>
       <title>Goとマイクロサービス</title>
@@ -127,8 +144,10 @@ Goはこのマイクロサービス的なサービス開発に適している気
 それぞれがGoプロジェクトの1パッケージに対応し、そのパッケージ毎にバイナリを生成し、 バイナリごとにサーバインスタンスを割り当てる感じになる。
 まさにマイクロサービス。
 まとめ GoはProxyサーバみたいな特定の用途に特化した(アドホックな)処理を、 1個のバイナリとしてまとめられるので、Goで全部やってると勝手にマイクロサービスっぽくなるよね
-というお話。</description>
-    </item>
+というお話。</description></item>
+    
+    
+    
     
     <item>
       <title>Goのいいとこ悪いとこを1個づつあげる</title>
@@ -157,8 +176,10 @@ interface{} map[string]interface{}
 Goは静的型付け言語に分類されるが、抽象化しづらいので結局「何でも入る型」(Javaで言うならObject型)を使っちゃって、コンパイラの恩恵が少ない。
 ジェネリクスに関する議論 は色々なされているようだけど、どうなるか。
 まとめ 悪いところもあるけれど、「デプロイが簡単」「バージョンアップが簡単」のメリットを捨てるほどではない。
-という結論に今のところなっている感じ。</description>
-    </item>
+という結論に今のところなっている感じ。</description></item>
+    
+    
+    
     
     <item>
       <title>Go言語でループ</title>
@@ -170,8 +191,10 @@ Goは静的型付け言語に分類されるが、抽象化しづらいので結
 ①
 users := []string{&amp;#34;take&amp;#34;, &amp;#34;hoge&amp;#34;, &amp;#34;moge&amp;#34;} for i := range users { fmt.Println(users[i]) // i is index } ②
 users := []string{&amp;#34;take&amp;#34;, &amp;#34;hoge&amp;#34;, &amp;#34;moge&amp;#34;} for i, user := range users { fmt.Println(user) // user is value copy } ③
-users := []string{&amp;#34;take&amp;#34;, &amp;#34;hoge&amp;#34;, &amp;#34;moge&amp;#34;} for _, user := range users { fmt.Println(user) // user is value copy } ①が一番早い。 でも②③の方が読みやすい。</description>
-    </item>
+users := []string{&amp;#34;take&amp;#34;, &amp;#34;hoge&amp;#34;, &amp;#34;moge&amp;#34;} for _, user := range users { fmt.Println(user) // user is value copy } ①が一番早い。 でも②③の方が読みやすい。</description></item>
+    
+    
+    
     
     <item>
       <title>Go言語の依存パッケージ管理の闇</title>
@@ -205,8 +228,10 @@ godep save ./... で記録(その時点のスナップショット的な感じ)�
 新しく Godeps と Gedeps/_workspace というディレクトリと、Godep.json というJSONファイルが生成される。
 このJSONが、mavenでいうpom.xml、npmでいうpackage.json にあたるもので、基本手動でいじらない。
 このGodep.json はGitのバージョン管理対象にするが、_workspace ディレクトリは.gitignoreに追記しておく。
-Godep.json に更新があった場合、他のメンバーは、</description>
-    </item>
+Godep.json に更新があった場合、他のメンバーは、</description></item>
+    
+    
+    
     
     <item>
       <title>これからGoやる人のためのGOPATH</title>
@@ -239,8 +264,7 @@ Githubで公開する気とか無いし、、と思っても、このパスで�
 例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。
 Let&amp;rsquo;s write Go。
 どうでもいいけど、Goのライブラリ名はダジャレがちらほら。
-例えばRedisのドライバは redigo 。</description>
-    </item>
+例えばRedisのドライバは redigo 。</description></item>
     
   </channel>
 </rss>

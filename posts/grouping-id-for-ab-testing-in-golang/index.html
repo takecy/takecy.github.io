@@ -8,7 +8,7 @@
 <meta name="description" content="ABテストとは ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社アッション ABテストツールVWOの日本唯一のプレミアムパートナーとして、多くのクライアント様のCROに取り組んできたABテストのプロフェッショナルである我々アッションが、今回ABテストの概念・なぜ行う必要があるのか・実施する際のポイント等をまとめましたので、是非ご覧いただければと思います。 ABテストを実施するには、いくつかの要素があり、大きく下記がある。
 事前準備として、
 ABテストを定義 (名前、割合etc..) 全ユーザーをグルーピング そしてリクエストごとに、
-リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&amp;hellip; このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
+リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&amp;hellip; 使い方 このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
 あるABテストに対応するグループを定義 (e.g. group-A, group-B) グループに適用する割合を定義 (e.g. 80:20) 上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す 所属しているグループを返す (e.g. group-A) というすごくシンプルなもの。
 基本的な使用例はこんな感じ。
 package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/takecy/grouping&amp;#34; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e." />
@@ -42,19 +42,19 @@ package main import ( &amp;#34;fmt&amp;#34; &amp;#34;github.com/takecy/grouping&
 <meta itemprop="description" content="ABテストとは ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社アッション ABテストツールVWOの日本唯一のプレミアムパートナーとして、多くのクライアント様のCROに取り組んできたABテストのプロフェッショナルである我々アッションが、今回ABテストの概念・なぜ行う必要があるのか・実施する際のポイント等をまとめましたので、是非ご覧いただければと思います。 ABテストを実施するには、いくつかの要素があり、大きく下記がある。
 事前準備として、
 ABテストを定義 (名前、割合etc..) 全ユーザーをグルーピング そしてリクエストごとに、
-リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&hellip; このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
+リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&hellip; 使い方 このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
 あるABテストに対応するグループを定義 (e.g. group-A, group-B) グループに適用する割合を定義 (e.g. 80:20) 上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す 所属しているグループを返す (e.g. group-A) というすごくシンプルなもの。
 基本的な使用例はこんな感じ。
 package main import ( &#34;fmt&#34; &#34;github.com/takecy/grouping&#34; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e."><meta itemprop="datePublished" content="2018-09-15T17:52:49+09:00" />
 <meta itemprop="dateModified" content="2018-09-15T17:52:49+09:00" />
-<meta itemprop="wordCount" content="185">
+<meta itemprop="wordCount" content="188">
 <meta itemprop="keywords" content="test,golang," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="GoでABテスト対象のユーザーを振り分けるライブラリを書いた"/>
 <meta name="twitter:description" content="ABテストとは ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社アッション ABテストツールVWOの日本唯一のプレミアムパートナーとして、多くのクライアント様のCROに取り組んできたABテストのプロフェッショナルである我々アッションが、今回ABテストの概念・なぜ行う必要があるのか・実施する際のポイント等をまとめましたので、是非ご覧いただければと思います。 ABテストを実施するには、いくつかの要素があり、大きく下記がある。
 事前準備として、
 ABテストを定義 (名前、割合etc..) 全ユーザーをグルーピング そしてリクエストごとに、
-リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&hellip; このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
+リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&hellip; 使い方 このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
 あるABテストに対応するグループを定義 (e.g. group-A, group-B) グループに適用する割合を定義 (e.g. 80:20) 上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す 所属しているグループを返す (e.g. group-A) というすごくシンプルなもの。
 基本的な使用例はこんな感じ。
 package main import ( &#34;fmt&#34; &#34;github.com/takecy/grouping&#34; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e."/>
@@ -65,7 +65,7 @@ package main import ( &#34;fmt&#34; &#34;github.com/takecy/grouping&#34; ) // Si
 <meta property="og:description" content="ABテストとは ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社アッション ABテストツールVWOの日本唯一のプレミアムパートナーとして、多くのクライアント様のCROに取り組んできたABテストのプロフェッショナルである我々アッションが、今回ABテストの概念・なぜ行う必要があるのか・実施する際のポイント等をまとめましたので、是非ご覧いただければと思います。 ABテストを実施するには、いくつかの要素があり、大きく下記がある。
 事前準備として、
 ABテストを定義 (名前、割合etc..) 全ユーザーをグルーピング そしてリクエストごとに、
-リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&hellip; このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
+リクエスト元ユーザーの所属グループの決定 出し分け 結果のロギング 検証 繰り返し&hellip; 使い方 このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、
 あるABテストに対応するグループを定義 (e.g. group-A, group-B) グループに適用する割合を定義 (e.g. 80:20) 上記定義で初期化したインスタンスに、id (e.g. user-001)を渡す 所属しているグループを返す (e.g. group-A) というすごくシンプルなもの。
 基本的な使用例はこんな感じ。
 package main import ( &#34;fmt&#34; &#34;github.com/takecy/grouping&#34; ) // SimpleElem implements `grouping.Elementer` type SimpleElem struct { name string ratio int } func (e *SimpleElem) GetName() string { return e.name } func (e *SimpleElem) GetRatio() int { return e." />
@@ -758,6 +758,7 @@ package main import ( &#34;fmt&#34; &#34;github.com/takecy/grouping&#34; ) // Si
 <li>検証</li>
 <li>繰り返し&hellip;</li>
 </ol>
+<h3 id="使い方">使い方</h3>
 <p>このパッケージは、「事前準備」と「各リクエストの1」をサーバーサイドでやるためのもので、</p>
 <ol>
 <li>あるABテストに対応するグループを定義 (e.g. group-A, group-B)</li>
@@ -820,6 +821,7 @@ package main import ( &#34;fmt&#34; &#34;github.com/takecy/grouping&#34; ) // Si
 </span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;elem2: %v\n&#34;</span>, <span style="color:#a6e22e">elem2</span>.<span style="color:#a6e22e">GetName</span>()) <span style="color:#75715e">// group-C
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
 </span></span></code></pre></div><p>同じIDであれば、何度呼び出しても同じグループが返されるため、DBなどに保存しておく必要はない。</p>
+<h3 id="feature-flagとしても使用可能">feature flagとしても使用可能</h3>
 <p>また、グループ判定に使用する<a href="https://github.com/takecy/grouping/blob/master/README.md#customize-hash-function">ハッシュ値を生成する関数を外から渡す</a>ことや、<a href="https://github.com/takecy/grouping/blob/master/README.md#default-specification">全体の20%に適用</a>という指定も可能なので、feature flagとしても使える。</p>
 <p>後はABテストを実施する箇所、例えばコンテンツのリストを作るところ、クライアント画面表示 などで、取得されたグループを参照し、分岐するよう実装する。</p>
 <p>ログを取得し、検証し、さらに別のABを・・と、まだまだ道程は長いが、とりあえず最初の一歩用に。</p>

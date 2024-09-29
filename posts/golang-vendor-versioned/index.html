@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
-        <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="author" content="">
-<meta name="description" content="Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
+<!doctype html><html lang=en><head><meta charset=UTF-8><meta http-equiv=X-UA-Compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content><meta name=description content="Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
 管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。
 vendorをバージョン管理する場合 メリット 動かすまでが楽 何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。
 デリット リポ内のファイル数が爆増する cloneするのが遅い。。大きめのリポジトリになると結構待たされる。 あと検索が弱くなる。vendor内も引っかかるのでGitHub Web上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。
@@ -16,39 +8,8 @@ GitHubWeb上で検索しやすくもなる。
 結論 結局、一長一短で、メリット・デメリットが反対になっている。 個人的には 動かすまでが楽 これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 リポジトリをCloneしたらすぐrunできる というのは素晴らしいと思っている。
 また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。
 結果、今のPJでは。vendorもバージョン管理する(GitHubに全部突っ込む) にしていて、今のところ快適に運用できている。
-" />
-<meta name="keywords" content="engineering, git, golang" />
-<meta name="robots" content="noodp" />
-<meta name="theme-color" content="" />
-<link rel="canonical" href="http://localhost:1313/posts/golang-vendor-versioned/" />
-
-
-    <title>
-        
-            Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか :: blog &lt;- takecy  — Keep it simple.
-        
-    </title>
-
-
-
-
-
-<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
-
-
-
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <meta name="msapplication-TileColor" content="">
-
-
-
-  <meta itemprop="name" content="Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか">
-  <meta itemprop="description" content="Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
+"><meta name=keywords content="engineering,git,golang"><meta name=robots content="noodp"><meta name=theme-color content><link rel=canonical href=https://blog.takecy.dev/posts/golang-vendor-versioned/><title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか :: blog &lt;- takecy — Keep it simple.
+</title><link rel=stylesheet href=/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE="><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color><link rel="shortcut icon" href=/favicon.ico><meta name=msapplication-TileColor content><meta itemprop=name content="Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか"><meta itemprop=description content="Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
 管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。
 vendorをバージョン管理する場合 メリット 動かすまでが楽 何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。
 デリット リポ内のファイル数が爆増する cloneするのが遅い。。大きめのリポジトリになると結構待たされる。 あと検索が弱くなる。vendor内も引っかかるのでGitHub Web上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。
@@ -57,15 +18,7 @@ GitHubWeb上で検索しやすくもなる。
 デメリット 動かすまでが大変 depがnpmほど洗練されていない、またGoの依存はGitHubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。 このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。Gopkg.lockにrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも dep ensure 自体が結構な割合で失敗する。
 結論 結局、一長一短で、メリット・デメリットが反対になっている。 個人的には 動かすまでが楽 これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 リポジトリをCloneしたらすぐrunできる というのは素晴らしいと思っている。
 また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。
-結果、今のPJでは。vendorもバージョン管理する(GitHubに全部突っ込む) にしていて、今のところ快適に運用できている。">
-  <meta itemprop="datePublished" content="2018-03-04T11:12:53+09:00">
-  <meta itemprop="dateModified" content="2018-03-04T11:12:53+09:00">
-  <meta itemprop="wordCount" content="42">
-  <meta itemprop="keywords" content="Git,Golang">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか">
-  <meta name="twitter:description" content="Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
+結果、今のPJでは。vendorもバージョン管理する(GitHubに全部突っ込む) にしていて、今のところ快適に運用できている。"><meta itemprop=datePublished content="2018-03-04T11:12:53+09:00"><meta itemprop=dateModified content="2018-03-04T11:12:53+09:00"><meta itemprop=wordCount content="42"><meta itemprop=keywords content="Git,Golang"><meta name=twitter:card content="summary"><meta name=twitter:title content="Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか"><meta name=twitter:description content="Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
 管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。
 vendorをバージョン管理する場合 メリット 動かすまでが楽 何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。
 デリット リポ内のファイル数が爆増する cloneするのが遅い。。大きめのリポジトリになると結構待たされる。 あと検索が弱くなる。vendor内も引っかかるのでGitHub Web上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。
@@ -74,14 +27,7 @@ GitHubWeb上で検索しやすくもなる。
 デメリット 動かすまでが大変 depがnpmほど洗練されていない、またGoの依存はGitHubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。 このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。Gopkg.lockにrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも dep ensure 自体が結構な割合で失敗する。
 結論 結局、一長一短で、メリット・デメリットが反対になっている。 個人的には 動かすまでが楽 これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 リポジトリをCloneしたらすぐrunできる というのは素晴らしいと思っている。
 また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。
-結果、今のPJでは。vendorもバージョン管理する(GitHubに全部突っ込む) にしていて、今のところ快適に運用できている。">
-
-
-
-    <meta property="og:url" content="http://localhost:1313/posts/golang-vendor-versioned/">
-  <meta property="og:site_name" content="blog &lt;- takecy">
-  <meta property="og:title" content="Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか">
-  <meta property="og:description" content="Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
+結果、今のPJでは。vendorもバージョン管理する(GitHubに全部突っ込む) にしていて、今のところ快適に運用できている。"><meta property="og:url" content="https://blog.takecy.dev/posts/golang-vendor-versioned/"><meta property="og:site_name" content="blog <- takecy"><meta property="og:title" content="Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか"><meta property="og:description" content="Goプロジェクトの依存パッケージは、 dep などのツールにより vendor ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。
 管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。
 vendorをバージョン管理する場合 メリット 動かすまでが楽 何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。
 デリット リポ内のファイル数が爆増する cloneするのが遅い。。大きめのリポジトリになると結構待たされる。 あと検索が弱くなる。vendor内も引っかかるのでGitHub Web上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。
@@ -90,245 +36,19 @@ GitHubWeb上で検索しやすくもなる。
 デメリット 動かすまでが大変 depがnpmほど洗練されていない、またGoの依存はGitHubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。 このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。Gopkg.lockにrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも dep ensure 自体が結構な割合で失敗する。
 結論 結局、一長一短で、メリット・デメリットが反対になっている。 個人的には 動かすまでが楽 これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 リポジトリをCloneしたらすぐrunできる というのは素晴らしいと思っている。
 また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。
-結果、今のPJでは。vendorもバージョン管理する(GitHubに全部突っ込む) にしていて、今のところ快適に運用できている。">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2018-03-04T11:12:53+09:00">
-    <meta property="article:modified_time" content="2018-03-04T11:12:53+09:00">
-    <meta property="article:tag" content="Git">
-    <meta property="article:tag" content="Golang">
-
-
-
-
-    <meta property="article:section" content="programing" />
-
-
-
-    <meta property="article:published_time" content="2018-03-04 11:12:53 &#43;0900 JST" />
-
-
-
-
-
-
-
-
-
-    
-
-
-
-    </head>
-
-    
-        <body>
-    
-    
-        <div class="container">
-            <header class="header">
-    <span class="header__inner">
-        <a href="/" style="text-decoration: none;">
-    <div class="logo">
-        
-            <span class="logo__mark">></span>
-            <span class="logo__text ">
-                blog &lt;- takecy</span>
-            <span class="logo__cursor" style=
-                  "
-                   
-                   ">
-            </span>
-        
-    </div>
-</a>
-
-
-        <span class="header__right">
-            
-                <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://github.com/takecy">GitHub</a></li><li><a href="/posts">Posts</a></li><li><a href="/index.xml">RSS</a></li>
-    </ul>
-</nav>
-
-                <span class="menu-trigger">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path d="M0 0h24v24H0z" fill="none"/>
-                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
-                    </svg>
-                </span>
-            
-        </span>
-    </span>
-</header>
-
-
-            <div class="content">
-                
-  <main class="post">
-
-    <div class="post-info">
-      <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
-          <circle cx="12" cy="12" r="10"></circle>
-          <polyline points="12 6 12 12 16 14"></polyline>
-        </svg>
-        One minute
-
-        
-      </p>
-    </div>
-
-    <article>
-      <h1 class="post-title">
-        <a href="http://localhost:1313/posts/golang-vendor-versioned/">Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</a>
-      </h1>
-
-      
-
-      
-
-      
-
-      <div class="post-content">
-        <p>Goプロジェクトの依存パッケージは、 <a href="https://github.com/golang/dep">dep</a> などのツールにより  <code>vendor</code> ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。</p>
-<p>管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。</p>
-<h2 id="vendorをバージョン管理する場合">vendorをバージョン管理する場合</h2>
-<h3 id="メリット">メリット</h3>
-<h4 id="動かすまでが楽">動かすまでが楽</h4>
-<p>何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。</p>
-<h3 id="デリット">デリット</h3>
-<h4 id="リポ内のファイル数が爆増する">リポ内のファイル数が爆増する</h4>
-<p>cloneするのが遅い。。大きめのリポジトリになると結構待たされる。
-あと検索が弱くなる。vendor内も引っかかるのでGitHub Web上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。</p>
-<!-- raw HTML omitted -->
-<h2 id="vendorをバージョン管理しない場合">vendorをバージョン管理しない場合</h2>
-<h3 id="メリット-1">メリット</h3>
-<h4 id="リポジトリが綺麗">リポジトリが綺麗</h4>
-<p>この問題の先輩である<code>npm</code>は<code>node_modules</code>の中身を全部GitHubにいれたりしない。
-GitHubが提供する <a href="https://github.com/github/gitignore/blob/master/Node.gitignore#L36">.gitignore</a> にも<code>node_modules</code>が書いてある。(<a href="https://github.com/github/gitignore/blob/master/Go.gitignore">Go</a>に<code>vendor</code>はいない)<br>
-GitHubWeb上で検索しやすくもなる。</p>
-<h3 id="デメリット">デメリット</h3>
-<h4 id="動かすまでが大変">動かすまでが大変</h4>
-<p><code>dep</code>が<code>npm</code>ほど洗練されていない、またGoの依存はGitHubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。
-このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。<code>Gopkg.lock</code>にrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも <code>dep ensure</code> 自体が結構な割合で失敗する。</p>
-<h2 id="結論">結論</h2>
-<p>結局、一長一短で、メリット・デメリットが反対になっている。
-個人的には <code>動かすまでが楽</code> これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 <code>リポジトリをCloneしたらすぐrunできる</code> というのは素晴らしいと思っている。</p>
-<p>また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。</p>
-<p>結果、今のPJでは。<code>vendorもバージョン管理する(GitHubに全部突っ込む)</code> にしていて、今のところ快適に運用できている。</p>
-
-      </div>
-    </article>
-
-    <hr />
-
-    <div class="post-info">
-      
-    <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
-
-        <span class="tag"><a href="http://localhost:1313/tags/git/">git</a></span>
-        <span class="tag"><a href="http://localhost:1313/tags/golang/">golang</a></span>
-        
-    </p>
-
-      
-    <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
-
-        <span class="tag"><a href="http://localhost:1313/categories/programing/">programing</a></span>
-        
-    </p>
-
-
-      <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-          <polyline points="14 2 14 8 20 8"></polyline>
-          <line x1="16" y1="13" x2="8" y2="13"></line>
-          <line x1="16" y1="17" x2="8" y2="17"></line>
-          <polyline points="10 9 9 9 8 9"></polyline>
-        </svg>
-        42 Words
-      </p>
-
-      <p>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-          <line x1="16" y1="2" x2="16" y2="6"></line>
-          <line x1="8" y1="2" x2="8" y2="6"></line>
-          <line x1="3" y1="10" x2="21" y2="10"></line>
-        </svg>
-        
-          2018/03/04 11:12 &#43;0900
-        
-
-        
-          
-        
-      </p>
-    </div>
-
-    
-    <div class="pagination">
-        
-        <div class="pagination__title">
-            <span class="pagination__title-h">Read other posts</span>
-            <hr />
-        </div>
-        
-
-        <div class="pagination__buttons">
-            
-            <span class="button previous">
-                <a href="http://localhost:1313/posts/golang-multi-package-test/">
-                    <span class="button__icon">←</span>
-                    <span class="button__text">1.10以降のGoのMultiPackageテスト</span>
-                </a>
-            </span>
-            
-
-            
-            <span class="button next">
-                <a href="http://localhost:1313/posts/golang-dep-prune-deprecated/">
-                    <span class="button__text">Goの依存管理ツールのdepのpruneがdeprecatedになった</span>
-                    <span class="button__icon">→</span>
-                </a>
-            </span>
-            
-        </div>
-    </div>
-
-
-    
-
-    
-
-    
-
-  </main>
-
-            </div>
-
-            
-                <footer class="footer">
-    
-    
-</footer>
-
-            
-        </div>
-
-        
-
-
-
-<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
-
-
-
-
-    </body>
-</html>
+結果、今のPJでは。vendorもバージョン管理する(GitHubに全部突っ込む) にしていて、今のところ快適に運用できている。"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-03-04T11:12:53+09:00"><meta property="article:modified_time" content="2018-03-04T11:12:53+09:00"><meta property="article:tag" content="Git"><meta property="article:tag" content="Golang"><meta property="article:section" content="programing"><meta property="article:published_time" content="2018-03-04 11:12:53 +0900 JST"></head><body><div class=container><header class=header><span class=header__inner><a href=/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
+<span class=logo__text>blog &lt;- takecy</span>
+<span class=logo__cursor></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://github.com/takecy>GitHub</a></li><li><a href=/posts>Posts</a></li><li><a href=/index.xml>RSS</a></li></ul></nav><span class=menu-trigger><svg viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span></span></span></header><div class=content><main class=post><div class=post-info><p><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+One minute</p></div><article><h1 class=post-title><a href=https://blog.takecy.dev/posts/golang-vendor-versioned/>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</a></h1><div class=post-content><p>Goプロジェクトの依存パッケージは、 <a href=https://github.com/golang/dep>dep</a> などのツールにより <code>vendor</code> ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。</p><p>管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。</p><h2 id=vendorをバージョン管理する場合>vendorをバージョン管理する場合</h2><h3 id=メリット>メリット</h3><h4 id=動かすまでが楽>動かすまでが楽</h4><p>何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。</p><h3 id=デリット>デリット</h3><h4 id=リポ内のファイル数が爆増する>リポ内のファイル数が爆増する</h4><p>cloneするのが遅い。。大きめのリポジトリになると結構待たされる。
+あと検索が弱くなる。vendor内も引っかかるのでGitHub Web上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。</p><h2 id=vendorをバージョン管理しない場合>vendorをバージョン管理しない場合</h2><h3 id=メリット-1>メリット</h3><h4 id=リポジトリが綺麗>リポジトリが綺麗</h4><p>この問題の先輩である<code>npm</code>は<code>node_modules</code>の中身を全部GitHubにいれたりしない。
+GitHubが提供する <a href=https://github.com/github/gitignore/blob/master/Node.gitignore#L36>.gitignore</a> にも<code>node_modules</code>が書いてある。(<a href=https://github.com/github/gitignore/blob/master/Go.gitignore>Go</a>に<code>vendor</code>はいない)<br>GitHubWeb上で検索しやすくもなる。</p><h3 id=デメリット>デメリット</h3><h4 id=動かすまでが大変>動かすまでが大変</h4><p><code>dep</code>が<code>npm</code>ほど洗練されていない、またGoの依存はGitHubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。
+このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。<code>Gopkg.lock</code>にrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも <code>dep ensure</code> 自体が結構な割合で失敗する。</p><h2 id=結論>結論</h2><p>結局、一長一短で、メリット・デメリットが反対になっている。
+個人的には <code>動かすまでが楽</code> これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 <code>リポジトリをCloneしたらすぐrunできる</code> というのは素晴らしいと思っている。</p><p>また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。</p><p>結果、今のPJでは。<code>vendorもバージョン管理する(GitHubに全部突っ込む)</code> にしていて、今のところ快適に運用できている。</p></div></article><hr><div class=post-info><p><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7" y2="7"/></svg>
+<span class=tag><a href=https://blog.takecy.dev/tags/git/>git</a></span>
+<span class=tag><a href=https://blog.takecy.dev/tags/golang/>golang</a></span></p><p><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+<span class=tag><a href=https://blog.takecy.dev/categories/programing/>programing</a></span></p><p><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+42 Words</p><p><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+2018/03/04 11:12 +0900</p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://blog.takecy.dev/posts/golang-multi-package-test/><span class=button__icon>←</span>
+<span class=button__text>1.10以降のGoのMultiPackageテスト</span>
+</a></span><span class="button next"><a href=https://blog.takecy.dev/posts/golang-dep-prune-deprecated/><span class=button__text>Goの依存管理ツールのdepのpruneがdeprecatedになった</span>
+<span class=button__icon>→</span></a></span></div></div></main></div><footer class=footer></footer></div><script type=text/javascript src=/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc+cxaJzDdCYbAW0X1G+DgZYvtKFXe6MBex8jUJ2JT25mQx+YjACIng=="></script></body></html>

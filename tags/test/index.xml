@@ -1,26 +1,231 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Test on blog &lt;- takecy</title>
-    <link>http://localhost:1313/tags/test/</link>
-    <description>Recent content in Test on blog &lt;- takecy</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 15 Sep 2018 17:52:49 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/test/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>GoでABテスト対象のユーザーを振り分けるライブラリを書いた</title>
-      <link>http://localhost:1313/posts/grouping-id-for-ab-testing-in-golang/</link>
-      <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
-      <guid>http://localhost:1313/posts/grouping-id-for-ab-testing-in-golang/</guid>
-      <description>&lt;div style=&#34;padding:0.2em; width:60%;&#34;&gt;&#xA;            &lt;a href=&#34;https://github.com/takecy/grouping&#34;&gt;&#xA;                &lt;img src=&#34;https://opengraph.githubassets.com/7641830e5fc271722b5b510ac7e75675f08c93084c8b6acdf91f866d52e5b175/takecy/grouping&#34; alt=&#34;GitHub - takecy/grouping: simple id grouping package in golang. Useful for AB testing.&#34; title=&#34;GitHub - takecy/grouping: simple id grouping package in golang. Useful for AB testing.&#34;&gt;&#xA;            &lt;/a&gt;&#xA;        &lt;/div&gt;&#xA;    &#xA;&#xA;&lt;h3 id=&#34;abテストとは&#34;&gt;ABテストとは&lt;/h3&gt;&#xA;&#xA;&#xA;    &#xA;        &#xA;        &#xA;        &#xA;        &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                    &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                    &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                    &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                    &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;                &#xA;                &#xA;                &#xA;                &#xA;                &#xA;            &#xA;            &#xA;        &#xA;&#xA;        &#xA;        &#xA;            &#xA;                &#xA;                    &#xA;                &#xA;            &#xA;        &#xA;&#xA;        &lt;a href=&#34;https://www.assion.co.jp/blog/guide-of-abtesting/&#34; title=&#34;ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT &#34; alt=&#34;ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT &#34; style=&#34;padding: 12px;border: solid 1px ;display: flex;text-decoration: none;&#34; onMouseOver=&#34;this.style.opacity=&#39;0.9&#39;&#34;&gt;&#xA;            &lt;div style=&#34;flex-shrink: 0;&#34;&gt;&#xA;                &lt;img src=&#34;http://localhost:1313/guide1_2219364545356773180.png&#34; title=&#34;ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT &#34; alt=&#34;ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT &#34; width=&#34;100&#34; height=&#34;100&#34; style=&#34;object-fit: contain;&#34;&gt;&#xA;            &lt;/div&gt;&#xA;            &lt;div style=&#34;margin-left: 10px;&#34;&gt;&#xA;                &lt;h2 style=&#34;margin: 0;padding-bottom: 13px;border: none;font-size: 16px;&#34;&gt;&#xA;                    ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT &#xA;                &lt;/h2&gt;&#xA;                &lt;p style=&#34;margin: 0;font-size: 13px;word-break: break-word;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;&#34;&gt;&#xA;                    ABテストツールVWOの日本唯一のプレミアムパートナーとして、多くのクライアント様のCROに取り組んできたABテストのプロフェッショナルである我々アッション（現・SHIFT）が、今回ABテストの概念・なぜ行う必要があるのか・実施する際のポイント等をまとめましたので、是非ご覧いただければと思います。&#xA;                &lt;/p&gt;&#xA;            &lt;/div&gt;&#xA;        &lt;/a&gt;&#xA;    &#xA;&#xA;&lt;p&gt;ABテストを実施するには、いくつかの要素があり、大きく下記がある。&lt;br&gt;&#xA;事前準備として、&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>1.10以降のGoのMultiPackageテスト</title>
-      <link>http://localhost:1313/posts/golang-multi-package-test/</link>
-      <pubDate>Sat, 26 May 2018 10:26:50 +0900</pubDate>
-      <guid>http://localhost:1313/posts/golang-multi-package-test/</guid>
-      <description>&lt;p&gt;以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/bash&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set -e&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &amp;gt; coverage.txt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go test -i ./...&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; d in &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;go list ./...&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    go test -race -coverprofile&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;profile.out -covermode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;atomic $d&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -f profile.out &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cat profile.out &amp;gt;&amp;gt; coverage.txt&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        rm profile.out&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;1.10以降はこれでいけるようになった。&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;go test -race -coverprofile=coverage.txt -covermode=atomic ./...&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;楽チン！&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Test on blog &lt;- takecy</title><link>https://blog.takecy.dev/tags/test/</link><description>Recent content in Test on blog &lt;- takecy</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 15 Sep 2018 17:52:49 +0900</lastBuildDate><atom:link href="https://blog.takecy.dev/tags/test/index.xml" rel="self" type="application/rss+xml"/><item><title>GoでABテスト対象のユーザーを振り分けるライブラリを書いた</title><link>https://blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</link><pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate><guid>https://blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</guid><description>&lt;div style="padding:0.2em; width:60%;">
+ &lt;a href="https://github.com/takecy/grouping">
+ &lt;img src="https://opengraph.githubassets.com/7641830e5fc271722b5b510ac7e75675f08c93084c8b6acdf91f866d52e5b175/takecy/grouping" alt="GitHub - takecy/grouping: simple id grouping package in golang. Useful for AB testing." title="GitHub - takecy/grouping: simple id grouping package in golang. Useful for AB testing.">
+ &lt;/a>
+ &lt;/div>
+ 
+
+&lt;h3 id="abテストとは">ABテストとは&lt;/h3>
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ &lt;a href="https://www.assion.co.jp/blog/guide-of-abtesting/" title="ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT " alt="ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT " style="padding: 12px;border: solid 1px ;display: flex;text-decoration: none;" onMouseOver="this.style.opacity='0.9'">
+ &lt;div style="flex-shrink: 0;">
+ &lt;img src="https://blog.takecy.dev/guide1_2219364545356773180.png" title="ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT " alt="ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT " width="100" height="100" style="object-fit: contain;">
+ &lt;/div>
+ &lt;div style="margin-left: 10px;">
+ &lt;h2 style="margin: 0;padding-bottom: 13px;border: none;font-size: 16px;">
+ ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT 
+ &lt;/h2>
+ &lt;p style="margin: 0;font-size: 13px;word-break: break-word;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;">
+ ABテストツールVWOの日本唯一のプレミアムパートナーとして、多くのクライアント様のCROに取り組んできたABテストのプロフェッショナルである我々アッション（現・SHIFT）が、今回ABテストの概念・なぜ行う必要があるのか・実施する際のポイント等をまとめましたので、是非ご覧いただければと思います。
+ &lt;/p>
+ &lt;/div>
+ &lt;/a>
+ 
+
+&lt;p>ABテストを実施するには、いくつかの要素があり、大きく下記がある。&lt;br>
+事前準備として、&lt;/p></description></item><item><title>1.10以降のGoのMultiPackageテスト</title><link>https://blog.takecy.dev/posts/golang-multi-package-test/</link><pubDate>Sat, 26 May 2018 10:26:50 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-multi-package-test/</guid><description>&lt;p>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>set -e
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span> &amp;gt; coverage.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go test -i ./...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> d in &lt;span style="color:#66d9ef">$(&lt;/span>go list ./...&lt;span style="color:#66d9ef">)&lt;/span>; &lt;span style="color:#66d9ef">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> go test -race -coverprofile&lt;span style="color:#f92672">=&lt;/span>profile.out -covermode&lt;span style="color:#f92672">=&lt;/span>atomic $d
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[&lt;/span> -f profile.out &lt;span style="color:#f92672">]&lt;/span>; &lt;span style="color:#66d9ef">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cat profile.out &amp;gt;&amp;gt; coverage.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rm profile.out
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>1.10以降はこれでいけるようになった。&lt;/p>
+&lt;pre tabindex="0">&lt;code>go test -race -coverprofile=coverage.txt -covermode=atomic ./...
+&lt;/code>&lt;/pre>&lt;p>楽チン！&lt;/p></description></item></channel></rss>

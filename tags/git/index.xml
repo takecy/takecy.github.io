@@ -1,19 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Git on blog &lt;- takecy</title>
-    <link>http://localhost:1313/tags/git/</link>
-    <description>Recent content in Git on blog &lt;- takecy</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 04 Mar 2018 11:12:53 +0900</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title>
-      <link>http://localhost:1313/posts/golang-vendor-versioned/</link>
-      <pubDate>Sun, 04 Mar 2018 11:12:53 +0900</pubDate>
-      <guid>http://localhost:1313/posts/golang-vendor-versioned/</guid>
-      <description>&lt;p&gt;Goプロジェクトの依存パッケージは、 &lt;a href=&#34;https://github.com/golang/dep&#34;&gt;dep&lt;/a&gt; などのツールにより  &lt;code&gt;vendor&lt;/code&gt; ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。&lt;/p&gt;&#xA;&lt;p&gt;管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。&lt;/p&gt;&#xA;&lt;h2 id=&#34;vendorをバージョン管理する場合&#34;&gt;vendorをバージョン管理する場合&lt;/h2&gt;&#xA;&lt;h3 id=&#34;メリット&#34;&gt;メリット&lt;/h3&gt;&#xA;&lt;h4 id=&#34;動かすまでが楽&#34;&gt;動かすまでが楽&lt;/h4&gt;&#xA;&lt;p&gt;何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。&lt;/p&gt;&#xA;&lt;h3 id=&#34;デリット&#34;&gt;デリット&lt;/h3&gt;&#xA;&lt;h4 id=&#34;リポ内のファイル数が爆増する&#34;&gt;リポ内のファイル数が爆増する&lt;/h4&gt;&#xA;&lt;p&gt;cloneするのが遅い。。大きめのリポジトリになると結構待たされる。&#xA;あと検索が弱くなる。vendor内も引っかかるのでGitHub Web上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h2 id=&#34;vendorをバージョン管理しない場合&#34;&gt;vendorをバージョン管理しない場合&lt;/h2&gt;&#xA;&lt;h3 id=&#34;メリット-1&#34;&gt;メリット&lt;/h3&gt;&#xA;&lt;h4 id=&#34;リポジトリが綺麗&#34;&gt;リポジトリが綺麗&lt;/h4&gt;&#xA;&lt;p&gt;この問題の先輩である&lt;code&gt;npm&lt;/code&gt;は&lt;code&gt;node_modules&lt;/code&gt;の中身を全部GitHubにいれたりしない。&#xA;GitHubが提供する &lt;a href=&#34;https://github.com/github/gitignore/blob/master/Node.gitignore#L36&#34;&gt;.gitignore&lt;/a&gt; にも&lt;code&gt;node_modules&lt;/code&gt;が書いてある。(&lt;a href=&#34;https://github.com/github/gitignore/blob/master/Go.gitignore&#34;&gt;Go&lt;/a&gt;に&lt;code&gt;vendor&lt;/code&gt;はいない)&lt;br&gt;&#xA;GitHubWeb上で検索しやすくもなる。&lt;/p&gt;&#xA;&lt;h3 id=&#34;デメリット&#34;&gt;デメリット&lt;/h3&gt;&#xA;&lt;h4 id=&#34;動かすまでが大変&#34;&gt;動かすまでが大変&lt;/h4&gt;&#xA;&lt;p&gt;&lt;code&gt;dep&lt;/code&gt;が&lt;code&gt;npm&lt;/code&gt;ほど洗練されていない、またGoの依存はGitHubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。&#xA;このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。&lt;code&gt;Gopkg.lock&lt;/code&gt;にrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも &lt;code&gt;dep ensure&lt;/code&gt; 自体が結構な割合で失敗する。&lt;/p&gt;&#xA;&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;&#xA;&lt;p&gt;結局、一長一短で、メリット・デメリットが反対になっている。&#xA;個人的には &lt;code&gt;動かすまでが楽&lt;/code&gt; これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 &lt;code&gt;リポジトリをCloneしたらすぐrunできる&lt;/code&gt; というのは素晴らしいと思っている。&lt;/p&gt;&#xA;&lt;p&gt;また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。&lt;/p&gt;&#xA;&lt;p&gt;結果、今のPJでは。&lt;code&gt;vendorもバージョン管理する(GitHubに全部突っ込む)&lt;/code&gt; にしていて、今のところ快適に運用できている。&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Git on blog &lt;- takecy</title><link>https://blog.takecy.dev/tags/git/</link><description>Recent content in Git on blog &lt;- takecy</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sun, 04 Mar 2018 11:12:53 +0900</lastBuildDate><atom:link href="https://blog.takecy.dev/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title><link>https://blog.takecy.dev/posts/golang-vendor-versioned/</link><pubDate>Sun, 04 Mar 2018 11:12:53 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-vendor-versioned/</guid><description>&lt;p>Goプロジェクトの依存パッケージは、 &lt;a href="https://github.com/golang/dep">dep&lt;/a> などのツールにより &lt;code>vendor&lt;/code> ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。&lt;/p>
+&lt;p>管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。&lt;/p>
+&lt;h2 id="vendorをバージョン管理する場合">vendorをバージョン管理する場合&lt;/h2>
+&lt;h3 id="メリット">メリット&lt;/h3>
+&lt;h4 id="動かすまでが楽">動かすまでが楽&lt;/h4>
+&lt;p>何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。&lt;/p>
+&lt;h3 id="デリット">デリット&lt;/h3>
+&lt;h4 id="リポ内のファイル数が爆増する">リポ内のファイル数が爆増する&lt;/h4>
+&lt;p>cloneするのが遅い。。大きめのリポジトリになると結構待たされる。
+あと検索が弱くなる。vendor内も引っかかるのでGitHub Web上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="vendorをバージョン管理しない場合">vendorをバージョン管理しない場合&lt;/h2>
+&lt;h3 id="メリット-1">メリット&lt;/h3>
+&lt;h4 id="リポジトリが綺麗">リポジトリが綺麗&lt;/h4>
+&lt;p>この問題の先輩である&lt;code>npm&lt;/code>は&lt;code>node_modules&lt;/code>の中身を全部GitHubにいれたりしない。
+GitHubが提供する &lt;a href="https://github.com/github/gitignore/blob/master/Node.gitignore#L36">.gitignore&lt;/a> にも&lt;code>node_modules&lt;/code>が書いてある。(&lt;a href="https://github.com/github/gitignore/blob/master/Go.gitignore">Go&lt;/a>に&lt;code>vendor&lt;/code>はいない)&lt;br>
+GitHubWeb上で検索しやすくもなる。&lt;/p>
+&lt;h3 id="デメリット">デメリット&lt;/h3>
+&lt;h4 id="動かすまでが大変">動かすまでが大変&lt;/h4>
+&lt;p>&lt;code>dep&lt;/code>が&lt;code>npm&lt;/code>ほど洗練されていない、またGoの依存はGitHubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。
+このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。&lt;code>Gopkg.lock&lt;/code>にrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも &lt;code>dep ensure&lt;/code> 自体が結構な割合で失敗する。&lt;/p>
+&lt;h2 id="結論">結論&lt;/h2>
+&lt;p>結局、一長一短で、メリット・デメリットが反対になっている。
+個人的には &lt;code>動かすまでが楽&lt;/code> これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 &lt;code>リポジトリをCloneしたらすぐrunできる&lt;/code> というのは素晴らしいと思っている。&lt;/p>
+&lt;p>また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。&lt;/p>
+&lt;p>結果、今のPJでは。&lt;code>vendorもバージョン管理する(GitHubに全部突っ込む)&lt;/code> にしていて、今のところ快適に運用できている。&lt;/p></description></item></channel></rss>

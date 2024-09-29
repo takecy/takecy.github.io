@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+    <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
         <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="author" content="">
 <meta name="description" content="Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
@@ -12,11 +13,12 @@ RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN ta
 自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
 今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。
 システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。
-なんて面白い時代だ。" />
+なんて面白い時代だ。
+" />
 <meta name="keywords" content="engineering, golang, docker" />
 <meta name="robots" content="noodp" />
 <meta name="theme-color" content="" />
-<link rel="canonical" href="https://blog.takecy.dev/posts/golang-docker-ubuntu-install/" />
+<link rel="canonical" href="http://localhost:1313/posts/golang-docker-ubuntu-install/" />
 
 
     <title>
@@ -27,57 +29,67 @@ RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN ta
 
 
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.2.1/css/flag-icon.min.css" rel="stylesheet"
-    type="text/css">
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
 
 
 
-<link rel="stylesheet" href="/main.d1ea4af8fd04fb24a4f8b882ea54bd04eb245427ca4baf527c81a5dab071410b.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
 
 
 
-
-
-
-<meta itemprop="name" content="UbuntuにGoをインストールしたDokcerイメージを作る">
-<meta itemprop="description" content="Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
+  <meta itemprop="name" content="UbuntuにGoをインストールしたDokcerイメージを作る">
+  <meta itemprop="description" content="Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
 UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH 一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
 最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。 かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。
 自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
 今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。
 システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。
-なんて面白い時代だ。"><meta itemprop="datePublished" content="2015-10-24T23:18:26+09:00" />
-<meta itemprop="dateModified" content="2015-10-24T23:18:26+09:00" />
-<meta itemprop="wordCount" content="29">
-<meta itemprop="keywords" content="golang,docker," />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="UbuntuにGoをインストールしたDokcerイメージを作る"/>
-<meta name="twitter:description" content="Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
+なんて面白い時代だ。">
+  <meta itemprop="datePublished" content="2015-10-24T23:18:26+09:00">
+  <meta itemprop="dateModified" content="2015-10-24T23:18:26+09:00">
+  <meta itemprop="wordCount" content="29">
+  <meta itemprop="keywords" content="Golang,Docker">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="UbuntuにGoをインストールしたDokcerイメージを作る">
+  <meta name="twitter:description" content="Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
 UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH 一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
 最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。 かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。
 自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
 今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。
 システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。
-なんて面白い時代だ。"/>
+なんて面白い時代だ。">
 
 
 
-    <meta property="og:title" content="UbuntuにGoをインストールしたDokcerイメージを作る" />
-<meta property="og:description" content="Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
+    <meta property="og:url" content="http://localhost:1313/posts/golang-docker-ubuntu-install/">
+  <meta property="og:site_name" content="blog &lt;- takecy">
+  <meta property="og:title" content="UbuntuにGoをインストールしたDokcerイメージを作る">
+  <meta property="og:description" content="Dokcernizeってますか？ 最近やっとちょっとだけDockerさんに話しかけたりしています。
 UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。
 RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz ENV PATH=$PATH:/usr/local/go/bin ENV GOPATH=$HOME/go ENV PATH=$GOPATH/bin:$PATH 一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。 クラウド()になって、 sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。
 最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。 かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。
 自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、 こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。
 今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、 近づいていくんだろうか。
 システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。
-なんて面白い時代だ。" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://blog.takecy.dev/posts/golang-docker-ubuntu-install/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2015-10-24T23:18:26+09:00" />
-<meta property="article:modified_time" content="2015-10-24T23:18:26+09:00" /><meta property="og:site_name" content="blog &lt;- takecy" />
-
+なんて面白い時代だ。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2015-10-24T23:18:26+09:00">
+    <meta property="article:modified_time" content="2015-10-24T23:18:26+09:00">
+    <meta property="article:tag" content="Golang">
+    <meta property="article:tag" content="Docker">
 
 
 
@@ -95,9 +107,17 @@ RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN ta
 
 
 
+
+    
+
+
+
     </head>
 
-    <body class="dark-theme">
+    
+        <body>
+    
+    
         <div class="container">
             <header class="header">
     <span class="header__inner">
@@ -105,7 +125,8 @@ RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN ta
     <div class="logo">
         
             <span class="logo__mark">></span>
-            <span class="logo__text">blog &lt;- takecy</span>
+            <span class="logo__text ">
+                blog &lt;- takecy</span>
             <span class="logo__cursor" style=
                   "
                    
@@ -119,7 +140,7 @@ RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN ta
         <span class="header__right">
             
                 <nav class="menu">
-    <ul class="menu__inner"><li><a href="https://github.com/takecy">GitHub</a></li><li><a href="https://blog.takecy.dev/posts">Posts</a></li><li><a href="https://blog.takecy.dev/index.xml">RSS</a></li>
+    <ul class="menu__inner"><li><a href="https://github.com/takecy">GitHub</a></li><li><a href="/posts">Posts</a></li><li><a href="/index.xml">RSS</a></li>
     </ul>
 </nav>
 
@@ -130,13 +151,6 @@ RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN ta
                     </svg>
                 </span>
             
-
-            <span class="theme-toggle unselectable"><svg class="theme-toggler" width="24" height="24" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22 41C32.4934 41 41 32.4934 41 22C41 11.5066 32.4934 3 22
-  3C11.5066 3 3 11.5066 3 22C3 32.4934 11.5066 41 22 41ZM7 22C7
-  13.7157 13.7157 7 22 7V37C13.7157 37 7 30.2843 7 22Z"/>
-</svg>
-</span>
         </span>
     </span>
 </header>
@@ -160,8 +174,12 @@ RUN wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz RUN ta
 
     <article>
       <h1 class="post-title">
-        <a href="https://blog.takecy.dev/posts/golang-docker-ubuntu-install/">UbuntuにGoをインストールしたDokcerイメージを作る</a>
+        <a href="http://localhost:1313/posts/golang-docker-ubuntu-install/">UbuntuにGoをインストールしたDokcerイメージを作る</a>
       </h1>
+
+      
+
+      
 
       
 
@@ -194,23 +212,34 @@ sshしてあれこれインストールしてサーバ設定というのはも�
     <hr />
 
     <div class="post-info">
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon">
-            <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
-            <line x1="7" y1="7" x2="7" y2="7"></line>
-          </svg><span class="tag"><a href="https://blog.takecy.dev/tags/golang/">golang</a></span><span class="tag"><a href="https://blog.takecy.dev/tags/docker/">docker</a></span>
-        </p>
-        <p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-            <polyline points="14 2 14 8 20 8"></polyline>
-            <line x1="16" y1="13" x2="8" y2="13"></line>
-            <line x1="16" y1="17" x2="8" y2="17"></line>
-            <polyline points="10 9 9 9 8 9"></polyline>
-          </svg><span class="category"><a href="https://blog.takecy.dev/categories/programing/">programing</a></span>
-        </p>
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="http://localhost:1313/tags/golang/">golang</a></span>
+        <span class="tag"><a href="http://localhost:1313/tags/docker/">docker</a></span>
+        
+    </p>
 
       
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="http://localhost:1313/categories/programing/">programing</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        29 Words
+      </p>
 
       <p>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
@@ -219,39 +248,50 @@ sshしてあれこれインストールしてサーバ設定というのはも�
           <line x1="8" y1="2" x2="8" y2="6"></line>
           <line x1="3" y1="10" x2="21" y2="10"></line>
         </svg>
-        2015/10/24 23:18 &#43;0900
+        
+          2015/10/24 23:18 &#43;0900
+        
+
+        
+          
+        
       </p>
     </div>
 
     
-      <div class="pagination">
+    <div class="pagination">
+        
         <div class="pagination__title">
-          <span class="pagination__title-h">Read other posts</span>
-          <hr />
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
         </div>
+        
 
         <div class="pagination__buttons">
-          
+            
             <span class="button previous">
-              <a href="https://blog.takecy.dev/posts/golang-docker-alpine-timezone/">
-                <span class="button__icon">←</span>
-                <span class="button__text">Timezoneが取れるalpineのDockerイメージを作る</span>
-              </a>
+                <a href="http://localhost:1313/posts/golang-docker-alpine-timezone/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Timezoneが取れるalpineのDockerイメージを作る</span>
+                </a>
             </span>
-          
+            
 
-          
+            
             <span class="button next">
-              <a href="https://blog.takecy.dev/posts/golang-microservice/">
-                <span class="button__text">Goとマイクロサービス</span>
-                <span class="button__icon">→</span>
-              </a>
+                <a href="http://localhost:1313/posts/golang-microservice/">
+                    <span class="button__text">Goとマイクロサービス</span>
+                    <span class="button__icon">→</span>
+                </a>
             </span>
-          
+            
         </div>
-      </div>
+    </div>
+
+
     
 
+    
 
     
 
@@ -261,22 +301,8 @@ sshしてあれこれインストールしてサーバ設定というのはも�
 
             
                 <footer class="footer">
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>&copy; 2022</span>
-            
-            
-                <span><a href="https://github.com/takecy" target="_blank" rel="noopener">takecy</a></span>
-            
-            <span> <a href="https://blog.takecy.dev/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
-        </div>
-    </div>
-    <div class="footer__inner">
-        <div class="footer__content">
-            <span>Powered by <a href="http://gohugo.io">Hugo</a></span>
-            <span>Theme by <a href="https://github.com/rhazdon/hugo-theme-hello-friend-ng">hello-friend-ng</a></span>
-        </div>
-    </div>
+    
+    
 </footer>
 
             
@@ -286,21 +312,8 @@ sshしてあれこれインストールしてサーバ設定というのはも�
 
 
 
+<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
 
-<script type="text/javascript" src="/bundle.min.188af889e916d7182e7bf4af7bed9ff4c9b70dd61a69188cb044d25745a4ffc32b82cbec846336503520a7716e619cb46848931205cfa3176a691ff9152d4947.js" integrity="sha512-GIr4iekW1xgue/Sve&#43;2f9Mm3DdYaaRiMsETSV0Wk/8MrgsvshGM2UDUgp3FuYZy0aEiTEgXPoxdqaR/5FS1JRw=="></script>
-    
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-	ga('create', 'UA-65880489-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
 
 
 

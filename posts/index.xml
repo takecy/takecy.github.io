@@ -10,7 +10,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> golang.org&lt;span style="color:#f92672">/&lt;/span>x&lt;span style="color:#f92672">/&lt;/span>sync v0.&lt;span style="color:#ae81ff">0.0&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">20220929204114&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">8&lt;/span>fcdb60fdcc0
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>更新手順&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ go mod edit -go&lt;span style="color:#f92672">=&lt;/span>1.19
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ go mod edit -go&lt;span style="color:#f92672">=&lt;/span>1.19
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ go mod tidy
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-:go.mod" data-lang=":go.mod">&lt;span style="display:flex;">&lt;span>module github.com&lt;span style="color:#f92672">/&lt;/span>takecy&lt;span style="color:#f92672">/&lt;/span>git&lt;span style="color:#f92672">-&lt;/span>here
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
@@ -34,7 +34,7 @@
 </span></span><span style="display:flex;"><span>	golang.org<span style="color:#f92672">/</span>x<span style="color:#f92672">/</span>sync v0.<span style="color:#ae81ff">0.0</span><span style="color:#f92672">-</span><span style="color:#ae81ff">20220929204114</span><span style="color:#f92672">-</span><span style="color:#ae81ff">8</span>fcdb60fdcc0
 </span></span><span style="display:flex;"><span>)
 </span></span></code></pre></div><p>更新手順</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ go mod edit -go<span style="color:#f92672">=</span>1.19
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go mod edit -go<span style="color:#f92672">=</span>1.19
 </span></span><span style="display:flex;"><span>$ go mod tidy
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-:go.mod" data-lang=":go.mod"><span style="display:flex;"><span>module github.com<span style="color:#f92672">/</span>takecy<span style="color:#f92672">/</span>git<span style="color:#f92672">-</span>here
 </span></span><span style="display:flex;"><span>
@@ -740,8 +740,8 @@ ABテストツールVWOの日本唯一のプレミアムパートナーとして
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fi&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">done&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>1.10以降はこれでいけるようになった。&lt;/p>
-&lt;pre tabindex="0">&lt;code>go test -race -coverprofile=coverage.txt -covermode=atomic ./...
-&lt;/code>&lt;/pre>&lt;p>楽チン！&lt;/p></description><content type="html"><![CDATA[<p>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。</p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>go test -race -coverprofile&lt;span style="color:#f92672">=&lt;/span>coverage.txt -covermode&lt;span style="color:#f92672">=&lt;/span>atomic ./...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>楽チン！&lt;/p></description><content type="html"><![CDATA[<p>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
 </span></span><span style="display:flex;"><span>set -e
@@ -756,8 +756,8 @@ ABテストツールVWOの日本唯一のプレミアムパートナーとして
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">fi</span>
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
 </span></span></code></pre></div><p>1.10以降はこれでいけるようになった。</p>
-<pre tabindex="0"><code>go test -race -coverprofile=coverage.txt -covermode=atomic ./...
-</code></pre><p>楽チン！</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>go test -race -coverprofile<span style="color:#f92672">=</span>coverage.txt -covermode<span style="color:#f92672">=</span>atomic ./...
+</span></span></code></pre></div><p>楽チン！</p>
 ]]></content></item><item><title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title><link>https://blog.takecy.dev/posts/golang-vendor-versioned/</link><pubDate>Sun, 04 Mar 2018 11:12:53 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-vendor-versioned/</guid><description>&lt;p>Goプロジェクトの依存パッケージは、 &lt;a href="https://github.com/golang/dep">dep&lt;/a> などのツールにより &lt;code>vendor&lt;/code> ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。&lt;/p>
 &lt;p>管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。&lt;/p>
 &lt;h2 id="vendorをバージョン管理する場合">vendorをバージョン管理する場合&lt;/h2>
@@ -1229,7 +1229,7 @@ Goいいな、Goクソだなと日々葛藤。&lt;/p>
 &lt;p>Goをこれからはじめようという人が迷いそうな(俺が迷った)&lt;code>GOPATH&lt;/code> について。&lt;/p>
 &lt;h3 id="goのインストール">Goのインストール&lt;/h3>
 &lt;p>インストール自体はbrewで速攻終わる。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ brew install go
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ brew install go
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>問題はこの後の&lt;code>$GOPATH&lt;/code>の設定。&lt;/p>
 &lt;h3 id="gopathって何">GOPATHって何&lt;/h3>
 &lt;p>&lt;a href="http://golang-jp.org/doc/code.html#GOPATH">http://golang-jp.org/doc/code.html#GOPATH&lt;/a>&lt;/p>
@@ -1253,7 +1253,7 @@ Goいいな、Goクソだなと日々葛藤。&lt;/p>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#e6db74">&amp;#34;github.com/takecy/hoge&amp;#34;&lt;/span> &lt;span style="color:#75715e">// OSSのライブラリ
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>github.com/{account_name}/{repository_name}&lt;/code> でimportできるステキ仕様。
 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>$ go get github.com/takecy/hoge
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ go get github.com/takecy/hoge
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ここで、&lt;code>GOPATH&lt;/code> が登場する。&lt;br>
 このライブラリがダウンロードされ、配置されるパスは
 &lt;code>$GOPATH/src/github.com/takecy/hoge&lt;/code>&lt;br>
@@ -1274,7 +1274,7 @@ Goいいな、Goクソだなと日々葛藤。</p>
 <p>Goをこれからはじめようという人が迷いそうな(俺が迷った)<code>GOPATH</code> について。</p>
 <h3 id="goのインストール">Goのインストール</h3>
 <p>インストール自体はbrewで速攻終わる。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ brew install go
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ brew install go
 </span></span></code></pre></div><p>問題はこの後の<code>$GOPATH</code>の設定。</p>
 <h3 id="gopathって何">GOPATHって何</h3>
 <p><a href="http://golang-jp.org/doc/code.html#GOPATH">http://golang-jp.org/doc/code.html#GOPATH</a></p>
@@ -1298,7 +1298,7 @@ Goいいな、Goクソだなと日々葛藤。</p>
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/takecy/hoge&#34;</span> <span style="color:#75715e">// OSSのライブラリ
 </span></span></span></code></pre></div><p><code>github.com/{account_name}/{repository_name}</code> でimportできるステキ仕様。
 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ go get github.com/takecy/hoge
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go get github.com/takecy/hoge
 </span></span></code></pre></div><p>ここで、<code>GOPATH</code> が登場する。<br>
 このライブラリがダウンロードされ、配置されるパスは
 <code>$GOPATH/src/github.com/takecy/hoge</code><br>

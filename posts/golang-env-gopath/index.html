@@ -1,4 +1,12 @@
-<!doctype html><html lang=en><head><meta charset=UTF-8><meta http-equiv=X-UA-Compatible content="ie=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=author content="takecy "><meta name=description content='Goはじめて3ヶ月。
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="author" content="takecy ">
+<meta name="description" content="Goはじめて3ヶ月。
 Goいいな、Goクソだなと日々葛藤。
 Goをこれからはじめようという人が迷いそうな(俺が迷った)GOPATH について。
 Goのインストール インストール自体はbrewで速攻終わる。
@@ -10,7 +18,7 @@ Goを書くのは全部このパス下でやってね Go書く上で依存して
 $ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin としているが、特に困っていない。
 Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
 まず、Goを書く時は、GitHubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GitHubのURLになる。
-import "fmt" // 標準パッケージ import "github.com/takecy/hoge" // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+import &#34;fmt&#34; // 標準パッケージ import &#34;github.com/takecy/hoge&#34; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
 $ go get github.com/takecy/hoge ここで、GOPATH が登場する。
 このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
 になる。
@@ -24,8 +32,39 @@ GitHubで公開する気とか無いし、、と思っても、このパスで�
 Let&rsquo;s write Go。
 どうでもいいけど、Goのライブラリ名はダジャレがちらほら。
 例えばRedisのドライバは redigo 。
-'><meta name=keywords content="engineering,golang"><meta name=robots content="noodp"><meta name=theme-color content><link rel=canonical href=https://blog.takecy.dev/posts/golang-env-gopath/><title>これからGoやる人のためのGOPATH :: blog &lt;- takecy — Keep it simple.
-</title><link rel=stylesheet href=/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE="><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/safari-pinned-tab.svg color><link rel="shortcut icon" href=/favicon.ico><meta name=msapplication-TileColor content><meta itemprop=name content="これからGoやる人のためのGOPATH"><meta itemprop=description content='Goはじめて3ヶ月。
+" />
+<meta name="keywords" content="engineering, golang" />
+<meta name="robots" content="noodp" />
+<meta name="theme-color" content="" />
+<link rel="canonical" href="https://blog.takecy.dev/posts/golang-env-gopath/" />
+
+
+    <title>
+        
+            これからGoやる人のためのGOPATH :: blog &lt;- takecy  — Keep it simple.
+        
+    </title>
+
+
+
+
+
+<link rel="stylesheet" href="/main.949191c1dcc9c4a887997048b240354e47152016d821198f89448496ba42e491.css" integrity="sha256-lJGRwdzJxKiHmXBIskA1TkcVIBbYIRmPiUSElrpC5JE=">
+
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="msapplication-TileColor" content="">
+
+
+
+  <meta itemprop="name" content="これからGoやる人のためのGOPATH">
+  <meta itemprop="description" content="Goはじめて3ヶ月。
 Goいいな、Goクソだなと日々葛藤。
 Goをこれからはじめようという人が迷いそうな(俺が迷った)GOPATH について。
 Goのインストール インストール自体はbrewで速攻終わる。
@@ -37,7 +76,7 @@ Goを書くのは全部このパス下でやってね Go書く上で依存して
 $ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin としているが、特に困っていない。
 Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
 まず、Goを書く時は、GitHubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GitHubのURLになる。
-import "fmt" // 標準パッケージ import "github.com/takecy/hoge" // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+import &#34;fmt&#34; // 標準パッケージ import &#34;github.com/takecy/hoge&#34; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
 $ go get github.com/takecy/hoge ここで、GOPATH が登場する。
 このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
 になる。
@@ -50,7 +89,15 @@ GitHubで公開する気とか無いし、、と思っても、このパスで�
 例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。
 Let’s write Go。
 どうでもいいけど、Goのライブラリ名はダジャレがちらほら。
-例えばRedisのドライバは redigo 。'><meta itemprop=datePublished content="2015-08-05T00:52:24+09:00"><meta itemprop=dateModified content="2015-08-05T00:52:24+09:00"><meta itemprop=wordCount content="68"><meta itemprop=keywords content="Golang"><meta name=twitter:card content="summary"><meta name=twitter:title content="これからGoやる人のためのGOPATH"><meta name=twitter:description content='Goはじめて3ヶ月。
+例えばRedisのドライバは redigo 。">
+  <meta itemprop="datePublished" content="2015-08-05T00:52:24+09:00">
+  <meta itemprop="dateModified" content="2015-08-05T00:52:24+09:00">
+  <meta itemprop="wordCount" content="68">
+  <meta itemprop="keywords" content="Golang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="これからGoやる人のためのGOPATH">
+  <meta name="twitter:description" content="Goはじめて3ヶ月。
 Goいいな、Goクソだなと日々葛藤。
 Goをこれからはじめようという人が迷いそうな(俺が迷った)GOPATH について。
 Goのインストール インストール自体はbrewで速攻終わる。
@@ -62,7 +109,7 @@ Goを書くのは全部このパス下でやってね Go書く上で依存して
 $ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin としているが、特に困っていない。
 Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
 まず、Goを書く時は、GitHubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GitHubのURLになる。
-import "fmt" // 標準パッケージ import "github.com/takecy/hoge" // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+import &#34;fmt&#34; // 標準パッケージ import &#34;github.com/takecy/hoge&#34; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
 $ go get github.com/takecy/hoge ここで、GOPATH が登場する。
 このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
 になる。
@@ -75,7 +122,14 @@ GitHubで公開する気とか無いし、、と思っても、このパスで�
 例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。
 Let’s write Go。
 どうでもいいけど、Goのライブラリ名はダジャレがちらほら。
-例えばRedisのドライバは redigo 。'><meta property="og:url" content="https://blog.takecy.dev/posts/golang-env-gopath/"><meta property="og:site_name" content="blog <- takecy"><meta property="og:title" content="これからGoやる人のためのGOPATH"><meta property="og:description" content='Goはじめて3ヶ月。
+例えばRedisのドライバは redigo 。">
+
+
+
+    <meta property="og:url" content="https://blog.takecy.dev/posts/golang-env-gopath/">
+  <meta property="og:site_name" content="blog &lt;- takecy">
+  <meta property="og:title" content="これからGoやる人のためのGOPATH">
+  <meta property="og:description" content="Goはじめて3ヶ月。
 Goいいな、Goクソだなと日々葛藤。
 Goをこれからはじめようという人が迷いそうな(俺が迷った)GOPATH について。
 Goのインストール インストール自体はbrewで速攻終わる。
@@ -87,7 +141,7 @@ Goを書くのは全部このパス下でやってね Go書く上で依存して
 $ export GOPATH=$HOME/go $ export PATH=$PATH:$GOPATH/bin としているが、特に困っていない。
 Goを書く じゃGo書くぜってことになるが、GOPATH直下に書くわけではない というのがめんどくさいところ。
 まず、Goを書く時は、GitHubに公開する前提 と考えておいたほうがよい。 というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GitHubのURLになる。
-import "fmt" // 標準パッケージ import "github.com/takecy/hoge" // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
+import &#34;fmt&#34; // 標準パッケージ import &#34;github.com/takecy/hoge&#34; // OSSのライブラリ github.com/{account_name}/{repository_name} でimportできるステキ仕様。 そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。
 $ go get github.com/takecy/hoge ここで、GOPATH が登場する。
 このライブラリがダウンロードされ、配置されるパスは $GOPATH/src/github.com/takecy/hoge
 になる。
@@ -100,24 +154,280 @@ GitHubで公開する気とか無いし、、と思っても、このパスで�
 例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。
 Let’s write Go。
 どうでもいいけど、Goのライブラリ名はダジャレがちらほら。
-例えばRedisのドライバは redigo 。'><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2015-08-05T00:52:24+09:00"><meta property="article:modified_time" content="2015-08-05T00:52:24+09:00"><meta property="article:tag" content="Golang"><meta property="article:section" content="programing"><meta property="article:published_time" content="2015-08-05 00:52:24 +0900 JST"></head><body><div class=container><header class=header><span class=header__inner><a href=/ style=text-decoration:none><div class=logo><span class=logo__mark>></span>
-<span class=logo__text>blog &lt;- takecy</span>
-<span class=logo__cursor></span></div></a><span class=header__right><nav class=menu><ul class=menu__inner><li><a href=https://github.com/takecy>GitHub</a></li><li><a href=/posts>Posts</a></li></ul></nav><span class=menu-trigger><svg viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg></span></span></span></header><div class=content><main class=post><div class=post-info><p><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-One minute</p></div><article><h1 class=post-title><a href=https://blog.takecy.dev/posts/golang-env-gopath/>これからGoやる人のためのGOPATH</a></h1><div class=post-content><p>Goはじめて3ヶ月。<br>Goいいな、Goクソだなと日々葛藤。</p><p>Goをこれからはじめようという人が迷いそうな(俺が迷った)<code>GOPATH</code> について。</p><h3 id=goのインストール>Goのインストール</h3><p>インストール自体はbrewで速攻終わる。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ brew install go
-</span></span></code></pre></div><p>問題はこの後の<code>$GOPATH</code>の設定。</p><h3 id=gopathって何>GOPATHって何</h3><p><a href=http://golang-jp.org/doc/code.html#GOPATH>http://golang-jp.org/doc/code.html#GOPATH</a></p><blockquote><p>GOPATH環境変数はワークスペースの場所を示してします。</p></blockquote><p>そのままなのだが、つまり、</p><ol><li>Goを書くのは全部このパス下でやってね</li><li>Go書く上で依存してるライブラリのソースも全部このパスに入るよ</li></ol><p>ということで、例にあるようにそのまま、</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ export GOPATH<span style=color:#f92672>=</span>$HOME/go
-</span></span><span style=display:flex><span>$ export PATH<span style=color:#f92672>=</span>$PATH:$GOPATH/bin
-</span></span></code></pre></div><p>としているが、特に困っていない。</p><h3 id=goを書く>Goを書く</h3><p>じゃGo書くぜってことになるが、<strong>GOPATH直下に書くわけではない</strong> というのがめんどくさいところ。</p><p>まず、Goを書く時は、<strong>GitHubに公開する前提</strong> と考えておいたほうがよい。
-というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GitHubのURLになる。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span> <span style=color:#75715e>// 標準パッケージ
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;github.com/takecy/hoge&#34;</span> <span style=color:#75715e>// OSSのライブラリ
+例えばRedisのドライバは redigo 。">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2015-08-05T00:52:24+09:00">
+    <meta property="article:modified_time" content="2015-08-05T00:52:24+09:00">
+    <meta property="article:tag" content="Golang">
+
+
+
+
+    <meta property="article:section" content="programing" />
+
+
+
+    <meta property="article:published_time" content="2015-08-05 00:52:24 &#43;0900 JST" />
+
+
+
+
+
+
+
+
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-DVDDHP4046"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-DVDDHP4046');
+        }
+      </script>
+
+
+
+    </head>
+
+    
+        <body>
+    
+    
+        <div class="container">
+            <header class="header">
+    <span class="header__inner">
+        <a href="/" style="text-decoration: none;">
+    <div class="logo">
+        
+            <span class="logo__mark">></span>
+            <span class="logo__text ">
+                blog &lt;- takecy</span>
+            <span class="logo__cursor" style=
+                  "
+                   
+                   ">
+            </span>
+        
+    </div>
+</a>
+
+
+        <span class="header__right">
+            
+                <nav class="menu">
+    <ul class="menu__inner"><li><a href="https://github.com/takecy">GitHub</a></li><li><a href="/posts">Posts</a></li>
+    </ul>
+</nav>
+
+                <span class="menu-trigger">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/>
+                        <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                    </svg>
+                </span>
+            
+        </span>
+    </span>
+</header>
+
+
+            <div class="content">
+                
+  <main class="post">
+
+    <div class="post-info">
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+        One minute
+
+        
+      </p>
+    </div>
+
+    <article>
+      <h1 class="post-title">
+        <a href="https://blog.takecy.dev/posts/golang-env-gopath/">これからGoやる人のためのGOPATH</a>
+      </h1>
+
+      
+
+      
+
+      
+
+      <div class="post-content">
+        <p>Goはじめて3ヶ月。<br>
+Goいいな、Goクソだなと日々葛藤。</p>
+<p>Goをこれからはじめようという人が迷いそうな(俺が迷った)<code>GOPATH</code> について。</p>
+<h3 id="goのインストール">Goのインストール</h3>
+<p>インストール自体はbrewで速攻終わる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ brew install go
+</span></span></code></pre></div><p>問題はこの後の<code>$GOPATH</code>の設定。</p>
+<h3 id="gopathって何">GOPATHって何</h3>
+<p><a href="http://golang-jp.org/doc/code.html#GOPATH">http://golang-jp.org/doc/code.html#GOPATH</a></p>
+<blockquote>
+<p>GOPATH環境変数はワークスペースの場所を示してします。</p>
+</blockquote>
+<p>そのままなのだが、つまり、</p>
+<ol>
+<li>Goを書くのは全部このパス下でやってね</li>
+<li>Go書く上で依存してるライブラリのソースも全部このパスに入るよ</li>
+</ol>
+<p>ということで、例にあるようにそのまま、</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ export GOPATH<span style="color:#f92672">=</span>$HOME/go
+</span></span><span style="display:flex;"><span>$ export PATH<span style="color:#f92672">=</span>$PATH:$GOPATH/bin
+</span></span></code></pre></div><p>としているが、特に困っていない。</p>
+<h3 id="goを書く">Goを書く</h3>
+<p>じゃGo書くぜってことになるが、<strong>GOPATH直下に書くわけではない</strong> というのがめんどくさいところ。</p>
+<p>まず、Goを書く時は、<strong>GitHubに公開する前提</strong> と考えておいたほうがよい。
+というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GitHubのURLになる。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;fmt&#34;</span> <span style="color:#75715e">// 標準パッケージ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">import</span> <span style="color:#e6db74">&#34;github.com/takecy/hoge&#34;</span> <span style="color:#75715e">// OSSのライブラリ
 </span></span></span></code></pre></div><p><code>github.com/{account_name}/{repository_name}</code> でimportできるステキ仕様。
-そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ go get github.com/takecy/hoge
-</span></span></code></pre></div><p>ここで、<code>GOPATH</code> が登場する。<br>このライブラリがダウンロードされ、配置されるパスは
-<code>$GOPATH/src/github.com/takecy/hoge</code><br>になる。<br>自分のGoのプロジェクトもこれと同じように、
-<code>$GOPATH/src/github.com/{account_name}/{repository_name}</code><br>ディレクトリを作って、そこにGoソースを作成してスタートする。</p><p>GitHubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。</p><h4 id=まとめ>まとめ</h4><p>Goやり始めた当初は、元々<code>$HOME/git</code>下に全部GitHub関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。<br>同じGitHubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。<br>が、GitHubのURLをimportに書けるというのはすごくいい。<br>例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。</p><p>Let&rsquo;s write Go。</p><p>どうでもいいけど、Goのライブラリ名はダジャレがちらほら。<br>例えばRedisのドライバは <a href=https://github.com/garyburd/redigo>redigo</a> 。</p></div></article><hr><div class=post-info><p><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83.0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7" y2="7"/></svg>
-<span class=tag><a href=https://blog.takecy.dev/tags/golang/>golang</a></span></p><p><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
-<span class=tag><a href=https://blog.takecy.dev/categories/programing/>programing</a></span></p><p><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text"><path d="M14 2H6A2 2 0 004 4v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-68 Words</p><p><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-2015/08/05 00:52 +0900</p></div><div class=pagination><div class=pagination__title><span class=pagination__title-h>Read other posts</span><hr></div><div class=pagination__buttons><span class="button previous"><a href=https://blog.takecy.dev/posts/golang-package-godep/><span class=button__icon>←</span>
-<span class=button__text>Go言語の依存パッケージ管理の闇</span></a></span></div></div></main></div><footer class=footer><div class=footer__inner><div class=footer__content><span>&copy; 2024</span>
-<span><a href=https://github.com/takecy target=_blank rel=noopener>takecy</a></span>
-<span><a href=https://blog.takecy.dev/posts/index.xml target=_blank title=rss><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></span></div></div></footer></div><script type=text/javascript src=/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc+cxaJzDdCYbAW0X1G+DgZYvtKFXe6MBex8jUJ2JT25mQx+YjACIng=="></script></body></html>
+そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ go get github.com/takecy/hoge
+</span></span></code></pre></div><p>ここで、<code>GOPATH</code> が登場する。<br>
+このライブラリがダウンロードされ、配置されるパスは
+<code>$GOPATH/src/github.com/takecy/hoge</code><br>
+になる。<br>
+自分のGoのプロジェクトもこれと同じように、
+<code>$GOPATH/src/github.com/{account_name}/{repository_name}</code><br>
+ディレクトリを作って、そこにGoソースを作成してスタートする。</p>
+<p>GitHubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。</p>
+<h4 id="まとめ">まとめ</h4>
+<p>Goやり始めた当初は、元々<code>$HOME/git</code>下に全部GitHub関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。<br>
+同じGitHubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。<br>
+が、GitHubのURLをimportに書けるというのはすごくいい。<br>
+例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。</p>
+<p>Let&rsquo;s write Go。</p>
+<p>どうでもいいけど、Goのライブラリ名はダジャレがちらほら。<br>
+例えばRedisのドライバは <a href="https://github.com/garyburd/redigo">redigo</a> 。</p>
+
+      </div>
+    </article>
+
+    <hr />
+
+    <div class="post-info">
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag meta-icon"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7" y2="7"></line></svg>
+
+        <span class="tag"><a href="https://blog.takecy.dev/tags/golang/">golang</a></span>
+        
+    </p>
+
+      
+    <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-folder meta-icon"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+
+        <span class="tag"><a href="https://blog.takecy.dev/categories/programing/">programing</a></span>
+        
+    </p>
+
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file-text">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+          <polyline points="14 2 14 8 20 8"></polyline>
+          <line x1="16" y1="13" x2="8" y2="13"></line>
+          <line x1="16" y1="17" x2="8" y2="17"></line>
+          <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        68 Words
+      </p>
+
+      <p>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+        
+          2015/08/05 00:52 &#43;0900
+        
+
+        
+          
+        
+      </p>
+    </div>
+
+    
+    <div class="pagination">
+        
+        <div class="pagination__title">
+            <span class="pagination__title-h">Read other posts</span>
+            <hr />
+        </div>
+        
+
+        <div class="pagination__buttons">
+            
+            <span class="button previous">
+                <a href="https://blog.takecy.dev/posts/golang-package-godep/">
+                    <span class="button__icon">←</span>
+                    <span class="button__text">Go言語の依存パッケージ管理の闇</span>
+                </a>
+            </span>
+            
+
+            
+        </div>
+    </div>
+
+
+    
+
+    
+
+    
+
+  </main>
+
+            </div>
+
+            
+                <footer class="footer">
+    
+    <div class="footer__inner">
+        <div class="footer__content">
+            <span>&copy; 2024</span>
+            
+            <span><a href="https://github.com/takecy" target="_blank" rel="noopener">takecy</a></span>
+            <span><a href="https://blog.takecy.dev/posts/index.xml" target="_blank" title="rss"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg></a></span>
+            
+        </div>
+    </div>
+    
+    
+</footer>
+
+            
+        </div>
+
+        
+
+
+
+<script type="text/javascript" src="/bundle.min.e89fda0f29b95d33f6f4224dd9e5cf69d84aff3818be2b0d73e731689cc374261b016d17d46f8381962fb4a1577ba3017b1f23509d894f6e66431f988c00889e.js" integrity="sha512-6J/aDym5XTP29CJN2eXPadhK/zgYvisNc&#43;cxaJzDdCYbAW0X1G&#43;DgZYvtKFXe6MBex8jUJ2JT25mQx&#43;YjACIng=="></script>
+
+
+
+
+    </body>
+</html>

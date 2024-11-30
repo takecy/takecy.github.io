@@ -1,659 +1,319 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>blog &lt;- takecy</title>
-    <link>https://blog.takecy.dev/</link>
-    <description>Recent content on blog &lt;- takecy</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>&lt;a href=&#34;https://github.com/takecy&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;takecy&lt;/a&gt;</copyright>
-    <lastBuildDate>Sat, 15 Oct 2022 14:21:17 +0900</lastBuildDate><atom:link href="https://blog.takecy.dev/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    
-    <item>
-      <title>go.modファイル内のGoバージョンを更新する</title>
-      <link>https://blog.takecy.dev/posts/golang-mod-version-update/</link>
-      <pubDate>Sat, 15 Oct 2022 14:21:17 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-mod-version-update/</guid>
-      <description>&lt;p&gt;&lt;code&gt;go.mod&lt;/code&gt; ファイルのバージョン部分を手動ではなく、goコマンドで更新する。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-:go.mod&#34; data-lang=&#34;:go.mod&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;module github.com&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;takecy&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;git&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;here
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go &lt;span style=&#34;color:#ae81ff&#34;&gt;1.18&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;←&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;これ&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;require (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	github.com&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;fatih&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;color v1.&lt;span style=&#34;color:#ae81ff&#34;&gt;13.0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	github.com&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;matryer&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;is v1.&lt;span style=&#34;color:#ae81ff&#34;&gt;4.0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	github.com&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;pkg&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;errors v0.&lt;span style=&#34;color:#ae81ff&#34;&gt;9.1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	golang.org&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;x&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;sync v0.&lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;20220929204114&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;fcdb60fdcc0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;更新手順&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ go mod edit -go&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;1.19
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ go mod tidy
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-:go.mod&#34; data-lang=&#34;:go.mod&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;module github.com&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;takecy&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;git&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;here
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go &lt;span style=&#34;color:#ae81ff&#34;&gt;1.19&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;←&lt;/span&gt; &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;更新される&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;require (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	github.com&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;fatih&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;color v1.&lt;span style=&#34;color:#ae81ff&#34;&gt;13.0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	github.com&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;matryer&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;is v1.&lt;span style=&#34;color:#ae81ff&#34;&gt;4.0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	github.com&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;pkg&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;errors v0.&lt;span style=&#34;color:#ae81ff&#34;&gt;9.1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	golang.org&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;x&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;sync v0.&lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;20220929204114&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt;fcdb60fdcc0
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;go mod tidy&lt;/code&gt; をしないとエラーが出る。&lt;/p&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>GoでABテスト対象のユーザーを振り分けるライブラリを書いた</title>
-      <link>https://blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</link>
-      <pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</guid>
-      <description>&lt;div style=&#34;padding:0.2em; width:60%;&#34;&gt;
-            &lt;a href=&#34;https://github.com/takecy/grouping&#34;&gt;
-                &lt;img src=&#34;https://opengraph.githubassets.com/7641830e5fc271722b5b510ac7e75675f08c93084c8b6acdf91f866d52e5b175/takecy/grouping&#34; alt=&#34;GitHub - takecy/grouping: simple id grouping package in golang. Useful for AB testing.&#34; title=&#34;GitHub - takecy/grouping: simple id grouping package in golang. Useful for AB testing.&#34;&gt;
-            &lt;/a&gt;
-        &lt;/div&gt;
-    
-
-&lt;h3 id=&#34;abテストとは&#34;&gt;ABテストとは&lt;/h3&gt;
-
-
-    
-        
-        
-        
-        
-            
-                
-                
-                
-                
-                
-                    
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                    
-                
-                
-            
-                
-                
-                
-                
-                    
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                    
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-                
-                
-                
-                
-                
-            
-            
-        
-
-        
-        
-            
-                
-                    
-                
-            
-        
-
-        &lt;a href=&#34;https://www.assion.co.jp/blog/guide-of-abtesting/&#34; title=&#34;ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT &#34; alt=&#34;ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT &#34; style=&#34;padding: 12px;border: solid 1px ;display: flex;text-decoration: none;&#34; onMouseOver=&#34;this.style.opacity=&#39;0.9&#39;&#34;&gt;
-            &lt;div style=&#34;flex-shrink: 0;&#34;&gt;
-                &lt;img src=&#34;https://blog.takecy.dev/guide1_2219364545356773180.png&#34; title=&#34;ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT &#34; alt=&#34;ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT &#34; width=&#34;100&#34; height=&#34;100&#34; style=&#34;object-fit: contain;&#34;&gt;
-            &lt;/div&gt;
-            &lt;div style=&#34;margin-left: 10px;&#34;&gt;
-                &lt;h2 style=&#34;margin: 0;padding-bottom: 13px;border: none;font-size: 16px;&#34;&gt;
-                    ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT 
-                &lt;/h2&gt;
-                &lt;p style=&#34;margin: 0;font-size: 13px;word-break: break-word;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;&#34;&gt;
-                    ABテストツールVWOの日本唯一のプレミアムパートナーとして、多くのクライアント様のCROに取り組んできたABテストのプロフェッショナルである我々アッション（現・SHIFT）が、今回ABテストの概念・なぜ行う必要があるのか・実施する際のポイント等をまとめましたので、是非ご覧いただければと思います。
-                &lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/a&gt;
-    
-
-&lt;p&gt;ABテストを実施するには、いくつかの要素があり、大きく下記がある。&lt;br&gt;
-事前準備として、&lt;/p&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>1.10以降のGoのMultiPackageテスト</title>
-      <link>https://blog.takecy.dev/posts/golang-multi-package-test/</link>
-      <pubDate>Sat, 26 May 2018 10:26:50 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-multi-package-test/</guid>
-      <description>&lt;p&gt;以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#!/bin/bash
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;set -e
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&lt;/span&gt; &amp;gt; coverage.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go test -i ./...
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; d in &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;go list ./...&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;do&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    go test -race -coverprofile&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;profile.out -covermode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;atomic $d
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt; -f profile.out &lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;; &lt;span style=&#34;color:#66d9ef&#34;&gt;then&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        cat profile.out &amp;gt;&amp;gt; coverage.txt
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        rm profile.out
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;fi&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;done&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;1.10以降はこれでいけるようになった。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go test -race -coverprofile&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;coverage.txt -covermode&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;atomic ./...
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;楽チン！&lt;/p&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title>
-      <link>https://blog.takecy.dev/posts/golang-vendor-versioned/</link>
-      <pubDate>Sun, 04 Mar 2018 11:12:53 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-vendor-versioned/</guid>
-      <description>&lt;p&gt;Goプロジェクトの依存パッケージは、 &lt;a href=&#34;https://github.com/golang/dep&#34;&gt;dep&lt;/a&gt; などのツールにより  &lt;code&gt;vendor&lt;/code&gt; ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。&lt;/p&gt;
-&lt;p&gt;管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。&lt;/p&gt;
-&lt;h2 id=&#34;vendorをバージョン管理する場合&#34;&gt;vendorをバージョン管理する場合&lt;/h2&gt;
-&lt;h3 id=&#34;メリット&#34;&gt;メリット&lt;/h3&gt;
-&lt;h4 id=&#34;動かすまでが楽&#34;&gt;動かすまでが楽&lt;/h4&gt;
-&lt;p&gt;何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。&lt;/p&gt;
-&lt;h3 id=&#34;デリット&#34;&gt;デリット&lt;/h3&gt;
-&lt;h4 id=&#34;リポ内のファイル数が爆増する&#34;&gt;リポ内のファイル数が爆増する&lt;/h4&gt;
-&lt;p&gt;cloneするのが遅い。。大きめのリポジトリになると結構待たされる。
-あと検索が弱くなる。vendor内も引っかかるのでGitHub Web上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;h2 id=&#34;vendorをバージョン管理しない場合&#34;&gt;vendorをバージョン管理しない場合&lt;/h2&gt;
-&lt;h3 id=&#34;メリット-1&#34;&gt;メリット&lt;/h3&gt;
-&lt;h4 id=&#34;リポジトリが綺麗&#34;&gt;リポジトリが綺麗&lt;/h4&gt;
-&lt;p&gt;この問題の先輩である&lt;code&gt;npm&lt;/code&gt;は&lt;code&gt;node_modules&lt;/code&gt;の中身を全部GitHubにいれたりしない。
-GitHubが提供する &lt;a href=&#34;https://github.com/github/gitignore/blob/master/Node.gitignore#L36&#34;&gt;.gitignore&lt;/a&gt; にも&lt;code&gt;node_modules&lt;/code&gt;が書いてある。(&lt;a href=&#34;https://github.com/github/gitignore/blob/master/Go.gitignore&#34;&gt;Go&lt;/a&gt;に&lt;code&gt;vendor&lt;/code&gt;はいない)&lt;br&gt;
-GitHubWeb上で検索しやすくもなる。&lt;/p&gt;
-&lt;h3 id=&#34;デメリット&#34;&gt;デメリット&lt;/h3&gt;
-&lt;h4 id=&#34;動かすまでが大変&#34;&gt;動かすまでが大変&lt;/h4&gt;
-&lt;p&gt;&lt;code&gt;dep&lt;/code&gt;が&lt;code&gt;npm&lt;/code&gt;ほど洗練されていない、またGoの依存はGitHubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。
-このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。&lt;code&gt;Gopkg.lock&lt;/code&gt;にrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも &lt;code&gt;dep ensure&lt;/code&gt; 自体が結構な割合で失敗する。&lt;/p&gt;
-&lt;h2 id=&#34;結論&#34;&gt;結論&lt;/h2&gt;
-&lt;p&gt;結局、一長一短で、メリット・デメリットが反対になっている。
-個人的には &lt;code&gt;動かすまでが楽&lt;/code&gt; これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 &lt;code&gt;リポジトリをCloneしたらすぐrunできる&lt;/code&gt; というのは素晴らしいと思っている。&lt;/p&gt;
-&lt;p&gt;また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。&lt;/p&gt;
-&lt;p&gt;結果、今のPJでは。&lt;code&gt;vendorもバージョン管理する(GitHubに全部突っ込む)&lt;/code&gt; にしていて、今のところ快適に運用できている。&lt;/p&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>Goの依存管理ツールのdepのpruneがdeprecatedになった</title>
-      <link>https://blog.takecy.dev/posts/golang-dep-prune-deprecated/</link>
-      <pubDate>Sat, 03 Feb 2018 01:36:11 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-dep-prune-deprecated/</guid>
-      <description>&lt;p&gt;Goの依存関係管理には&lt;a href=&#34;https://github.com/golang/dep&#34;&gt;dep&lt;/a&gt;がデファクトだし、使っているのだが、
-最近 &lt;code&gt;prune&lt;/code&gt; コマンドがdeprecatedされた。&lt;/p&gt;
-&lt;h3 id=&#34;depのprune&#34;&gt;depのprune&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ dep prune -v
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;このコマンドは、&lt;code&gt;ensure&lt;/code&gt; で山盛り追加されるvendorから、使用していないpackageを除外してくれて、レポジトリが軽くなるので気に入ってよく使っていた。
-Makefileにもだいたい以下のように書いていた。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-makefile&#34; data-lang=&#34;makefile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;update&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;:&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    dep ensure -update -v &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; dep prune -v
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;実行時に警告が&#34;&gt;実行時に警告が&lt;/h3&gt;
-&lt;p&gt;多分0.4からこういう警告が出るようになった。&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;Pruning is now performed automatically by dep ensure.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>blog &lt;- takecy</title><link>https://blog.takecy.dev/</link><description>Recent content on blog &lt;- takecy</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>&lt;a href="https://github.com/takecy" target="_blank" rel="noopener">takecy&lt;/a></copyright><lastBuildDate>Sat, 15 Oct 2022 14:21:17 +0900</lastBuildDate><atom:link href="https://blog.takecy.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>go.modファイル内のGoバージョンを更新する</title><link>https://blog.takecy.dev/posts/golang-mod-version-update/</link><pubDate>Sat, 15 Oct 2022 14:21:17 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-mod-version-update/</guid><description>&lt;p>&lt;code>go.mod&lt;/code> ファイルのバージョン部分を手動ではなく、goコマンドで更新する。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-:go.mod" data-lang=":go.mod">&lt;span style="display:flex;">&lt;span>module github.com&lt;span style="color:#f92672">/&lt;/span>takecy&lt;span style="color:#f92672">/&lt;/span>git&lt;span style="color:#f92672">-&lt;/span>here
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go &lt;span style="color:#ae81ff">1.18&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">←&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">これ&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>require (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> github.com&lt;span style="color:#f92672">/&lt;/span>fatih&lt;span style="color:#f92672">/&lt;/span>color v1.&lt;span style="color:#ae81ff">13.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> github.com&lt;span style="color:#f92672">/&lt;/span>matryer&lt;span style="color:#f92672">/&lt;/span>is v1.&lt;span style="color:#ae81ff">4.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> github.com&lt;span style="color:#f92672">/&lt;/span>pkg&lt;span style="color:#f92672">/&lt;/span>errors v0.&lt;span style="color:#ae81ff">9.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> golang.org&lt;span style="color:#f92672">/&lt;/span>x&lt;span style="color:#f92672">/&lt;/span>sync v0.&lt;span style="color:#ae81ff">0.0&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">20220929204114&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">8&lt;/span>fcdb60fdcc0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>更新手順&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ go mod edit -go&lt;span style="color:#f92672">=&lt;/span>1.19
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ go mod tidy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-:go.mod" data-lang=":go.mod">&lt;span style="display:flex;">&lt;span>module github.com&lt;span style="color:#f92672">/&lt;/span>takecy&lt;span style="color:#f92672">/&lt;/span>git&lt;span style="color:#f92672">-&lt;/span>here
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go &lt;span style="color:#ae81ff">1.19&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">←&lt;/span> &lt;span style="color:#960050;background-color:#1e0010">更新される&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>require (
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> github.com&lt;span style="color:#f92672">/&lt;/span>fatih&lt;span style="color:#f92672">/&lt;/span>color v1.&lt;span style="color:#ae81ff">13.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> github.com&lt;span style="color:#f92672">/&lt;/span>matryer&lt;span style="color:#f92672">/&lt;/span>is v1.&lt;span style="color:#ae81ff">4.0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> github.com&lt;span style="color:#f92672">/&lt;/span>pkg&lt;span style="color:#f92672">/&lt;/span>errors v0.&lt;span style="color:#ae81ff">9.1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> golang.org&lt;span style="color:#f92672">/&lt;/span>x&lt;span style="color:#f92672">/&lt;/span>sync v0.&lt;span style="color:#ae81ff">0.0&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">20220929204114&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">8&lt;/span>fcdb60fdcc0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>go mod tidy&lt;/code> をしないとエラーが出る。&lt;/p></description></item><item><title>GoでABテスト対象のユーザーを振り分けるライブラリを書いた</title><link>https://blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</link><pubDate>Sat, 15 Sep 2018 17:52:49 +0900</pubDate><guid>https://blog.takecy.dev/posts/grouping-id-for-ab-testing-in-golang/</guid><description>&lt;div style="padding:0.2em; width:60%;">
+&lt;a href="https://github.com/takecy/grouping">
+&lt;img src="https://opengraph.githubassets.com/7641830e5fc271722b5b510ac7e75675f08c93084c8b6acdf91f866d52e5b175/takecy/grouping" alt="GitHub - takecy/grouping: simple id grouping package in golang. Useful for AB testing." title="GitHub - takecy/grouping: simple id grouping package in golang. Useful for AB testing.">
+&lt;/a>
+&lt;/div>
+&lt;h3 id="abテストとは">ABテストとは&lt;/h3>
+&lt;a href="https://www.assion.co.jp/blog/guide-of-abtesting/" title="ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT " alt="ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT " style="padding: 12px;border: solid 1px ;display: flex;text-decoration: none;" onMouseOver="this.style.opacity='0.9'">
+&lt;div style="flex-shrink: 0;">
+&lt;img src="https://blog.takecy.dev/guide1_2219364545356773180.png" title="ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT " alt="ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT " width="100" height="100" style="object-fit: contain;">
+&lt;/div>
+&lt;div style="margin-left: 10px;">
+&lt;h2 style="margin: 0;padding-bottom: 13px;border: none;font-size: 16px;">
+ABテストとは？ 今さら聞けないABテストの基礎中の基礎まとめ | 株式会社SHIFT
+&lt;/h2>
+&lt;p style="margin: 0;font-size: 13px;word-break: break-word;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 3;overflow: hidden;">
+ABテストツールVWOの日本唯一のプレミアムパートナーとして、多くのクライアント様のCROに取り組んできたABテストのプロフェッショナルである我々アッション（現・SHIFT）が、今回ABテストの概念・なぜ行う必要があるのか・実施する際のポイント等をまとめましたので、是非ご覧いただければと思います。
+&lt;/p>
+&lt;/div>
+&lt;/a>
+&lt;p>ABテストを実施するには、いくつかの要素があり、大きく下記がある。&lt;br>
+事前準備として、&lt;/p></description></item><item><title>1.10以降のGoのMultiPackageテスト</title><link>https://blog.takecy.dev/posts/golang-multi-package-test/</link><pubDate>Sat, 26 May 2018 10:26:50 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-multi-package-test/</guid><description>&lt;p>以前は複数のパッケージのカバレッジを取るのにこんなことをやっていた。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#!/bin/bash
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>set -e
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>echo &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span> &amp;gt; coverage.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go test -i ./...
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> d in &lt;span style="color:#66d9ef">$(&lt;/span>go list ./...&lt;span style="color:#66d9ef">)&lt;/span>; &lt;span style="color:#66d9ef">do&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> go test -race -coverprofile&lt;span style="color:#f92672">=&lt;/span>profile.out -covermode&lt;span style="color:#f92672">=&lt;/span>atomic $d
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[&lt;/span> -f profile.out &lt;span style="color:#f92672">]&lt;/span>; &lt;span style="color:#66d9ef">then&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> cat profile.out &amp;gt;&amp;gt; coverage.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> rm profile.out
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fi&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">done&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>1.10以降はこれでいけるようになった。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>go test -race -coverprofile&lt;span style="color:#f92672">=&lt;/span>coverage.txt -covermode&lt;span style="color:#f92672">=&lt;/span>atomic ./...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>楽チン！&lt;/p></description></item><item><title>Goプロジェクトでvendorディレクトリをバージョン管理すべきなのか</title><link>https://blog.takecy.dev/posts/golang-vendor-versioned/</link><pubDate>Sun, 04 Mar 2018 11:12:53 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-vendor-versioned/</guid><description>&lt;p>Goプロジェクトの依存パッケージは、 &lt;a href="https://github.com/golang/dep">dep&lt;/a> などのツールにより &lt;code>vendor&lt;/code> ディレクトリに入るけど、「vendorをバージョン管理するべきかどうか」で定期的にチーム内で議論になる。&lt;/p>
+&lt;p>管理する場合、しない場合、それぞれの場合のメリット・デメリットをあげてみつつ考えてみる。&lt;/p>
+&lt;h2 id="vendorをバージョン管理する場合">vendorをバージョン管理する場合&lt;/h2>
+&lt;h3 id="メリット">メリット&lt;/h3>
+&lt;h4 id="動かすまでが楽">動かすまでが楽&lt;/h4>
+&lt;p>何よりもこれ。cloneすればすぐbuild/runできる。動いている状態の完全なアプリケーション/パッケージとしてあがっているのだから当然。特定時点のスナップショット的なものになっているので、とにかく最初の一歩が早い。&lt;/p>
+&lt;h3 id="デリット">デリット&lt;/h3>
+&lt;h4 id="リポ内のファイル数が爆増する">リポ内のファイル数が爆増する&lt;/h4>
+&lt;p>cloneするのが遅い。。大きめのリポジトリになると結構待たされる。
+あと検索が弱くなる。vendor内も引っかかるのでGitHub Web上での検索は諦め気味。リポジトリを落としてからローカルで探すとこが多い。&lt;/p>
+&lt;!-- raw HTML omitted -->
+&lt;h2 id="vendorをバージョン管理しない場合">vendorをバージョン管理しない場合&lt;/h2>
+&lt;h3 id="メリット-1">メリット&lt;/h3>
+&lt;h4 id="リポジトリが綺麗">リポジトリが綺麗&lt;/h4>
+&lt;p>この問題の先輩である&lt;code>npm&lt;/code>は&lt;code>node_modules&lt;/code>の中身を全部GitHubにいれたりしない。
+GitHubが提供する &lt;a href="https://github.com/github/gitignore/blob/master/Node.gitignore#L36">.gitignore&lt;/a> にも&lt;code>node_modules&lt;/code>が書いてある。(&lt;a href="https://github.com/github/gitignore/blob/master/Go.gitignore">Go&lt;/a>に&lt;code>vendor&lt;/code>はいない)&lt;br>
+GitHubWeb上で検索しやすくもなる。&lt;/p>
+&lt;h3 id="デメリット">デメリット&lt;/h3>
+&lt;h4 id="動かすまでが大変">動かすまでが大変&lt;/h4>
+&lt;p>&lt;code>dep&lt;/code>が&lt;code>npm&lt;/code>ほど洗練されていない、またGoの依存はGitHubのURLを指定できるようになっているのもあり、masterブランチを指定してる場合など悲惨だ。
+このアプリケーション/パッケージが動いた時のmasterの状態などわかるはずもない。&lt;code>Gopkg.lock&lt;/code>にrevisionとしてcommit shaが記録されているものの、force pushされたりするとあてにならないし、そもそも &lt;code>dep ensure&lt;/code> 自体が結構な割合で失敗する。&lt;/p>
+&lt;h2 id="結論">結論&lt;/h2>
+&lt;p>結局、一長一短で、メリット・デメリットが反対になっている。
+個人的には &lt;code>動かすまでが楽&lt;/code> これをものすごく重要だと感じており、Go自体のワンバイナリで気軽にどこでも実行できるというメリットとともに、 &lt;code>リポジトリをCloneしたらすぐrunできる&lt;/code> というのは素晴らしいと思っている。&lt;/p>
+&lt;p>また、マイクロサービス化が進んでいくと、1つのアプリケーションを構築するのに複数のリポジトリを使うことになり、1つの修正や機能の実装のために複数リポジトリへの変更が必要になってくる。その時、各リポジトリのvendorを復元する手間が無視できないコストになる。本質的でないこの作業にコストがかかるのは色々ストレスだし、とにかくツライ。。&lt;/p>
+&lt;p>結果、今のPJでは。&lt;code>vendorもバージョン管理する(GitHubに全部突っ込む)&lt;/code> にしていて、今のところ快適に運用できている。&lt;/p></description></item><item><title>Goの依存管理ツールのdepのpruneがdeprecatedになった</title><link>https://blog.takecy.dev/posts/golang-dep-prune-deprecated/</link><pubDate>Sat, 03 Feb 2018 01:36:11 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-dep-prune-deprecated/</guid><description>&lt;p>Goの依存関係管理には&lt;a href="https://github.com/golang/dep">dep&lt;/a>がデファクトだし、使っているのだが、
+最近 &lt;code>prune&lt;/code> コマンドがdeprecatedされた。&lt;/p>
+&lt;h3 id="depのprune">depのprune&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ dep prune -v
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>このコマンドは、&lt;code>ensure&lt;/code> で山盛り追加されるvendorから、使用していないpackageを除外してくれて、レポジトリが軽くなるので気に入ってよく使っていた。
+Makefileにもだいたい以下のように書いていた。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-makefile" data-lang="makefile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">update&lt;/span>&lt;span style="color:#f92672">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> dep ensure -update -v &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> dep prune -v
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="実行時に警告が">実行時に警告が&lt;/h3>
+&lt;p>多分0.4からこういう警告が出るようになった。&lt;/p>
+&lt;pre tabindex="0">&lt;code>Pruning is now performed automatically by dep ensure.
 Set prune settings in Gopkg.toml and it it will be applied when running ensure.
-
 This command currently still prunes as it always has, to ease the transition.
 However, it will be removed in a future version of dep.
-
 Now is the time to update your Gopkg.toml and remove `dep prune` from any scripts.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;意訳&lt;/p&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>Timezoneが取れるalpineのDockerイメージを作る</title>
-      <link>https://blog.takecy.dev/posts/golang-docker-alpine-timezone/</link>
-      <pubDate>Sat, 03 Feb 2018 01:07:23 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-docker-alpine-timezone/</guid>
-      <description>&lt;p&gt;Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、
-&lt;a href=&#34;https://docs.docker.com/develop/develop-images/multistage-build/&#34;&gt;multi stage build&lt;/a&gt;にそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。&lt;/p&gt;
-&lt;p&gt;コード全体はこちら。&lt;br&gt;
-&lt;a href=&#34;https://github.com/takecy/tz-sample&#34;&gt;&lt;img src=&#34;https://gh-card.dev/repos/takecy/tz-sample.svg?fullname&#34;&gt;&lt;/a&gt;
-&lt;/p&gt;
-&lt;h3 id=&#34;panic-になるコード&#34;&gt;Panic になるコード&lt;/h3&gt;
-&lt;p&gt;普通にmulti stage buildでalpineにビルド済イメージを &lt;code&gt;COPY&lt;/code&gt; して実行すると、下記コードはpanicする。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;jst&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;time&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;LoadLocation&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Asia/Tokyo&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;nil&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    panic(&lt;span style=&#34;color:#a6e22e&#34;&gt;err&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;alpineは &lt;code&gt;/etc/localtime&lt;/code&gt; がないため。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;goroutine &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;running&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;main.main&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        /go/src/github.com/takecy/tz/main.go:11 +0x22b
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;make: *** &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;run_alpine&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Error &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;対応&#34;&gt;対応&lt;/h3&gt;
-&lt;p&gt;対応は難しいことはなく、単に &lt;code&gt;tzdata&lt;/code&gt; を入れればよい。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; apk --no-cache add tzdata&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;全体の例&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; golang:1.9.3-alpine AS build&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; . $GOPATH/src/github.com/takecy/tz&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;WORKDIR&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; $GOPATH/src/github.com/takecy/tz&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; go build -o tz .&lt;span style=&#34;color:#ae81ff&#34;&gt;\
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; mv tz /usr/local/bin/&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt; alpine:3.6&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; apk --no-cache add tzdata&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;COPY&lt;/span&gt; --from&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;build /usr/local/bin/tz /usr/local/bin/&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;CMD&lt;/span&gt; [&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tz&amp;#34;&lt;/span&gt;]&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;a href=&#34;https://github.com/takecy/tz-sample&#34;}&gt;
-  &lt;img src=&#34;http://favicon.hatena.ne.jp/?url=https%3a%2f%2fgithub.com%2ftakecy%2ftz-sample&#34; style=&#34;float:left;margin:5px 5px 0px 5px&#34; /&gt;
-  takecy/tz-sample
-&lt;/a&gt;
-&lt;br/&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>UbuntuにGoをインストールしたDokcerイメージを作る</title>
-      <link>https://blog.takecy.dev/posts/golang-docker-ubuntu-install/</link>
-      <pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-docker-ubuntu-install/</guid>
-      <description>&lt;p&gt;Dokcernizeってますか？
-最近やっとちょっとだけDockerさんに話しかけたりしています。&lt;/p&gt;
-&lt;p&gt;UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-dockerfile&#34; data-lang=&#34;dockerfile&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;RUN&lt;/span&gt; tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt; PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$PATH:/usr/local/go/bin&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt; GOPATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$HOME/go&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;ENV&lt;/span&gt; PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$GOPATH/bin:$PATH&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;p&gt;一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。
+&lt;/code>&lt;/pre>&lt;p>意訳&lt;/p></description></item><item><title>Timezoneが取れるalpineのDockerイメージを作る</title><link>https://blog.takecy.dev/posts/golang-docker-alpine-timezone/</link><pubDate>Sat, 03 Feb 2018 01:07:23 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-docker-alpine-timezone/</guid><description>&lt;p>Goで書いたアプリのDockerイメージをできるだけ小さくしようとして、
+&lt;a href="https://docs.docker.com/develop/develop-images/multistage-build/">multi stage build&lt;/a>にそってやったら、timezone情報が取れなくてpanicが発生して(&amp;lsquo;A`)になったので、その対応策について。&lt;/p>
+&lt;p>コード全体はこちら。&lt;br>
+&lt;a href="https://github.com/takecy/tz-sample">&lt;img src="https://gh-card.dev/repos/takecy/tz-sample.svg?fullname">&lt;/a>
+&lt;/p>
+&lt;h3 id="panic-になるコード">Panic になるコード&lt;/h3>
+&lt;p>普通にmulti stage buildでalpineにビルド済イメージを &lt;code>COPY&lt;/code> して実行すると、下記コードはpanicする。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">jst&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">time&lt;/span>.&lt;span style="color:#a6e22e">LoadLocation&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Asia/Tokyo&amp;#34;&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> panic(&lt;span style="color:#a6e22e">err&lt;/span>)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>alpineは &lt;code>/etc/localtime&lt;/code> がないため。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>panic: open /usr/local/go/lib/time/zoneinfo.zip: no such file or directory
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>goroutine &lt;span style="color:#ae81ff">1&lt;/span> &lt;span style="color:#f92672">[&lt;/span>running&lt;span style="color:#f92672">]&lt;/span>:
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>main.main&lt;span style="color:#f92672">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> /go/src/github.com/takecy/tz/main.go:11 +0x22b
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>make: *** &lt;span style="color:#f92672">[&lt;/span>run_alpine&lt;span style="color:#f92672">]&lt;/span> Error &lt;span style="color:#ae81ff">2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="対応">対応&lt;/h3>
+&lt;p>対応は難しいことはなく、単に &lt;code>tzdata&lt;/code> を入れればよい。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">RUN&lt;/span> apk --no-cache add tzdata&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>全体の例&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> golang:1.9.3-alpine AS build&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">COPY&lt;/span> . $GOPATH/src/github.com/takecy/tz&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">WORKDIR&lt;/span>&lt;span style="color:#e6db74"> $GOPATH/src/github.com/takecy/tz&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> go build -o tz .&lt;span style="color:#ae81ff">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ae81ff">&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> mv tz /usr/local/bin/&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">FROM&lt;/span>&lt;span style="color:#e6db74"> alpine:3.6&lt;/span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> apk --no-cache add tzdata&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">COPY&lt;/span> --from&lt;span style="color:#f92672">=&lt;/span>build /usr/local/bin/tz /usr/local/bin/&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">CMD&lt;/span> [&lt;span style="color:#e6db74">&amp;#34;tz&amp;#34;&lt;/span>]&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>
+&lt;a href="https://github.com/takecy/tz-sample"}>
+&lt;img src="http://favicon.hatena.ne.jp/?url=https%3a%2f%2fgithub.com%2ftakecy%2ftz-sample" style="float:left;margin:5px 5px 0px 5px" />
+takecy/tz-sample
+&lt;/a>
+&lt;br/></description></item><item><title>UbuntuにGoをインストールしたDokcerイメージを作る</title><link>https://blog.takecy.dev/posts/golang-docker-ubuntu-install/</link><pubDate>Sat, 24 Oct 2015 23:18:26 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-docker-ubuntu-install/</guid><description>&lt;p>Dokcernizeってますか？
+最近やっとちょっとだけDockerさんに話しかけたりしています。&lt;/p>
+&lt;p>UbuntuにGo入れたイメージを作るDokcerfileの大事なところはこんなです。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-dockerfile" data-lang="dockerfile">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">RUN&lt;/span> wget https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">RUN&lt;/span> tar -C /usr/local -xf go1.5.1.linux-amd64.tar.gz&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">ENV&lt;/span> PATH&lt;span style="color:#f92672">=&lt;/span>$PATH:/usr/local/go/bin&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">ENV&lt;/span> GOPATH&lt;span style="color:#f92672">=&lt;/span>$HOME/go&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#960050;background-color:#1e0010">&lt;/span>&lt;span style="color:#66d9ef">ENV&lt;/span> PATH&lt;span style="color:#f92672">=&lt;/span>$GOPATH/bin:$PATH&lt;span style="color:#960050;background-color:#1e0010">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;!-- raw HTML omitted -->
+&lt;!-- raw HTML omitted -->
+&lt;p>一方、Vagrantはそれはそれで、sshしてhogehogeって感じがサーバいじるのと似ててとっつきやすい。
 クラウド()になって、
-sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。&lt;/p&gt;
-&lt;p&gt;最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。
-かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。&lt;/p&gt;
-&lt;p&gt;自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、
-こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。&lt;/p&gt;
-&lt;p&gt;今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、
-近づいていくんだろうか。&lt;br&gt;
-システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。&lt;br&gt;
-なんて面白い時代だ。&lt;/p&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>Goとマイクロサービス</title>
-      <link>https://blog.takecy.dev/posts/golang-microservice/</link>
-      <pubDate>Sun, 04 Oct 2015 22:29:08 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-microservice/</guid>
-      <description>&lt;p&gt;マイクロサービスの定義としては&lt;br&gt;
-「あるサービスが、独立した小さなサービスの集合で構成される」&lt;br&gt;
-というのが一般的？で、俺もそう思っている。&lt;/p&gt;
-&lt;p&gt;Goはこのマイクロサービス的なサービス開発に適している気がする。&lt;/p&gt;
-&lt;h3 id=&#34;ワンバイナリサービスの単位&#34;&gt;ワンバイナリ=サービスの単位&lt;/h3&gt;
-&lt;p&gt;Goの最大のメリットと考えているのは、&lt;br&gt;
-ビルドしたら実行可能なバイナリが1個吐き出されて、ミドルウェア等の設定が不要。&lt;br&gt;
-というのは、&lt;a href=&#34;https://blog.takecy.dev/posts/golang-good-bad/&#34;&gt;過去&lt;/a&gt;にも書いた。&lt;/p&gt;
-&lt;p&gt;この実行可能なバイナリをマイクロサービスでいうところの「小さなサービス」とすると、とてもしっくり来る感じ。&lt;/p&gt;
-&lt;h3 id=&#34;バイナリgoパッケージサーバインスタンスの単位&#34;&gt;バイナリ=Goパッケージ=サーバインスタンスの単位&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;API&lt;/li&gt;
-&lt;li&gt;Batch A&lt;/li&gt;
-&lt;li&gt;Batch B&lt;/li&gt;
-&lt;li&gt;Proxy(image)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;で構成されるサービスがあったとして、全部Goで書いたとする。&lt;br&gt;
+sshしてあれこれインストールしてサーバ設定というのはもうなくなっちゃったよね。&lt;/p>
+&lt;p>最近は、サーバ設定(というかインスタンス設定)はTerraformだし、ルーチン処理やリリースはAnsibleだし。
+かといって、sshも必要で、shellスクリプトは前より書くようになったんじゃないかと思うくらいだし。&lt;/p>
+&lt;p>自分の場合、一応アプリケーションエンジニアというくくりになるのだけど、
+こんなにインフラ寄りの作業をやっていることにふと気づいて驚いている。&lt;/p>
+&lt;p>今後もっと、アプリの人はインフラの知識を、インフラの人はアプリの知識をな感じで、
+近づいていくんだろうか。&lt;br>
+システム開発における、エンジニア一人の担当範囲が広くなっていってる感じ。&lt;br>
+なんて面白い時代だ。&lt;/p></description></item><item><title>Goとマイクロサービス</title><link>https://blog.takecy.dev/posts/golang-microservice/</link><pubDate>Sun, 04 Oct 2015 22:29:08 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-microservice/</guid><description>&lt;p>マイクロサービスの定義としては&lt;br>
+「あるサービスが、独立した小さなサービスの集合で構成される」&lt;br>
+というのが一般的？で、俺もそう思っている。&lt;/p>
+&lt;p>Goはこのマイクロサービス的なサービス開発に適している気がする。&lt;/p>
+&lt;h3 id="ワンバイナリサービスの単位">ワンバイナリ=サービスの単位&lt;/h3>
+&lt;p>Goの最大のメリットと考えているのは、&lt;br>
+ビルドしたら実行可能なバイナリが1個吐き出されて、ミドルウェア等の設定が不要。&lt;br>
+というのは、&lt;a href="https://blog.takecy.dev/posts/golang-good-bad/">過去&lt;/a>にも書いた。&lt;/p>
+&lt;p>この実行可能なバイナリをマイクロサービスでいうところの「小さなサービス」とすると、とてもしっくり来る感じ。&lt;/p>
+&lt;h3 id="バイナリgoパッケージサーバインスタンスの単位">バイナリ=Goパッケージ=サーバインスタンスの単位&lt;/h3>
+&lt;ol>
+&lt;li>API&lt;/li>
+&lt;li>Batch A&lt;/li>
+&lt;li>Batch B&lt;/li>
+&lt;li>Proxy(image)&lt;/li>
+&lt;/ol>
+&lt;p>で構成されるサービスがあったとして、全部Goで書いたとする。&lt;br>
 それぞれがGoプロジェクトの1パッケージに対応し、そのパッケージ毎にバイナリを生成し、
-バイナリごとにサーバインスタンスを割り当てる感じになる。&lt;/p&gt;
-&lt;p&gt;まさにマイクロサービス。&lt;/p&gt;
-&lt;h3 id=&#34;まとめ&#34;&gt;まとめ&lt;/h3&gt;
-&lt;p&gt;GoはProxyサーバみたいな特定の用途に特化した(アドホックな)処理を、
-1個のバイナリとしてまとめられるので、Goで全部やってると勝手にマイクロサービスっぽくなるよね&lt;br&gt;
-というお話。&lt;/p&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>Goのいいとこ悪いとこを1個づつあげる</title>
-      <link>https://blog.takecy.dev/posts/golang-good-bad/</link>
-      <pubDate>Wed, 16 Sep 2015 22:54:02 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-good-bad/</guid>
-      <description>&lt;p&gt;Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。&lt;/p&gt;
-&lt;h2 id=&#34;いいところ&#34;&gt;いいところ&lt;/h2&gt;
-&lt;h3 id=&#34;デプロイが簡単&#34;&gt;デプロイが簡単&lt;/h3&gt;
-&lt;p&gt;もはやこれだけで、Goを使う価値があるといっていいほど。&lt;br&gt;
-&lt;code&gt;go build&lt;/code&gt; からの、生成されたバイナリをサーバへ送って実行。&lt;br&gt;
-以上終わり。&lt;/p&gt;
-&lt;p&gt;これはすごい。。サーバ側は一切の設定、ミドルのインストールがいらない。&lt;br&gt;
-nodeやJVMなどの実行環境が不要。すごい。&lt;/p&gt;
-&lt;p&gt;よく言われる、Goのメリットだけど、本当にすごい。&lt;br&gt;
-ビルドしたら実行可能な単一のバイナリが吐きだされる。&lt;br&gt;
-&lt;a href=&#34;https://github.com/mitchellh/gox&#34;&gt;プラットフォームごとにビルド&lt;/a&gt;するのも簡単。&lt;/p&gt;
-&lt;p&gt;この点の別のメリットとして、Go自体ののバージョンアップが簡単というのがある。&lt;br&gt;
+バイナリごとにサーバインスタンスを割り当てる感じになる。&lt;/p>
+&lt;p>まさにマイクロサービス。&lt;/p>
+&lt;h3 id="まとめ">まとめ&lt;/h3>
+&lt;p>GoはProxyサーバみたいな特定の用途に特化した(アドホックな)処理を、
+1個のバイナリとしてまとめられるので、Goで全部やってると勝手にマイクロサービスっぽくなるよね&lt;br>
+というお話。&lt;/p></description></item><item><title>Goのいいとこ悪いとこを1個づつあげる</title><link>https://blog.takecy.dev/posts/golang-good-bad/</link><pubDate>Wed, 16 Sep 2015 22:54:02 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-good-bad/</guid><description>&lt;p>Goのいいところ悪いところをそれぞれ1個だけ挙げてみる。&lt;/p>
+&lt;h2 id="いいところ">いいところ&lt;/h2>
+&lt;h3 id="デプロイが簡単">デプロイが簡単&lt;/h3>
+&lt;p>もはやこれだけで、Goを使う価値があるといっていいほど。&lt;br>
+&lt;code>go build&lt;/code> からの、生成されたバイナリをサーバへ送って実行。&lt;br>
+以上終わり。&lt;/p>
+&lt;p>これはすごい。。サーバ側は一切の設定、ミドルのインストールがいらない。&lt;br>
+nodeやJVMなどの実行環境が不要。すごい。&lt;/p>
+&lt;p>よく言われる、Goのメリットだけど、本当にすごい。&lt;br>
+ビルドしたら実行可能な単一のバイナリが吐きだされる。&lt;br>
+&lt;a href="https://github.com/mitchellh/gox">プラットフォームごとにビルド&lt;/a>するのも簡単。&lt;/p>
+&lt;p>この点の別のメリットとして、Go自体ののバージョンアップが簡単というのがある。&lt;br>
 言語のバージョンが上がっても、ビルド後のバイナリとして正しく動いていれば、サーバ側はなんの変更もいらない。
-バイナリを差し替えるだけ。&lt;br&gt;
-nodeやJVMだと、バージョンアップは大仕事だけど、Go簡単すぎ。すごい。&lt;/p&gt;
-&lt;h2 id=&#34;悪いところ&#34;&gt;悪いところ&lt;/h2&gt;
-&lt;h3 id=&#34;型が中途半端&#34;&gt;型が中途半端&lt;/h3&gt;
-&lt;p&gt;これもよく言われているけど、型システム微妙。&lt;br&gt;
-これの最大の弊害は抽象化のしづらさにある。&lt;br&gt;
-色んなライブラリを見たつもりだけど、結構出てくるのが&lt;br&gt;
-&lt;code&gt;interface{}&lt;/code&gt; &lt;code&gt;map[string]interface{}&lt;/code&gt;&lt;br&gt;
-が引数、戻り値。&lt;br&gt;
-&lt;strong&gt;型意味ねえ。&lt;/strong&gt;&lt;br&gt;
-Goは静的型付け言語に分類されるが、抽象化しづらいので結局「何でも入る型」(Javaで言うならObject型)を使っちゃって、コンパイラの恩恵が少ない。&lt;br&gt;
-&lt;a href=&#34;https://github.com/golang/go/issues/21132&#34;&gt;ジェネリクスに関する議論&lt;/a&gt; は色々なされているようだけど、どうなるか。&lt;/p&gt;
-&lt;h2 id=&#34;まとめ&#34;&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;悪いところもあるけれど、「デプロイが簡単」「バージョンアップが簡単」のメリットを捨てるほどではない。&lt;br&gt;
-という結論に今のところなっている感じ。&lt;/p&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>Go言語でループ</title>
-      <link>https://blog.takecy.dev/posts/golang-loop/</link>
-      <pubDate>Sun, 30 Aug 2015 19:51:31 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-loop/</guid>
-      <description>&lt;p&gt;今でもたまにやらかすのでメモっておく。&lt;/p&gt;
-&lt;p&gt;①&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;users&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;{&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;take&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hoge&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;moge&amp;#34;&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;range&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;users&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;users&lt;/span&gt;[&lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;]) &lt;span style=&#34;color:#75715e&#34;&gt;// i is index
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;②&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;users&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;{&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;take&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hoge&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;moge&amp;#34;&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;i&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;user&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;range&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;users&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;user&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;// user is value copy
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;③&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;users&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; []&lt;span style=&#34;color:#66d9ef&#34;&gt;string&lt;/span&gt;{&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;take&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;hoge&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;moge&amp;#34;&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;_&lt;/span&gt;, &lt;span style=&#34;color:#a6e22e&#34;&gt;user&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;:=&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;range&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;users&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#a6e22e&#34;&gt;fmt&lt;/span&gt;.&lt;span style=&#34;color:#a6e22e&#34;&gt;Println&lt;/span&gt;(&lt;span style=&#34;color:#a6e22e&#34;&gt;user&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;// user is value copy
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;①が一番早い。
-でも②③の方が読みやすい。&lt;/p&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>Go言語の依存パッケージ管理の闇</title>
-      <link>https://blog.takecy.dev/posts/golang-package-godep/</link>
-      <pubDate>Sun, 16 Aug 2015 23:17:30 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-package-godep/</guid>
-      <description>&lt;p&gt;複数人で開発している場合、各メンバーのローカル環境が揃っていることは重要なこと。&lt;br&gt;
+バイナリを差し替えるだけ。&lt;br>
+nodeやJVMだと、バージョンアップは大仕事だけど、Go簡単すぎ。すごい。&lt;/p>
+&lt;h2 id="悪いところ">悪いところ&lt;/h2>
+&lt;h3 id="型が中途半端">型が中途半端&lt;/h3>
+&lt;p>これもよく言われているけど、型システム微妙。&lt;br>
+これの最大の弊害は抽象化のしづらさにある。&lt;br>
+色んなライブラリを見たつもりだけど、結構出てくるのが&lt;br>
+&lt;code>interface{}&lt;/code> &lt;code>map[string]interface{}&lt;/code>&lt;br>
+が引数、戻り値。&lt;br>
+&lt;strong>型意味ねえ。&lt;/strong>&lt;br>
+Goは静的型付け言語に分類されるが、抽象化しづらいので結局「何でも入る型」(Javaで言うならObject型)を使っちゃって、コンパイラの恩恵が少ない。&lt;br>
+&lt;a href="https://github.com/golang/go/issues/21132">ジェネリクスに関する議論&lt;/a> は色々なされているようだけど、どうなるか。&lt;/p>
+&lt;h2 id="まとめ">まとめ&lt;/h2>
+&lt;p>悪いところもあるけれど、「デプロイが簡単」「バージョンアップが簡単」のメリットを捨てるほどではない。&lt;br>
+という結論に今のところなっている感じ。&lt;/p></description></item><item><title>Go言語でループ</title><link>https://blog.takecy.dev/posts/golang-loop/</link><pubDate>Sun, 30 Aug 2015 19:51:31 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-loop/</guid><description>&lt;p>今でもたまにやらかすのでメモっておく。&lt;/p>
+&lt;p>①&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">users&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> []&lt;span style="color:#66d9ef">string&lt;/span>{&lt;span style="color:#e6db74">&amp;#34;take&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;hoge&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;moge&amp;#34;&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#66d9ef">range&lt;/span> &lt;span style="color:#a6e22e">users&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#a6e22e">users&lt;/span>[&lt;span style="color:#a6e22e">i&lt;/span>]) &lt;span style="color:#75715e">// i is index
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>②&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">users&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> []&lt;span style="color:#66d9ef">string&lt;/span>{&lt;span style="color:#e6db74">&amp;#34;take&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;hoge&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;moge&amp;#34;&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>, &lt;span style="color:#a6e22e">user&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#66d9ef">range&lt;/span> &lt;span style="color:#a6e22e">users&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#a6e22e">user&lt;/span>) &lt;span style="color:#75715e">// user is value copy
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>③&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">users&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> []&lt;span style="color:#66d9ef">string&lt;/span>{&lt;span style="color:#e6db74">&amp;#34;take&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;hoge&amp;#34;&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;moge&amp;#34;&lt;/span>}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">for&lt;/span> &lt;span style="color:#a6e22e">_&lt;/span>, &lt;span style="color:#a6e22e">user&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#66d9ef">range&lt;/span> &lt;span style="color:#a6e22e">users&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fmt&lt;/span>.&lt;span style="color:#a6e22e">Println&lt;/span>(&lt;span style="color:#a6e22e">user&lt;/span>) &lt;span style="color:#75715e">// user is value copy
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>①が一番早い。
+でも②③の方が読みやすい。&lt;/p></description></item><item><title>Go言語の依存パッケージ管理の闇</title><link>https://blog.takecy.dev/posts/golang-package-godep/</link><pubDate>Sun, 16 Aug 2015 23:17:30 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-package-godep/</guid><description>&lt;p>複数人で開発している場合、各メンバーのローカル環境が揃っていることは重要なこと。&lt;br>
 OSや言語のランタイムのバージョンはもちろんだけど、
-依存しているパッケージのバージョンを同じにしておくことは重要。&lt;br&gt;
+依存しているパッケージのバージョンを同じにしておくことは重要。&lt;br>
 俺はテスト通ってるけどTravisさんでは通らないとかマジいらっとするし、
-バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。&lt;/p&gt;
-&lt;p&gt;例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、
-Goではどうやるんだっていう話。&lt;/p&gt;
-&lt;h3 id=&#34;goで依存パッケージを取得する&#34;&gt;Goで依存パッケージを取得する&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get github.com/google/go-github/github
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;以上。&lt;br&gt;
-簡単。これは捗る！&lt;br&gt;
-と思いきや、実際の開発ではいろいろ問題が発生する。&lt;/p&gt;
-&lt;h3 id=&#34;バージョンいくつなんだよ問題&#34;&gt;バージョンいくつなんだよ問題&lt;/h3&gt;
-&lt;p&gt;Goは、パッケージ取得の仕組み(&lt;code&gt;go get hoge/hoge&lt;/code&gt; のこと)は言語レベルで存在するが、
-パッケージの列挙とバージョンを管理する仕組みは存在しない。&lt;br&gt;
-「このプロジェクトで使われているパッケージはA(ver0.9)とB(ver1.2)である。」&lt;br&gt;
-というのを表現する方法は&lt;strong&gt;無い&lt;/strong&gt;。&lt;br&gt;
-よって各メンバーが、README等をみながら、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get A
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get B
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;go get C
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;...
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;をぽちぽちやらなくてはいけない。&lt;br&gt;
-また、go get したタイミングによっては依存しているパッケージの別のバージョンが入ってしまう。&lt;br&gt;
-なんてったって、go get にはバージョンを&lt;strong&gt;指定しない&lt;/strong&gt;のだから、何が落ちてきてるのかわからん。&lt;br&gt;
+バグった時の再現性とかもろもろ問題が出てくるので、環境の同期は重要。&lt;/p>
+&lt;p>例えば、JavaではMaven+pom.xmlやGradle+build.gradle、Nodeならnpm+package.jsonなところを、
+Goではどうやるんだっていう話。&lt;/p>
+&lt;h3 id="goで依存パッケージを取得する">Goで依存パッケージを取得する&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>go get github.com/google/go-github/github
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>以上。&lt;br>
+簡単。これは捗る！&lt;br>
+と思いきや、実際の開発ではいろいろ問題が発生する。&lt;/p>
+&lt;h3 id="バージョンいくつなんだよ問題">バージョンいくつなんだよ問題&lt;/h3>
+&lt;p>Goは、パッケージ取得の仕組み(&lt;code>go get hoge/hoge&lt;/code> のこと)は言語レベルで存在するが、
+パッケージの列挙とバージョンを管理する仕組みは存在しない。&lt;br>
+「このプロジェクトで使われているパッケージはA(ver0.9)とB(ver1.2)である。」&lt;br>
+というのを表現する方法は&lt;strong>無い&lt;/strong>。&lt;br>
+よって各メンバーが、README等をみながら、&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>go get A
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go get B
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>go get C
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>をぽちぽちやらなくてはいけない。&lt;br>
+また、go get したタイミングによっては依存しているパッケージの別のバージョンが入ってしまう。&lt;br>
+なんてったって、go get にはバージョンを&lt;strong>指定しない&lt;/strong>のだから、何が落ちてきてるのかわからん。&lt;br>
 Goの思想としては常に最新バージョン使おうぜ、ということらしいが、
-そのことと、メンバー間の環境の同期はまた別の話だよね。&lt;/p&gt;
-&lt;h3 id=&#34;別のプロジェクトでも使ってる問題&#34;&gt;別のプロジェクトでも使ってる問題&lt;/h3&gt;
-&lt;p&gt;Goのプロジェクトとして、AとBがあって、両方でパッケージKを使ってるとする。&lt;br&gt;
+そのことと、メンバー間の環境の同期はまた別の話だよね。&lt;/p>
+&lt;h3 id="別のプロジェクトでも使ってる問題">別のプロジェクトでも使ってる問題&lt;/h3>
+&lt;p>Goのプロジェクトとして、AとBがあって、両方でパッケージKを使ってるとする。&lt;br>
 「AではK:ver1.1.2を使って、BではK:ver1.1.3を使う」
-ということは&lt;strong&gt;できない&lt;/strong&gt;。&lt;br&gt;
+ということは&lt;strong>できない&lt;/strong>。&lt;br>
 GOPATHをそれぞれで設定しておいて、いじるときにいちいち切り替えれば出来るんだろうけど、
-基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンのKを参照せざるを得なくなる。&lt;br&gt;
-これは辛い。。&lt;/p&gt;
-&lt;h3 id=&#34;godep&#34;&gt;Godep&lt;/h3&gt;
-&lt;p&gt;そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、&lt;a href=&#34;https://github.com/tools/godep&#34;&gt;Godep&lt;/a&gt;。&lt;br&gt;
-安心のGitHub製。&lt;br&gt;
-そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;godep save ./...
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;で記録(その時点のスナップショット的な感じ)できる。&lt;br&gt;
-新しく &lt;code&gt;Godeps&lt;/code&gt; と &lt;code&gt;Gedeps/_workspace&lt;/code&gt; というディレクトリと、&lt;code&gt;Godep.json&lt;/code&gt; というJSONファイルが生成される。&lt;br&gt;
-このJSONが、mavenでいうpom.xml、npmでいうpackage.json にあたるもので、基本手動でいじらない。&lt;br&gt;
-この&lt;code&gt;Godep.json&lt;/code&gt; はGitのバージョン管理対象にするが、&lt;code&gt;_workspace&lt;/code&gt; ディレクトリは.gitignoreに追記しておく。&lt;/p&gt;
-&lt;p&gt;Godep.json に更新があった場合、他のメンバーは、&lt;/p&gt;</description></item>
-    
-    
-    
-    
-    <item>
-      <title>これからGoやる人のためのGOPATH</title>
-      <link>https://blog.takecy.dev/posts/golang-env-gopath/</link>
-      <pubDate>Wed, 05 Aug 2015 00:52:24 +0900</pubDate>
-      
-      <guid>https://blog.takecy.dev/posts/golang-env-gopath/</guid>
-      <description>&lt;p&gt;Goはじめて3ヶ月。&lt;br&gt;
-Goいいな、Goクソだなと日々葛藤。&lt;/p&gt;
-&lt;p&gt;Goをこれからはじめようという人が迷いそうな(俺が迷った)&lt;code&gt;GOPATH&lt;/code&gt; について。&lt;/p&gt;
-&lt;h3 id=&#34;goのインストール&#34;&gt;Goのインストール&lt;/h3&gt;
-&lt;p&gt;インストール自体はbrewで速攻終わる。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ brew install go
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;問題はこの後の&lt;code&gt;$GOPATH&lt;/code&gt;の設定。&lt;/p&gt;
-&lt;h3 id=&#34;gopathって何&#34;&gt;GOPATHって何&lt;/h3&gt;
-&lt;p&gt;&lt;a href=&#34;http://golang-jp.org/doc/code.html#GOPATH&#34;&gt;http://golang-jp.org/doc/code.html#GOPATH&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;GOPATH環境変数はワークスペースの場所を示してします。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;そのままなのだが、つまり、&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Goを書くのは全部このパス下でやってね&lt;/li&gt;
-&lt;li&gt;Go書く上で依存してるライブラリのソースも全部このパスに入るよ&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;ということで、例にあるようにそのまま、&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ export GOPATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$HOME/go
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ export PATH&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;$PATH:$GOPATH/bin
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;としているが、特に困っていない。&lt;/p&gt;
-&lt;h3 id=&#34;goを書く&#34;&gt;Goを書く&lt;/h3&gt;
-&lt;p&gt;じゃGo書くぜってことになるが、&lt;strong&gt;GOPATH直下に書くわけではない&lt;/strong&gt; というのがめんどくさいところ。&lt;/p&gt;
-&lt;p&gt;まず、Goを書く時は、&lt;strong&gt;GitHubに公開する前提&lt;/strong&gt; と考えておいたほうがよい。
-というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GitHubのURLになる。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// 標準パッケージ
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;github.com/takecy/hoge&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;// OSSのライブラリ
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;code&gt;github.com/{account_name}/{repository_name}&lt;/code&gt; でimportできるステキ仕様。
-そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ go get github.com/takecy/hoge
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ここで、&lt;code&gt;GOPATH&lt;/code&gt; が登場する。&lt;br&gt;
+基本的にはGOPATHは一個だけ設定するのが良いとされているので、AとBは同じバージョンのKを参照せざるを得なくなる。&lt;br>
+これは辛い。。&lt;/p>
+&lt;h3 id="godep">Godep&lt;/h3>
+&lt;p>そこで登場するのがプロジェクト毎に依存関係を指定、管理できるツール、&lt;a href="https://github.com/tools/godep">Godep&lt;/a>。&lt;br>
+安心のGitHub製。&lt;br>
+そのプロジェクトで使っているパッケージとバージョン(正確にはコミットsha)を&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>godep save ./...
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>で記録(その時点のスナップショット的な感じ)できる。&lt;br>
+新しく &lt;code>Godeps&lt;/code> と &lt;code>Gedeps/_workspace&lt;/code> というディレクトリと、&lt;code>Godep.json&lt;/code> というJSONファイルが生成される。&lt;br>
+このJSONが、mavenでいうpom.xml、npmでいうpackage.json にあたるもので、基本手動でいじらない。&lt;br>
+この&lt;code>Godep.json&lt;/code> はGitのバージョン管理対象にするが、&lt;code>_workspace&lt;/code> ディレクトリは.gitignoreに追記しておく。&lt;/p>
+&lt;p>Godep.json に更新があった場合、他のメンバーは、&lt;/p></description></item><item><title>これからGoやる人のためのGOPATH</title><link>https://blog.takecy.dev/posts/golang-env-gopath/</link><pubDate>Wed, 05 Aug 2015 00:52:24 +0900</pubDate><guid>https://blog.takecy.dev/posts/golang-env-gopath/</guid><description>&lt;p>Goはじめて3ヶ月。&lt;br>
+Goいいな、Goクソだなと日々葛藤。&lt;/p>
+&lt;p>Goをこれからはじめようという人が迷いそうな(俺が迷った)&lt;code>GOPATH&lt;/code> について。&lt;/p>
+&lt;h3 id="goのインストール">Goのインストール&lt;/h3>
+&lt;p>インストール自体はbrewで速攻終わる。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ brew install go
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>問題はこの後の&lt;code>$GOPATH&lt;/code>の設定。&lt;/p>
+&lt;h3 id="gopathって何">GOPATHって何&lt;/h3>
+&lt;p>&lt;a href="http://golang-jp.org/doc/code.html#GOPATH">http://golang-jp.org/doc/code.html#GOPATH&lt;/a>&lt;/p>
+&lt;blockquote>
+&lt;p>GOPATH環境変数はワークスペースの場所を示してします。&lt;/p>
+&lt;/blockquote>
+&lt;p>そのままなのだが、つまり、&lt;/p>
+&lt;ol>
+&lt;li>Goを書くのは全部このパス下でやってね&lt;/li>
+&lt;li>Go書く上で依存してるライブラリのソースも全部このパスに入るよ&lt;/li>
+&lt;/ol>
+&lt;p>ということで、例にあるようにそのまま、&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ export GOPATH&lt;span style="color:#f92672">=&lt;/span>$HOME/go
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ export PATH&lt;span style="color:#f92672">=&lt;/span>$PATH:$GOPATH/bin
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>としているが、特に困っていない。&lt;/p>
+&lt;h3 id="goを書く">Goを書く&lt;/h3>
+&lt;p>じゃGo書くぜってことになるが、&lt;strong>GOPATH直下に書くわけではない&lt;/strong> というのがめんどくさいところ。&lt;/p>
+&lt;p>まず、Goを書く時は、&lt;strong>GitHubに公開する前提&lt;/strong> と考えておいたほうがよい。
+というのも、Goを書いていると頻出するが、外部ライブラリの import文はほぼ、GitHubのURLになる。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#e6db74">&amp;#34;fmt&amp;#34;&lt;/span> &lt;span style="color:#75715e">// 標準パッケージ
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>&lt;span style="color:#f92672">import&lt;/span> &lt;span style="color:#e6db74">&amp;#34;github.com/takecy/hoge&amp;#34;&lt;/span> &lt;span style="color:#75715e">// OSSのライブラリ
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;code>github.com/{account_name}/{repository_name}&lt;/code> でimportできるステキ仕様。
+そしてライブラリのメソッドとか呼び出すためには、ソースコードを取得しないといけないので、下記を実行する。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>$ go get github.com/takecy/hoge
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>ここで、&lt;code>GOPATH&lt;/code> が登場する。&lt;br>
 このライブラリがダウンロードされ、配置されるパスは
-&lt;code&gt;$GOPATH/src/github.com/takecy/hoge&lt;/code&gt;&lt;br&gt;
-になる。&lt;br&gt;
+&lt;code>$GOPATH/src/github.com/takecy/hoge&lt;/code>&lt;br>
+になる。&lt;br>
 自分のGoのプロジェクトもこれと同じように、
-&lt;code&gt;$GOPATH/src/github.com/{account_name}/{repository_name}&lt;/code&gt;&lt;br&gt;
-ディレクトリを作って、そこにGoソースを作成してスタートする。&lt;/p&gt;
-&lt;p&gt;GitHubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。&lt;/p&gt;
-&lt;h4 id=&#34;まとめ&#34;&gt;まとめ&lt;/h4&gt;
-&lt;p&gt;Goやり始めた当初は、元々&lt;code&gt;$HOME/git&lt;/code&gt;下に全部GitHub関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。&lt;br&gt;
-同じGitHubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。&lt;br&gt;
-が、GitHubのURLをimportに書けるというのはすごくいい。&lt;br&gt;
-例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。&lt;/p&gt;
-&lt;p&gt;Let&amp;rsquo;s write Go。&lt;/p&gt;
-&lt;p&gt;どうでもいいけど、Goのライブラリ名はダジャレがちらほら。&lt;br&gt;
-例えばRedisのドライバは &lt;a href=&#34;https://github.com/garyburd/redigo&#34;&gt;redigo&lt;/a&gt; 。&lt;/p&gt;</description></item>
-    
-  </channel>
-</rss>
+&lt;code>$GOPATH/src/github.com/{account_name}/{repository_name}&lt;/code>&lt;br>
+ディレクトリを作って、そこにGoソースを作成してスタートする。&lt;/p>
+&lt;p>GitHubで公開する気とか無いし、、と思っても、このパスで作るのがおすすめ。&lt;/p>
+&lt;h4 id="まとめ">まとめ&lt;/h4>
+&lt;p>Goやり始めた当初は、元々&lt;code>$HOME/git&lt;/code>下に全部GitHub関連入れていたので、移動したくなく、GOPATHにシンボリックリンク貼ったりとかして抵抗していたのだが、結局Go関連は、全部移動することに。。&lt;br>
+同じGitHubからのソースなのに、全然別のディレクトリになっているもやもやは地味にストレス。&lt;br>
+が、GitHubのURLをimportに書けるというのはすごくいい。&lt;br>
+例えばJavaでよくある、「このライブラリすごくよさそうだけど、mavenにあがってねーじゃん、、」ということもない。&lt;/p>
+&lt;p>Let&amp;rsquo;s write Go。&lt;/p>
+&lt;p>どうでもいいけど、Goのライブラリ名はダジャレがちらほら。&lt;br>
+例えばRedisのドライバは &lt;a href="https://github.com/garyburd/redigo">redigo&lt;/a> 。&lt;/p></description></item></channel></rss>
